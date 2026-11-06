@@ -2268,6 +2268,7 @@ tbody td.muted{color:var(--text3);}
     ══════════════════════════════ -->
     <div class="page active" id="page-dashboard">
       <div class="breadcrumb">InnoGix OS / <span>Dashboard</span></div>
+      <div id="dash-lowstock" style="display:none;margin:10px 0 14px;padding:12px 14px;border:1px solid rgba(248,81,73,.45);background:rgba(248,81,73,.08);border-radius:12px;cursor:pointer;" onclick="window.prGoRM&&prGoRM()"></div>
 
       <!-- ═══ DASHBOARD KPI FILTER BAR ═══ -->
       <div class="dash-filter-bar" id="dash-filter-bar">
@@ -3211,6 +3212,8 @@ tbody td.muted{color:var(--text3);}
       #page-purchases .pt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px 14px;}
       #page-purchases .pt-grid label,#page-purchases .pt-filters label,#modal-pt-edit label{font-size:11px;color:var(--text3);font-weight:600;display:block;margin-bottom:4px;}
       #page-purchases .pt-items-h{display:grid;grid-template-columns:minmax(160px,3fr) 90px 120px 130px 40px;gap:8px;margin:16px 0 6px;font-size:11px;color:var(--text3);font-weight:600;}
+      #page-purchases .pt-i-rm{grid-column:1/-1;font-size:12px;padding:5px 8px;border-style:dashed;}
+      #page-purchases .pt-rmw{display:none;margin:10px 0 0;padding:10px 12px;border:1px dashed rgba(88,166,255,.5);border-radius:10px;font-size:12.5px;}
       #page-purchases .pt-item{display:grid;grid-template-columns:minmax(160px,3fr) 90px 120px 130px 40px;gap:8px;margin-bottom:8px;align-items:center;}
       #page-purchases .pt-line{font-family:'IBM Plex Mono',monospace,sans-serif;font-weight:700;text-align:right;color:var(--pt);padding:0 6px;white-space:nowrap;}
       #page-purchases .pt-err{color:var(--red);font-size:12px;margin-top:10px;display:none;}
@@ -3281,6 +3284,7 @@ tbody td.muted{color:var(--text3);}
             <div><label>Payment Source *</label>
               <select class="form-select" id="pt-source"><option value="">— বেছে নিন —</option><option>Company Main Account</option><option>Petty Cash</option><option>Partner Capital</option></select></div>
           </div>
+          <div class="pt-rmw" id="pt-rm-wrap"><b>📦 Raw Material স্টকে যোগ হবে</b> — কোন আইটেমের নিচে Raw Material বেছে নিলে সেই পরিমাণ Production স্টকে যোগ হবে (ঐচ্ছিক)। <div style="margin-top:8px;max-width:320px;"><label>Worker / গ্রহণকারী *</label><select class="form-select" id="pt-rm-worker"></select></div></div>
           <div class="pt-items-h"><span>Product / Item Name *</span><span>Quantity *</span><span>Unit Price (৳) *</span><span style="text-align:right;">Total (৳)</span><span></span></div>
           <div id="pt-items"></div>
           <button class="btn btn-sm" type="button" onclick="ptAddItem()">＋ Add Another Item</button>
@@ -3431,6 +3435,7 @@ tbody td.muted{color:var(--text3);}
         <button class="pr-tab" data-t="asm" onclick="prTab('asm')">🏭 Assembly</button>
         <button class="pr-tab" data-t="mov" onclick="prTab('mov')">📜 Movement History</button>
         <button class="pr-tab" data-t="aud" onclick="prTab('aud')">🔍 Physical Audit</button>
+        <button class="pr-tab" data-t="wrk" onclick="prTab('wrk')">👷 Worker রিপোর্ট</button>
       </div>
 
       <div class="pr-panel" id="pr-p-rm">
@@ -3501,6 +3506,23 @@ tbody td.muted{color:var(--text3);}
             <thead><tr><th>সময়</th><th>Action</th><th>Type</th><th>Item</th><th style="text-align:right;">Qty ±</th><th style="text-align:right;">Balance</th><th>Worker</th><th>Ref</th><th>Note</th><th>By</th></tr></thead>
             <tbody id="pr-mov-body"><tr><td colspan="10" style="text-align:center;color:var(--text3);padding:30px;">“🔄 লোড” চাপুন</td></tr></tbody>
           </table></div>
+        </div>
+      </div>
+
+      <div class="pr-panel" id="pr-p-wrk" style="display:none;">
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div class="pr-bar">
+            <b>👷 Worker-ভিত্তিক Production রিপোর্ট</b>
+            <input class="form-input" type="date" id="pr-w-from" onchange="prRenderWrk()" style="max-width:150px;">
+            <input class="form-input" type="date" id="pr-w-to" onchange="prRenderWrk()" style="max-width:150px;">
+            <button class="btn" onclick="document.getElementById('pr-w-from').value='';document.getElementById('pr-w-to').value='';prRenderWrk()">✕ ফিল্টার মুছুন</button>
+            <button class="btn" onclick="prWrkCsv()">📥 CSV</button>
+          </div>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>Worker</th><th style="text-align:right;">Batch</th><th style="text-align:right;">মোট ইউনিট</th><th style="text-align:right;">Material খরচ</th><th style="text-align:right;">Scrap খরচ</th><th style="text-align:right;">Scrap %</th><th style="text-align:right;">ইউনিট প্রতি খরচ</th><th style="text-align:right;">বাতিল Batch</th></tr></thead>
+            <tbody id="pr-wrk-body"><tr><td colspan="8" style="text-align:center;color:var(--text3);padding:30px;">ডেটা নেই</td></tr></tbody>
+          </table></div>
+          <div style="padding:8px 14px;font-size:11.5px;color:var(--text3);">ℹ️ বাতিল (Cancelled) Batch ইউনিট/খরচের হিসাবে ধরা হয় না। শেষ ৩০০ Batch থেকে হিসাব।</div>
         </div>
       </div>
 
@@ -6041,7 +6063,7 @@ tbody td.muted{color:var(--text3);}
 // ═══════════════════════════════════════════════════════════════
 
 // ⚠️ এখানে আপনার Google Apps Script Web App URL বসান (Deploy > New Deployment > Web App)
-      const API_URL = "https://script.google.com/macros/s/AKfycbyDnoTWb313f4p6-_q6sudMm6Q1XI2iJ5-KrAaSKQoajpjIuWlpXPuMowZQ_hLfPtTm1A/exec"; // ← এই URL পরিবর্তন করুন // ← এখানে আপনার Google Apps Script URL বসান
+      const API_URL = "https://script.google.com/macros/s/AKfycbyYn95E0Tug1dn-nusKl9HVDilXDBnTsXz5CaEd3U-tdBY0ldumMsq0biztzzSICETLlQ/exec"; // ← এই URL পরিবর্তন করুন // ← এখানে আপনার Google Apps Script URL বসান
 
 // ─── CONNECTION STATE ────────────────────────────────────────
 let apiConnected = false;
@@ -16990,11 +17012,26 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
       <input type="number" class="form-input pt-i-price" min="0" step="any" inputmode="decimal" placeholder="Unit Price" oninput="ptCalc()">
       <div class="pt-line">৳0</div>
       <button type="button" class="btn btn-sm pt-i-del" title="আইটেম সরান" onclick="ptRemoveItem(this)">🗑️</button>
+      <select class="form-select pt-i-rm" onchange="ptRmChanged()" title="ঐচ্ছিক — Production Raw Material স্টকে যোগ করতে"><option value="">📦 Raw Material স্টকে যোগ করবেন না</option></select>
     </div>`;
+  }
+  function rmChanged() {
+    const any = Array.from(document.querySelectorAll('#pt-items .pt-i-rm')).some(x => x.value);
+    const w = $('pt-rm-wrap'); if (w) w.style.display = any ? 'block' : 'none';
+  }
+  function refreshRm() {
+    let rms = [], wk = [];
+    try { const d = window.prGetData ? window.prGetData() : null; if (d) { rms = d.rm.filter(x => x.active); wk = d.workers.filter(x => x.active); } } catch (e) {}
+    document.querySelectorAll('#pt-items .pt-i-rm').forEach(sel => {
+      const cur = sel.value;
+      sel.innerHTML = '<option value="">📦 Raw Material স্টকে যোগ করবেন না</option>' + rms.map(x => `<option value="${esc(x.id)}">📦 স্টকে যোগ → ${esc(x.name)} (${x.cur} ${esc(x.unit)})</option>`).join('');
+      sel.value = cur;
+    });
+    const ws = $('pt-rm-worker'); if (ws) { const cw = ws.value; ws.innerHTML = '<option value="">— বেছে নিন —</option>' + wk.map(w => `<option>${esc(w.name)}</option>`).join(''); ws.value = cw; }
   }
   function addItem(focus) {
     $('pt-items').insertAdjacentHTML('beforeend', itemRowHTML(++PT.n));
-    refreshDel(); calc();
+    refreshDel(); calc(); refreshRm();
     if (focus) { const r = $('pt-items').lastElementChild; try { r.querySelector('.pt-i-name').focus(); } catch (e) {} }
   }
   function removeItem(btn) {
@@ -17018,7 +17055,7 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
     PT.sid = '';
     if (!keepHeader) { ['pt-supplier', 'pt-phone', 'pt-invoice', 'pt-note'].forEach(i => $(i).value = ''); $('pt-method').value = ''; $('pt-source').value = ''; }
     $('pt-date').value = todayBD(); $('pt-paid').value = '';
-    $('pt-items').innerHTML = ''; addItem(false); showErr('pt-err', '');
+    $('pt-items').innerHTML = ''; addItem(false); showErr('pt-err', ''); rmChanged();
   }
 
   // ── Save (এক সাবমিশন = ১..N row; sid দিয়ে retry-নিরাপদ) ──
@@ -17041,7 +17078,13 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
       if (!item) return showErr('pt-err', tag + 'পণ্যের নাম দিন');
       if (!isFinite(q) || q <= 0) return showErr('pt-err', tag + 'পরিমাণ ০ এর বেশি হতে হবে');
       if (pv === '' || !isFinite(p) || p < 0) return showErr('pt-err', tag + 'একক মূল্য সঠিক দিন (ঋণাত্মক নয়)');
-      items.push({ item, qty: q, price: p });
+      const rmv = rows[i].querySelector('.pt-i-rm') ? rows[i].querySelector('.pt-i-rm').value : '';
+      items.push(rmv ? { item, qty: q, price: p, rmId: rmv } : { item, qty: q, price: p });
+    }
+    if (items.some(x => x.rmId)) {
+      h.rmWorker = ($('pt-rm-worker').value || '').trim();
+      if (!h.rmWorker) return showErr('pt-err', 'Raw Material স্টকে যোগ করতে Worker/গ্রহণকারী বেছে নিন');
+      h.by = (typeof currentPartner !== 'undefined' && currentPartner) ? currentPartner : '';
     }
     let paidIn = null; const praw = $('pt-paid').value.trim();
     if (praw !== '') {
@@ -17062,7 +17105,9 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
     try {
       const r = await netPost(Object.assign({ action: 'ptAddPurchase', sid: PT.sid, items }, h, paidIn != null ? { paid: paidIn } : {}));
       if (!r) { showErr('pt-err', '❌ সেভ হয়নি — ইন্টারনেট/API চেক করে আবার চাপুন (ডাবল সেভ হবে না)'); toast('❌ Purchase সেভ হয়নি', 'error'); return; }
-      toast(`✅ ${r.count || items.length}টি আইটেম সেভ হয়েছে`, 'success');
+      toast(`✅ ${r.count || items.length}টি আইটেম সেভ হয়েছে` + (r.stockAdded ? ` · 📦 ${r.stockAdded}টি Raw Material স্টকে যোগ হয়েছে` : ''), 'success');
+      if (r.stockWarn && r.stockWarn.length) alert('⚠️ Purchase সেভ হয়েছে, কিন্তু কিছু স্টক যোগ হয়নি:\n\n' + r.stockWarn.join('\n') + '\n\nProduction পেজ থেকে হাতে স্টক-ইন করুন।');
+      if (r.stockAdded && window.prLoad) { try { window.prLoad(false); } catch (e) {} }
       try { logAction(`Purchase Tracker যোগ: ${h.supplier}${h.invoice ? ' · ' + h.invoice : ''} (${items.length}টি আইটেম)`); } catch (e) {}
       resetForm(false);
       await load(false);
@@ -17169,7 +17214,7 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
   function editCalc() { const q = Number($('pt-e-qty').value), p = Number($('pt-e-price').value); $('pt-e-total').textContent = money((isFinite(q) && isFinite(p) && q > 0 && p >= 0) ? cents(q, p) / 100 : 0); }
   async function saveEdit() {
     if (PT.saving || !PT.editId) return;
-    const pl = { action: 'ptUpdatePurchase', id: PT.editId, date: $('pt-e-date').value, supplier: $('pt-e-supplier').value.trim(), phone: $('pt-e-phone').value.trim(),
+    const pl = { action: 'ptUpdatePurchase', by: (typeof currentPartner !== 'undefined' && currentPartner) ? currentPartner : '', id: PT.editId, date: $('pt-e-date').value, supplier: $('pt-e-supplier').value.trim(), phone: $('pt-e-phone').value.trim(),
       invoice: $('pt-e-invoice').value.trim(), item: $('pt-e-item').value.trim(), qty: Number($('pt-e-qty').value), price: Number($('pt-e-price').value),
       method: $('pt-e-method').value, source: $('pt-e-source').value, note: $('pt-e-note').value.trim() };
     const E = m => showErr('pt-e-err', m);
@@ -17191,7 +17236,7 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
   async function del(id) {
     const r = PT.rows.find(x => x.id === id); if (!r) return;
     if (!confirm(`এই ক্রয় রেকর্ড মুছে ফেলবেন?\n\n${id} · ${r.supplier}\n${r.item} — ${money(r.total)}\nইনভয়েস: ${r.invoice || '—'}\n\n(শুধু এই একটি row যাবে; Recycle Bin থেকে ৩০ দিন Restore করা যাবে। কোনো হিসাব/ব্যালেন্স বদলাবে না।)`)) return;
-    const res = await netPost({ action: 'ptDeletePurchase', id });
+    const res = await netPost({ action: 'ptDeletePurchase', id, by: (typeof currentPartner !== 'undefined' && currentPartner) ? currentPartner : '' });
     if (!res) return toast('❌ মোছা যায়নি', 'error');
     toast('🗑️ Recycle Bin-এ পাঠানো হয়েছে', 'success');
     try { logAction(`Purchase Tracker ডিলিট: ${id}`); } catch (e) {}
@@ -17572,7 +17617,7 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
   Object.assign(window, { ptKpi: kpi, ptOpen: open, ptFilterSupplier: filterSupplier, ptViewSel: viewSel, ptViewSelAll: viewSelAll, ptViewSetDate: viewSetDate, ptViewSaveInfo: viewSaveInfo,
     ptViewToggleEdit: () => { VIEW.editOpen = !VIEW.editOpen; renderView(); }, ptViewDeleteAll: viewDeleteAll, ptLedger: ledger, ptLedgerFromView: ledgerFromView, ptLedgerSet: ledgerSet, ptLedgerFilter: ledgerFilter, ptLedgerPrint: ledgerPrint, ptViewSetPaid: viewSetPaid, ptViewAddItem: viewAddItem, ptChart: renderChart, ptChartPick: chartPick, ptViewPrint: viewPrint, ptOpenImport: impOpen, ptCloseImport: impClose, ptImpRead: impRead, ptImpSubmit: impSubmit, ptLoad: load, ptAddItem: () => addItem(true), ptRemoveItem: removeItem, ptCalc: calc, ptSave: save, ptResetForm: () => resetForm(false),
     ptFilterChanged: filterChanged, ptClearFilters: clearFilters, ptEdit: edit, ptSaveEdit: saveEdit, ptDelete: del, ptExport: exportCSV, ptPrint: printIt,
-    ptPage: d => { PT.page += d; render(); } });
+    ptPage: d => { PT.page += d; render(); }, ptRmChanged: rmChanged, ptRefreshRm: refreshRm });
   ['pt-e-qty', 'pt-e-price'].forEach(i => { const e = $(i); if (e) e.addEventListener('input', editCalc); });
   resetForm(false);
 
@@ -17582,7 +17627,7 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
     const orig = window.showPage;
     window.showPage = function (id) {
       const r = orig.apply(this, arguments);
-      try { if (id === 'purchases') load(false); } catch (e) { console.error('purchases hook:', e); }
+      try { if (id === 'purchases') { load(false); refreshRm(); if (window.prGetData && !window.prGetData().loaded && window.prLoad) window.prLoad(false); } } catch (e) { console.error('purchases hook:', e); }
       return r;
     };
   }
@@ -18687,6 +18732,7 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
   <div class="modal-body">
     <input type="hidden" id="pr-mv-id"><input type="hidden" id="pr-mv-act">
     <div style="margin-bottom:10px;font-weight:600;" id="pr-mv-name"></div>
+    <div id="pr-mv-ptwarn" style="font-size:11.5px;color:var(--text3);margin-bottom:8px;">ℹ️ Purchase Tracker থেকে ইতিমধ্যে স্টকে যোগ করা মালের জন্য এখানে আবার স্টক-ইন করবেন না (ডাবল হবে)।</div>
     <div class="form-grid">
       <div class="form-group"><label class="form-label">পরিমাণ *</label><input class="form-input" type="number" step="any" min="0" id="pr-mv-qty"></div>
       <div class="form-group"><label class="form-label" id="pr-mv-wl">Worker / গ্রহণকারী *</label><input class="form-input" id="pr-mv-worker" list="pr-workers-dl"></div>
@@ -18782,10 +18828,10 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
       const d = await fetchFromAPI('prodData');
       if(!d){ if(force) showToast('Production ডেটা লোড হয়নি — GS নতুন ভার্সন ডিপ্লয় করেছেন?','error'); return; }
       S.rm = d.rm||[]; S.boms = d.boms||[]; S.batches = d.batches||[]; S.workers = d.workers||[]; S.fg = d.fg||[]; S.loaded = true;
-      renderAll();
+      renderAll(); try { if (window.ptRefreshRm) window.ptRefreshRm(); } catch (e) {} try { window.dashLowStock && window.dashLowStock(); } catch (e) {}
     } finally { S.loading = false; }
   }
-  function renderAll(){ renderKpis(); renderRM(); renderBOM(); renderBatches(); renderWorkersDL(); fillAsmProducts(); renderAudit(); renderMovFilters(); badge(); }
+  function renderAll(){ renderKpis(); renderRM(); renderBOM(); renderBatches(); renderWorkersDL(); fillAsmProducts(); renderAudit(); renderMovFilters(); badge(); try{ if(window.prRenderWrk && $('pr-wrk-body')) window.prRenderWrk(); }catch(e){} }
 
   function badge(){
     const low = S.rm.filter(x=>x.active && x.cur<=x.reorder).length, b = $('prod-badge');
@@ -18961,13 +19007,14 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
   window.prDoCancel = async function(){
     const reason = $('pr-c-reason').value.trim(); if(!reason){ showToast('কারণ লিখুন','error'); return; }
     const btn = $('pr-c-btn'); btn.disabled = true;
-    try{ const res = await post({ action:'cancelBatch', batchId:$('pr-c-id').value, reason }, 'pr-c-err');
+    try{ const pin = await _askPartnerPin('Batch বাতিল করতে আপনার PIN দিন'); if(!pin){ btn.disabled=false; return; }
+      const res = await post({ action:'cancelBatch', batchId:$('pr-c-id').value, reason, pin }, 'pr-c-err');
       if(res){ showToast(res.message,'success'); closeModal('pr-cancel'); try{logAction('Production Batch বাতিল: '+$('pr-c-id').value);}catch(_e){} await load(true); try{ if(typeof loadLiveInventory==='function') loadLiveInventory(); }catch(_e){} } }
     finally{ btn.disabled = false; }
   };
 
   // ── Movement history ──
-  const ACTS = ['OPENING','PURCHASE','ISSUE','RETURN','PRODUCTION_CONSUME','PRODUCTION_OUTPUT','SCRAP','ROLLBACK_CONSUME','ROLLBACK_SCRAP','ROLLBACK_OUTPUT','AUDIT_ADJUST'];
+  const ACTS = ['OPENING','PURCHASE','PURCHASE_ADJUST','PURCHASE_REVERSE','ISSUE','RETURN','PRODUCTION_CONSUME','PRODUCTION_OUTPUT','SCRAP','ROLLBACK_CONSUME','ROLLBACK_SCRAP','ROLLBACK_OUTPUT','AUDIT_ADJUST'];
   function renderMovFilters(){ const a = $('pr-m-act'); if(a && !a.options.length) a.innerHTML = '<option value="">সব Action</option>'+ACTS.map(x=>`<option>${x}</option>`).join(''); }
   async function loadMov(extra){
     const d = await fetchFromAPI('stockMoves', Object.assign({limit:800}, extra||{})); if(!d){ showToast('Movement লোড হয়নি','error'); return; }
@@ -19024,7 +19071,8 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
     const counts = []; $('pr-au-body').querySelectorAll('input').forEach(i=>{ if(i.value!==''){ const [type,id] = i.dataset.k.split('|'); counts.push({type,id,counted:num(i.value)}); } });
     if(!counts.length){ showToast('কমপক্ষে একটি আইটেমের গণনা দিন','error'); return; }
     const adj = $('pr-au-adj').checked; if(adj && !confirm('গরমিলপ্রাপ্ত আইটেমের সিস্টেম স্টক গণনার সংখ্যায় বদলে যাবে। নিশ্চিত?')) return;
-    const res = await post({ action:'auditSave', counter:who, note:$('pr-au-note').value.trim(), adjust:adj, counts });
+    let pin = ''; if(adj){ pin = await _askPartnerPin('স্টক সংশোধনের জন্য আপনার PIN দিন'); if(!pin) return; }
+    const res = await post(Object.assign({ action:'auditSave', counter:who, note:$('pr-au-note').value.trim(), adjust:adj, counts }, adj?{pin}:{}));
     if(res){ showToast(res.message,'success'); try{logAction('Physical Audit: '+counts.length+' আইটেম ('+who+')');}catch(_e){} $('pr-au-body').querySelectorAll('input').forEach(i=>i.value=''); await load(true); loadAudits(); try{ if(adj && typeof loadLiveInventory==='function') loadLiveInventory(); }catch(_e){} }
   };
   async function loadAudits(){
@@ -19037,9 +19085,48 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
   // ── tabs / entry ──
   window.prTab = function(t){
     S.tab = t; document.querySelectorAll('.pr-tab').forEach(b=>b.classList.toggle('active', b.dataset.t===t)); document.querySelectorAll('.pr-panel').forEach(p=>p.style.display = (p.id==='pr-p-'+t)?'':'none');
-    if(t==='mov' && !S.moves.length) loadMov(); if(t==='aud'){ renderAudit(); if(!S.audits.length) loadAudits(); }
+    if(t==='wrk') window.prRenderWrk(); if(t==='mov' && !S.moves.length) loadMov(); if(t==='aud'){ renderAudit(); if(!S.audits.length) loadAudits(); }
   };
   window.prLoad = load; window.prRenderRM = renderRM;
+  window.prGetData = () => S;
+  window.prGoRM = function(){ const el = document.querySelector('.nav-item[onclick*="production"]'); if(window.showPage) showPage('production', el); if(window.prTab) prTab('rm'); };
+  function wrkRows(){
+    const f = $('pr-w-from').value, t = $('pr-w-to').value, map = {};
+    S.batches.forEach(b=>{
+      const d = b.ts ? new Date(b.ts+6*3600e3).toISOString().slice(0,10) : '';
+      if(f && d < f) return; if(t && d > t) return;
+      const w = b.worker || '—'; const o = map[w] || (map[w] = {w, n:0, units:0, mat:0, scrap:0, canc:0});
+      if(b.status==='Completed'){ o.n++; o.units += b.units; o.mat += b.matCost; o.scrap += b.scrapCost; } else o.canc++;
+    });
+    return Object.values(map).sort((a,b)=>b.units-a.units);
+  }
+  window.prRenderWrk = function(){
+    const rows = wrkRows(), tb = $('pr-wrk-body'); if(!tb) return;
+    tb.innerHTML = rows.length ? rows.map(o=>{ const tot = o.mat+o.scrap, pct = tot>0 ? (o.scrap/tot*100) : 0, uc = o.units>0 ? tot/o.units : 0;
+      return `<tr><td><b>${esc(o.w)}</b></td><td style="text-align:right;">${o.n}</td><td style="text-align:right;">${fmt(o.units)}</td><td style="text-align:right;">৳${fmt(o.mat)}</td><td style="text-align:right;">৳${fmt(o.scrap)}</td><td style="text-align:right;${pct>10?'color:var(--red);font-weight:700;':''}">${pct.toFixed(1)}%</td><td style="text-align:right;">৳${fmt(uc)}</td><td style="text-align:right;">${o.canc}</td></tr>`; }).join('') : '<tr><td colspan="8" style="text-align:center;color:var(--text3);padding:30px;">এই সময়ে কোনো Batch নেই</td></tr>';
+  };
+  window.prWrkCsv = function(){
+    const rows = wrkRows(), q = v => '"'+String(v).replace(/"/g,'""')+'"';
+    const csv = '\ufeffWorker,Batches,Units,Material Cost,Scrap Cost,Scrap %,Cost/Unit,Cancelled\n' + rows.map(o=>{ const tot=o.mat+o.scrap; return [q(o.w),o.n,o.units,r2(o.mat),r2(o.scrap),(tot>0?o.scrap/tot*100:0).toFixed(1),(o.units>0?r2(tot/o.units):0),o.canc].join(','); }).join('\n');
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})); a.download = 'worker_report.csv'; a.click();
+  };
+  window.dashLowStock = function(){
+    const el = $('dash-lowstock'); if(!el) return;
+    const low = S.rm.filter(x=>x.active && x.cur<=x.reorder);
+    if(!low.length){ el.style.display='none'; return; }
+    const out = low.filter(x=>x.cur<=0).length;
+    el.innerHTML = `<div style="font-weight:700;color:var(--red);">🔴 Raw Material Low Stock সতর্কতা — ${low.length}টি${out?` (${out}টি স্টক শেষ)`:''}</div><div style="font-size:12.5px;margin-top:4px;color:var(--text2);">`+low.slice(0,8).map(x=>`${esc(x.name)}: <b>${fmt(x.cur)}</b>/${fmt(x.reorder)} ${esc(x.unit)}`).join(' · ')+(low.length>8?` · +${low.length-8}টি`:'')+`</div><div style="font-size:11px;color:var(--text3);margin-top:3px;">ক্লিক করে Production পেজে দেখুন</div>`;
+    el.style.display='block';
+  };
+  // অ্যাপ চালু হলে (লগইনের পর) নিঃশব্দে একবার লোড + প্রতি ৫ মিনিটে রিফ্রেশ → লাল ব্যাজ সব পেজে দেখায়
+  (function autoBadge(){
+    let tries = 0;
+    const t = setInterval(() => {
+      tries++;
+      if (typeof currentPartner !== 'undefined' && currentPartner) { clearInterval(t); load(false).then(()=>{ try{ if(window.dashLowStock) dashLowStock(); }catch(e){} }); setInterval(()=>{ if(!document.hidden) load(false).then(()=>{ try{ if(window.dashLowStock) dashLowStock(); }catch(e){} }); }, 300000); }
+      else if (tries > 120) clearInterval(t);
+    }, 2000);
+  })();
   window.prOpenPage = function(){ renderMovFilters(); if(!S.loaded) load(); else renderAll(); };
 })();
 
