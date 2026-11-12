@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InnoGix Business OS</title>
+<title>InnoGix Business Suite</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
@@ -1838,7 +1838,7 @@ tbody td.muted{color:var(--text3);}
             <div id="inv-brand-name" style="display:none;">InnoGix</div>
             <span id="inv-brand-icon" style="display:none;"></span>
             <div id="inv-brand-tagline" style="font-size:11px;color:#0f2a5c;font-weight:600;letter-spacing:.3px;margin-bottom:6px;"></div>
-            <div style="font-size:12px;color:#2c3650;line-height:1.85;">কালিয়াকৈর, গাজীপুর, ঢাকা<br>WhatsApp: <span style="color:#1b2437;font-weight:600;">+8801530088886</span> &nbsp;·&nbsp; +8801560-016179<br>innogix.official@gmail.com</div>
+            <div style="font-size:12px;color:#2c3650;line-height:1.85;">কালিয়াকৈর, গাজীপুর, ঢাকা<br>Contact: <span style="color:#1b2437;font-weight:600;">+8801560016179</span> &nbsp;·&nbsp; WhatsApp: <span style="color:#1b2437;font-weight:600;">+8801530088886</span><br>innogix.official@gmail.com</div>
           </div>
           <div style="text-align:right;">
             <div style="font-size:26px;font-weight:800;color:#0f2a5c;letter-spacing:6px;line-height:1.1;margin-right:-6px;">INVOICE</div>
@@ -2389,7 +2389,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: DASHBOARD
     ══════════════════════════════ -->
     <div class="page active" id="page-dashboard">
-      <div class="breadcrumb">InnoGix OS / <span>Dashboard</span></div>
+      <div class="breadcrumb">InnoGix / <span>Dashboard</span></div>
       <div id="dash-lowstock" style="display:none;margin:10px 0 14px;padding:12px 14px;border:1px solid rgba(248,81,73,.45);background:rgba(248,81,73,.08);border-radius:12px;cursor:pointer;" onclick="window.prGoRM&&prGoRM()"></div>
 
       <!-- ═══ DASHBOARD KPI FILTER BAR ═══ -->
@@ -2602,7 +2602,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: SALES
     ══════════════════════════════ -->
     <div class="page" id="page-sales">
-      <div class="breadcrumb">InnoGix OS / <span>Sales & Orders</span></div>
+      <div class="breadcrumb">InnoGix / <span>Sales & Orders</span></div>
       <div class="section-head">
         <h2>Sales & Customer Tracker</h2>
         <p>All orders with complete customer, product, payment and delivery information</p>
@@ -2690,7 +2690,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: INVENTORY
     ══════════════════════════════ -->
     <div class="page" id="page-inventory">
-      <div class="breadcrumb">InnoGix OS / <span>Inventory</span></div>
+      <div class="breadcrumb">InnoGix / <span>Inventory</span></div>
       <div class="section-head">
         <h2>Inventory Management</h2>
         <p>Real-time stock levels, product database and supplier tracking</p>
@@ -2733,7 +2733,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: EXPENSE
     ══════════════════════════════ -->
     <div class="page" id="page-expense">
-      <div class="breadcrumb">InnoGix OS / <span>Expenses</span></div>
+      <div class="breadcrumb">InnoGix / <span>Expenses</span></div>
       <div class="section-head">
         <h2>Expense Management</h2>
         <p>Track all business expenses by category, vendor and payment method</p>
@@ -2788,40 +2788,60 @@ tbody td.muted{color:var(--text3);}
          PAGE: PARTNER
     ══════════════════════════════ -->
     <div class="page" id="page-partner">
-      <div class="breadcrumb">InnoGix OS / <span>Partners</span></div>
+      <div class="breadcrumb">InnoGix / <span>Partners</span></div>
       <div class="section-head">
         <h2>Partner Accounting System</h2>
-        <p>Investment, withdrawal and profit distribution for all partners</p>
+        <p>Investment, withdrawal and profit distribution — Maker-Checker ভেরিফিকেশন, অডিট লগ ও হিসাব-সুরক্ষাসহ</p>
+      </div>
+      <div id="pn-secbar" style="display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:10px 14px;margin-bottom:16px;">
+        <span id="pn-int-badge" onclick="openPnIntegrity()" style="cursor:pointer;font-weight:700;font-size:13px;color:var(--text3);" title="ক্লিক করে বিস্তারিত দেখুন">🛡️ হিসাব যাচাই হচ্ছে…</span>
+        <span id="pn-lock-chip" onclick="openPnLock()" style="cursor:pointer;font-size:12.5px;color:var(--text3);">🔓 কোনো পিরিয়ড লক নেই</span>
+        <span style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn" onclick="openPnIntegrity()">🛡️ হিসাব যাচাই</button>
+          <button class="btn" onclick="openPnAudit()">🧾 অডিট লগ</button>
+          <button class="btn" onclick="openPnLock()">🔒 পিরিয়ড লক</button>
+          <button class="btn" onclick="openPnStatement()">📄 Statement</button>
+        </span>
       </div>
       <div class="partner-row" id="partner-cards"></div>
+      <div id="pn-charts"></div>
       <div class="table-wrapper">
         <div class="table-header">
-          <span class="table-title">Transaction Ledger</span>
+          <span class="table-title">Transaction Ledger <span id="pn-count" style="font-size:11.5px;font-weight:500;color:var(--text3);margin-left:8px;"></span></span>
           <div class="table-actions">
-            <button class="btn primary" onclick="openModal('add-transaction')">+ New Transaction</button>
+            <button class="btn primary" onclick="pnOpenAdd()">+ New Transaction</button>
             <button class="btn" onclick="igxPrintPage('partner')">🖨 Print</button>
             <button class="btn" onclick="openModal('import-partner-csv')" style="background:rgba(88,166,255,0.1);border-color:rgba(88,166,255,0.3);color:#58a6ff;">📥 CSV Import</button>
             <button class="btn">⬇ Export</button>
           </div>
         </div>
-        <div class="filter-bar">
-          <select class="filter-select" onchange="filterPartners()">
+        <div class="filter-bar" style="flex-wrap:wrap;gap:8px;">
+          <select class="filter-select" id="pn-f-partner" onchange="filterPartners()">
             <option value="">All Partners</option>
             <option>MD ISMAIL HOSEN</option>
             <option>ASHIKUR RAHMAN</option>
-            
           </select>
-          <select class="filter-select" onchange="filterPartners()">
+          <select class="filter-select" id="pn-f-type" onchange="filterPartners()">
             <option value="">All Types</option>
             <option>Investment</option>
             <option>Drawings</option>
             <option>Profit Share</option>
           </select>
+          <select class="filter-select" id="pn-f-status" onchange="filterPartners()">
+            <option value="">সব অবস্থা</option>
+            <option value="verified">✅ ভেরিফাইড</option>
+            <option value="pending">⏳ ভেরিফাই বাকি</option>
+            <option value="legacy">পুরনো এন্ট্রি</option>
+          </select>
+          <input type="date" class="filter-select" id="pn-f-from" onchange="filterPartners()" title="শুরুর তারিখ">
+          <input type="date" class="filter-select" id="pn-f-to" onchange="filterPartners()" title="শেষ তারিখ">
+          <input type="text" class="filter-select" id="pn-f-q" oninput="filterPartners()" placeholder="🔍 বিবরণ / Ref / ভাউচার…" style="min-width:190px;">
+          <button class="btn" onclick="pnClearFilters()">✕ Clear</button>
         </div>
         <div class="table-scroll">
           <table>
             <thead>
-              <tr><th>#</th><th>Date & Time</th><th>Partner</th><th>Type</th><th>Amount</th><th>Payment Method</th><th>Description</th><th>Balance After</th><th>Action</th></tr>
+              <tr><th>#</th><th>Date & Time</th><th>Partner</th><th>Type</th><th>Amount</th><th>Method / Ref</th><th>Description</th><th>Balance After</th><th>Status</th><th>Action</th></tr>
             </thead>
             <tbody id="partner-body"></tbody>
           </table>
@@ -2871,6 +2891,9 @@ tbody td.muted{color:var(--text3);}
           <div class="kpi-value" style="color:var(--red);font-size:28px;" id="inv-active-count">—</div>
         </div>
       </div>
+
+      <!-- 📊 Investor Dashboard + 📅 Payment Calendar -->
+      <div id="inv-dash" style="display:none;margin-bottom:16px;"></div>
 
       <!-- 🔔 Fixed Return Due-Payment / Duration Alert Panel -->
       <div id="inv-alerts-panel" style="display:none;margin-bottom:16px;"></div>
@@ -2967,6 +2990,28 @@ tbody td.muted{color:var(--text3);}
               <option value="Anytime">Anytime — যখন ইচ্ছা</option>
             </select>
           </div>
+<div class="form-group">
+            <label class="form-label">পেমেন্ট মাধ্যম ও রেফারেন্স (TrxID)</label>
+            <div style="display:flex;gap:8px;">
+              <select class="form-select" id="inv-method" style="flex:1;"><option value="Cash">💵 Cash (নগদ)</option><option value="bKash">bKash</option><option value="Nagad">Nagad</option><option value="Rocket">Rocket</option><option value="Bank Transfer">🏦 Bank Transfer</option><option value="Cheque">Cheque</option><option value="Other">অন্যান্য</option></select>
+              <input class="form-input" id="inv-ref" placeholder="TrxID / চেক নং (ঐচ্ছিক)" style="flex:1.3;">
+            </div>
+          </div>
+          <details style="margin:8px 0 4px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;">
+            <summary style="cursor:pointer;font-weight:600;font-size:13px;color:var(--text2);">📋 অতিরিক্ত তথ্য (ঐচ্ছিক) — ইমেইল, ঠিকানা, চুক্তি, নমিনি, পেআউট</summary>
+            <div style="margin-top:10px;">
+              <div class="form-group"><label class="form-label">ইমেইল</label><input class="form-input" id="inv-email" type="email" placeholder="investor@example.com"></div>
+              <div class="form-group"><label class="form-label">ঠিকানা</label><input class="form-input" id="inv-address" placeholder="গ্রাম/এলাকা, থানা, জেলা"></div>
+              <div class="form-group"><label class="form-label">চুক্তির তারিখ (Agreement Date)</label><input class="form-input" id="inv-agree-date" type="date"></div>
+              <div class="form-group"><label class="form-label">নমিনি (Nominee) — নাম ও সম্পর্ক</label><input class="form-input" id="inv-nominee" placeholder="যেমন: রহিমা বেগম (স্ত্রী)"></div>
+              <div class="form-group"><label class="form-label">লাভ গ্রহণের মাধ্যম ও নম্বর</label>
+                <div style="display:flex;gap:8px;">
+                  <select class="form-select" id="inv-payout-method" style="flex:1;"><option value="">— বাছাই করুন —</option><option value="Cash">💵 Cash (নগদ)</option><option value="bKash">bKash</option><option value="Nagad">Nagad</option><option value="Rocket">Rocket</option><option value="Bank Transfer">🏦 Bank Transfer</option><option value="Cheque">Cheque</option><option value="Other">অন্যান্য</option></select>
+                  <input class="form-input" id="inv-payout-account" placeholder="নম্বর / অ্যাকাউন্ট" style="flex:1.3;">
+                </div></div>
+              <div class="form-group"><label class="form-label">ডকুমেন্ট লিংক (NID/চুক্তিপত্র — Google Drive)</label><input class="form-input" id="inv-doc-link" placeholder="https://drive.google.com/…"></div>
+            </div>
+          </details>
           <div class="form-group">
             <label class="form-label">নোট</label>
             <input class="form-input" id="inv-notes" placeholder="যেকোনো অতিরিক্ত তথ্য">
@@ -2993,6 +3038,13 @@ tbody td.muted{color:var(--text3);}
           <div class="form-group">
             <label class="form-label">পরিমাণ (৳) *</label>
             <input class="form-input" id="pay-profit-amount" type="number" placeholder="0" min="0">
+          </div>
+<div class="form-group">
+            <label class="form-label">পেমেন্ট মাধ্যম ও রেফারেন্স (TrxID)</label>
+            <div style="display:flex;gap:8px;">
+              <select class="form-select" id="pay-profit-method" style="flex:1;"><option value="Cash">💵 Cash (নগদ)</option><option value="bKash">bKash</option><option value="Nagad">Nagad</option><option value="Rocket">Rocket</option><option value="Bank Transfer">🏦 Bank Transfer</option><option value="Cheque">Cheque</option><option value="Other">অন্যান্য</option></select>
+              <input class="form-input" id="pay-profit-ref" placeholder="TrxID / চেক নং (ঐচ্ছিক)" style="flex:1.3;">
+            </div>
           </div>
           <div class="form-group">
             <label class="form-label">নোট</label>
@@ -3022,6 +3074,13 @@ tbody td.muted{color:var(--text3);}
           <div class="form-group">
             <label class="form-label">Buyback পরিমাণ (৳) *</label>
             <input class="form-input" id="buyback-amount" type="number" placeholder="0" min="0">
+          </div>
+<div class="form-group">
+            <label class="form-label">পেমেন্ট মাধ্যম ও রেফারেন্স (TrxID)</label>
+            <div style="display:flex;gap:8px;">
+              <select class="form-select" id="buyback-method" style="flex:1;"><option value="Cash">💵 Cash (নগদ)</option><option value="bKash">bKash</option><option value="Nagad">Nagad</option><option value="Rocket">Rocket</option><option value="Bank Transfer">🏦 Bank Transfer</option><option value="Cheque">Cheque</option><option value="Other">অন্যান্য</option></select>
+              <input class="form-input" id="buyback-ref" placeholder="TrxID / চেক নং (ঐচ্ছিক)" style="flex:1.3;">
+            </div>
           </div>
           <div class="form-group">
             <label class="form-label">নোট</label>
@@ -3061,6 +3120,10 @@ tbody td.muted{color:var(--text3);}
           <div class="form-group">
             <label class="form-label">নোট</label>
             <input class="form-input" id="dist-notes" placeholder="যেমন: জুলাই ২০২৬ মাসিক লাভ বণ্টন">
+          </div>
+          <div class="form-group">
+            <label class="form-label">পেমেন্ট মাধ্যম (সবার জন্য)</label>
+            <select class="form-select" id="dist-method"><option value="Cash">💵 Cash (নগদ)</option><option value="bKash">bKash</option><option value="Nagad">Nagad</option><option value="Rocket">Rocket</option><option value="Bank Transfer">🏦 Bank Transfer</option><option value="Cheque">Cheque</option><option value="Other">অন্যান্য</option></select>
           </div>
 
           <div id="dist-preview-wrap" style="display:none;">
@@ -3169,6 +3232,11 @@ tbody td.muted{color:var(--text3);}
         <div class="modal-footer">
           <button class="btn" onclick="closeModal('investor-report')">বন্ধ করুন</button>
           <button class="btn" style="background:rgba(139,92,246,.15);border-color:rgba(139,92,246,.4);color:#8b5cf6;" onclick="openEquityHistoryModal(el('investor-report-current-id').value)">📜 এর History</button>
+          <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text3);flex-wrap:wrap;">📅 Statement সময়কাল:
+            <input type="date" class="form-input" id="inv-stmt-from" title="শুরুর তারিখ (ফাঁকা = প্রথম থেকে)" style="padding:4px 8px;width:140px;">
+            →
+            <input type="date" class="form-input" id="inv-stmt-to" title="শেষ তারিখ (ফাঁকা = আজ পর্যন্ত)" style="padding:4px 8px;width:140px;">
+          </span>
           <button class="btn btn-gold" onclick="printInvestorReport()">📄 Statement PDF Export</button>
         </div>
       </div>
@@ -3233,7 +3301,22 @@ tbody td.muted{color:var(--text3);}
               <option value="Exited">Exited</option>
             </select>
           </div>
-        </div>
+          <details style="margin:8px 0 4px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;">
+            <summary style="cursor:pointer;font-weight:600;font-size:13px;color:var(--text2);">📋 অতিরিক্ত তথ্য (ঐচ্ছিক) — ইমেইল, ঠিকানা, চুক্তি, নমিনি, পেআউট</summary>
+            <div style="margin-top:10px;">
+              <div class="form-group"><label class="form-label">ইমেইল</label><input class="form-input" id="edit-inv-email" type="email" placeholder="investor@example.com"></div>
+              <div class="form-group"><label class="form-label">ঠিকানা</label><input class="form-input" id="edit-inv-address" placeholder="গ্রাম/এলাকা, থানা, জেলা"></div>
+              <div class="form-group"><label class="form-label">চুক্তির তারিখ (Agreement Date)</label><input class="form-input" id="edit-inv-agree-date" type="date"></div>
+              <div class="form-group"><label class="form-label">নমিনি (Nominee) — নাম ও সম্পর্ক</label><input class="form-input" id="edit-inv-nominee" placeholder="যেমন: রহিমা বেগম (স্ত্রী)"></div>
+              <div class="form-group"><label class="form-label">লাভ গ্রহণের মাধ্যম ও নম্বর</label>
+                <div style="display:flex;gap:8px;">
+                  <select class="form-select" id="edit-inv-payout-method" style="flex:1;"><option value="">— বাছাই করুন —</option><option value="Cash">💵 Cash (নগদ)</option><option value="bKash">bKash</option><option value="Nagad">Nagad</option><option value="Rocket">Rocket</option><option value="Bank Transfer">🏦 Bank Transfer</option><option value="Cheque">Cheque</option><option value="Other">অন্যান্য</option></select>
+                  <input class="form-input" id="edit-inv-payout-account" placeholder="নম্বর / অ্যাকাউন্ট" style="flex:1.3;">
+                </div></div>
+              <div class="form-group"><label class="form-label">ডকুমেন্ট লিংক (NID/চুক্তিপত্র — Google Drive)</label><input class="form-input" id="edit-inv-doc-link" placeholder="https://drive.google.com/…"></div>
+            </div>
+          </details>
+          </div>
         <div class="modal-footer">
           <button class="btn" onclick="closeModal('edit-investor')">বাতিল</button>
           <button class="btn primary" onclick="submitEditInvestor()">✅ আপডেট করুন</button>
@@ -4065,7 +4148,7 @@ tbody td.muted{color:var(--text3);}
     </div>
 
     <div class="page" id="page-crm">
-      <div class="breadcrumb">InnoGix OS / <span>Customers</span></div>
+      <div class="breadcrumb">InnoGix / <span>Customers</span></div>
       <div class="section-head">
         <h2>Customer CRM</h2>
         <p>Customer history, repeat purchase detection and due tracking</p>
@@ -4157,7 +4240,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: ORDER CALCULATOR
     ══════════════════════════════ -->
     <div class="page" id="page-calculator">
-      <div class="breadcrumb">InnoGix OS / <span>Order Calculator</span></div>
+      <div class="breadcrumb">InnoGix / <span>Order Calculator</span></div>
       <div class="section-head">
         <h2>Order Calculator</h2>
         <p>Price Calculator — তথ্য দিন, মোট প্রাইস ও কাস্টমার মেসেজ তৈরি হবে</p>
@@ -4392,7 +4475,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: DELIVERY ANALYTICS
     ══════════════════════════════ -->
     <div class="page" id="page-delivery-analytics">
-      <div class="breadcrumb">InnoGix OS / <span>Delivery Analytics</span></div>
+      <div class="breadcrumb">InnoGix / <span>Delivery Analytics</span></div>
       <div class="section-head" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
         <div>
           <h2>🚚 Delivery Analytics</h2>
@@ -4454,7 +4537,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: COURIER MANAGER HUB
     ══════════════════════════════════════════ -->
     <div class="page" id="page-courier-hub">
-      <div class="breadcrumb">InnoGix OS / <span>কুরিয়ার ম্যানেজার হাব</span></div>
+      <div class="breadcrumb">InnoGix / <span>কুরিয়ার ম্যানেজার হাব</span></div>
       <div class="section-head" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
         <div>
           <h2>📦 কুরিয়ার ম্যানেজার হাব</h2>
@@ -4699,7 +4782,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: ARCHITECTURE GUIDE
     ══════════════════════════════ -->
     <div class="page" id="page-architecture">
-      <div class="breadcrumb">InnoGix OS / <span>Architecture Guide</span></div>
+      <div class="breadcrumb">InnoGix / <span>Architecture Guide</span></div>
       <div class="section-head">
         <h2>System Architecture — Complete Guide</h2>
         <p>How to build this system professionally with Google Sheets + HTML frontend</p>
@@ -4800,7 +4883,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: FORMULA GUIDE
     ══════════════════════════════ -->
     <div class="page" id="page-formulas">
-      <div class="breadcrumb">InnoGix OS / <span>Formula Guide</span></div>
+      <div class="breadcrumb">InnoGix / <span>Formula Guide</span></div>
       <div class="section-head">
         <h2>Complete Formula Reference</h2>
         <p>All formulas for Google Sheets with ARRAYFORMULA, IFERROR and dynamic ranges</p>
@@ -4970,7 +5053,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: SETUP ROADMAP
     ══════════════════════════════ -->
     <div class="page" id="page-setup">
-      <div class="breadcrumb">InnoGix OS / <span>Setup Roadmap</span></div>
+      <div class="breadcrumb">InnoGix / <span>Setup Roadmap</span></div>
       <div class="section-head">
         <h2>Implementation Roadmap</h2>
         <p>Complete step-by-step plan to build the full system — from zero to production</p>
@@ -5065,7 +5148,7 @@ tbody td.muted{color:var(--text3);}
         <h3>📁 Folder Structure Recommendation</h3>
         <div class="code-block" style="margin:0;">
           <div class="code-block-header"><span>Google Drive Folder</span></div>
-          <pre style="color:#e2e8f0;">📁 InnoGix Business OS/
+          <pre style="color:#e2e8f0;">📁 InnoGix Business Suite/
 ├── 📊 InnoGix_Database.gsheet   <span class="cm">← Main Google Sheet (6 sheets)</span>
 ├── 📄 Dashboard.html            <span class="cm">← This HTML file</span>
 ├── 📁 Backups/
@@ -5086,7 +5169,7 @@ tbody td.muted{color:var(--text3);}
          PAGE: ACTIVITY LOG
     ══════════════════════════════ -->
     <div class="page" id="page-activity-log">
-      <div class="breadcrumb">InnoGix OS / <span>অ্যাক্টিভিটি লগ</span></div>
+      <div class="breadcrumb">InnoGix / <span>অ্যাক্টিভিটি লগ</span></div>
       <div class="section-head">
         <h2>📋 অ্যাক্টিভিটি লগ</h2>
         <p>সকল পার্টনারের কার্যক্রমের বিস্তারিত ইতিহাস</p>
@@ -5132,7 +5215,7 @@ tbody td.muted{color:var(--text3);}
          RECYCLE BIN PAGE
     ══════════════════════════════════════════ -->
     <div class="page" id="page-recycle-bin">
-      <div class="breadcrumb">InnoGix OS / <span>রিসাইকেল বিন</span></div>
+      <div class="breadcrumb">InnoGix / <span>রিসাইকেল বিন</span></div>
       <div class="section-head">
         <h2>🗑️ রিসাইকেল বিন</h2>
         <p>মুছে ফেলা ডেটা ৩০ দিন পর্যন্ত এখানে সংরক্ষিত থাকে। মেয়াদ শেষে স্বয়ংক্রিয়ভাবে মুছে যাবে।</p>
@@ -5345,18 +5428,73 @@ tbody td.muted{color:var(--text3);}
       <button class="modal-close" onclick="closeModal('add-transaction')">✕</button>
     </div>
     <div class="modal-body">
+      <div id="pn-add-lock" style="display:none;margin-bottom:10px;padding:8px 12px;border-radius:8px;background:rgba(240,180,41,.12);border:1px solid rgba(240,180,41,.35);color:var(--gold);font-size:12.5px;"></div>
       <div class="form-grid">
-        <div class="form-group"><label class="form-label">Partner *</label><select class="form-select"><option>MD ISMAIL HOSEN</option><option>ASHIKUR RAHMAN</option></select></div>
-        <div class="form-group"><label class="form-label">Transaction Type *</label><select class="form-select"><option>Investment</option><option>Drawings</option><option>Profit Share</option></select></div>
-        <div class="form-group"><label class="form-label">Amount (৳) *</label><input class="form-input" type="number" placeholder="0"></div>
-        <div class="form-group"><label class="form-label">Payment Method</label><select class="form-select"><option>Cash</option><option>bKash</option><option>Nagad</option><option>Bank Transfer</option></select></div>
-        <div class="form-group full"><label class="form-label">Description / Notes</label><textarea class="form-textarea" placeholder="Transaction details..."></textarea></div>
+        <div class="form-group"><label class="form-label">Partner *</label><select class="form-select" id="pn-add-partner"><option>MD ISMAIL HOSEN</option><option>ASHIKUR RAHMAN</option></select></div>
+        <div class="form-group"><label class="form-label">Transaction Type *</label><select class="form-select" id="pn-add-type"><option>Investment</option><option>Drawings</option><option>Profit Share</option></select></div>
+        <div class="form-group"><label class="form-label">Amount (৳) *</label><input class="form-input" id="pn-add-amount" type="number" min="0" step="0.01" placeholder="0"></div>
+        <div class="form-group"><label class="form-label">Payment Method</label><select class="form-select" id="pn-add-method"><option>Cash</option><option>bKash</option><option>Nagad</option><option>Rocket</option><option>Bank Transfer</option><option>Cheque</option><option>Other</option></select></div>
+        <div class="form-group"><label class="form-label">লেনদেনের তারিখ</label><input class="form-input" id="pn-add-date" type="date"></div>
+        <div class="form-group"><label class="form-label">Reference / TrxID <span style="font-weight:400;text-transform:none;color:var(--text3);">(ঐচ্ছিক)</span></label><input class="form-input" id="pn-add-ref" type="text" maxlength="80" placeholder="bKash TrxID / চেক নং"></div>
+        <div class="form-group full"><label class="form-label">Description / Notes</label><textarea class="form-textarea" id="pn-add-desc" placeholder="Transaction details..."></textarea></div>
       </div>
+      <div style="margin-top:10px;font-size:11.5px;color:var(--text3);line-height:1.6;">🛡️ এন্ট্রি আপনার নামে রেকর্ড হবে; <b>অন্য পার্টনার</b> ভেরিফাই করলে "✅ ভেরিফাইড" হবে। Edit/Delete-এ PIN লাগবে। Profit Share মূলধন-ব্যালেন্সে যোগ হয় না।</div>
     </div>
     <div class="modal-footer">
       <button class="btn" onclick="closeModal('add-transaction')">Cancel</button>
-      <button class="btn primary" onclick="submitTransaction()">✅ Save Transaction</button>
+      <button class="btn primary" id="pn-add-save" onclick="submitTransaction()">✅ Save Transaction</button>
     </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-pn-integrity" onclick="if(event.target===this)closeModal('pn-integrity')">
+  <div class="modal" style="max-width:760px;">
+    <div class="modal-header"><span class="modal-title">🛡️ হিসাব যাচাই (Integrity Check)</span><button class="modal-close" onclick="closeModal('pn-integrity')">✕</button></div>
+    <div class="modal-body" id="pn-integrity-body" style="max-height:70vh;overflow:auto;"></div>
+    <div class="modal-footer"><button class="btn" onclick="openPnIntegrity()">🔄 আবার যাচাই</button><button class="btn" onclick="closeModal('pn-integrity')">বন্ধ</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-pn-audit" onclick="if(event.target===this)closeModal('pn-audit')">
+  <div class="modal" style="max-width:980px;width:96vw;">
+    <div class="modal-header"><span class="modal-title">🧾 অডিট লগ — কে, কখন, কী বদলেছে</span><button class="modal-close" onclick="closeModal('pn-audit')">✕</button></div>
+    <div class="modal-body" style="padding-bottom:0;">
+      <div style="font-size:12px;color:var(--text3);margin-bottom:8px;">প্রতিটি লেনদেনের যোগ/বদল/মোছা/ভেরিফাই এখানে স্থায়ীভাবে জমা থাকে — পরিবর্তন করা যায় না (হ্যাশ-চেইন)।</div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px;">
+        <input type="text" class="form-input" id="pn-audit-q" oninput="pnRenderAudit()" placeholder="🔍 খুঁজুন — নাম, Txn ID, ভাউচার (PV-0002)…" style="flex:1;min-width:220px;">
+        <select class="form-select" id="pn-audit-act" onchange="pnRenderAudit()" style="max-width:170px;"><option value="">সব কাজ</option><option value="ADD">➕ যোগ করা</option><option value="EDIT">✏️ বদল</option><option value="DELETE">🗑️ মোছা</option><option value="VERIFY">✅ ভেরিফাই</option><option value="LOCK">🔒 লক</option><option value="UNLOCK">🔓 আনলক</option><option value="IMPORT">📥 ইমপোর্ট</option><option value="RESTORE">♻️ ফেরত আনা</option></select>
+        <span style="display:flex;gap:6px;align-items:center;"><span style="font-size:11px;color:var(--text3);">রিপোর্ট:</span><button class="btn" style="padding:5px 10px;font-size:12px;" onclick="pnAuditSnap('print')">🖨️ প্রিন্ট</button><button class="btn" style="padding:5px 10px;font-size:12px;" onclick="pnAuditSnap('png')">🖼️ PNG</button><button class="btn" style="padding:5px 10px;font-size:12px;" onclick="pnAuditSnap('pdf')">📄 PDF</button></span>
+      </div>
+      <div id="pn-audit-count" style="font-size:12px;color:var(--text3);margin-bottom:8px;"></div>
+      <div id="pn-audit-body" style="max-height:62vh;overflow-y:auto;overflow-x:hidden;padding-right:4px;"></div>
+    </div>
+    <div class="modal-footer"><button class="btn" onclick="closeModal('pn-audit')">বন্ধ</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-pn-lock" onclick="if(event.target===this)closeModal('pn-lock')">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-header"><span class="modal-title">🔒 হিসাব লক (Period Lock)</span><button class="modal-close" onclick="closeModal('pn-lock')">✕</button></div>
+    <div class="modal-body">
+      <div id="pn-lock-status" style="font-size:13px;line-height:1.7;color:var(--text2);margin-bottom:12px;"></div>
+      <label class="form-label">এই তারিখ পর্যন্ত লক করুন</label>
+      <div style="display:flex;gap:8px;"><input type="date" class="form-input" id="pn-lock-date"><button class="btn" onclick="pnLockPreset()" title="গত মাসের শেষ দিন">গত মাসের শেষ</button></div>
+      <div style="margin-top:10px;font-size:11.5px;color:var(--text3);line-height:1.6;">লক থাকলে ওই তারিখ বা আগের কোনো লেনদেন যোগ/Edit/Delete/Import করা যাবে না। মাস-শেষে হিসাব মিলিয়ে লক করলে পুরনো হিসাব সুরক্ষিত থাকে। PIN লাগবে, অডিট লগে থাকবে।</div>
+    </div>
+    <div class="modal-footer"><button class="btn" id="pn-unlock-btn" onclick="pnApplyLock(true)" style="display:none;">🔓 আনলক</button><button class="btn" onclick="closeModal('pn-lock')">Cancel</button><button class="btn primary" onclick="pnApplyLock(false)">🔒 লক করুন</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-pn-stmt" onclick="if(event.target===this)closeModal('pn-stmt')">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-header"><span class="modal-title">📄 Partner Statement</span><button class="modal-close" onclick="closeModal('pn-stmt')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group full"><label class="form-label">Partner</label><select class="form-select" id="pn-st-partner"><option value="">দুজনেরই (Combined)</option><option>MD ISMAIL HOSEN</option><option>ASHIKUR RAHMAN</option></select></div>
+        <div class="form-group"><label class="form-label">শুরুর তারিখ</label><input type="date" class="form-input" id="pn-st-from"></div>
+        <div class="form-group"><label class="form-label">শেষের তারিখ</label><input type="date" class="form-input" id="pn-st-to"></div>
+        <input type="hidden" id="pn-st-sign">
+      </div>
+      <div style="margin-top:8px;font-size:11.5px;color:var(--text3);">তারিখ ফাঁকা রাখলে শুরু থেকে আজ পর্যন্ত। খোলা উইন্ডোতে স্বাক্ষর/পদবী ঠিক করে প্রিন্ট বা PDF/PNG নেওয়া যাবে।</div>
+    </div>
+    <div class="modal-footer"><button class="btn" onclick="closeModal('pn-stmt')">Cancel</button><button class="btn primary" onclick="pnBuildStatement()">📄 Statement খুলুন</button></div>
   </div>
 </div>
 
@@ -5637,6 +5775,7 @@ tbody td.muted{color:var(--text3);}
       <button class="modal-close" onclick="closeModal('edit-partner')">✕</button>
     </div>
     <div class="modal-body">
+      <div style="margin-bottom:10px;font-size:11.5px;color:var(--gold);background:rgba(240,180,41,.1);border:1px solid rgba(240,180,41,.3);border-radius:8px;padding:7px 10px;">🔐 Update/Delete করতে আপনার PIN লাগবে। Edit করলে অন্য পার্টনারকে আবার ভেরিফাই করতে হবে।</div>
       <div class="form-grid">
         <div class="form-group"><label class="form-label">Partner</label>
           <select class="form-select" id="eptxn-partner">
@@ -5650,10 +5789,9 @@ tbody td.muted{color:var(--text3);}
         </div>
         <div class="form-group"><label class="form-label">Amount (৳) *</label><input class="form-input" id="eptxn-amount" type="number"></div>
         <div class="form-group"><label class="form-label">Payment Method</label>
-          <select class="form-select" id="eptxn-method">
-            <option>Cash</option><option>bKash</option><option>Nagad</option><option>Bank Transfer</option>
-          </select>
+          <select class="form-select" id="eptxn-method"><option>Cash</option><option>bKash</option><option>Nagad</option><option>Rocket</option><option>Bank Transfer</option><option>Cheque</option><option>Other</option></select>
         </div>
+        <div class="form-group full"><label class="form-label">Reference / TrxID</label><input class="form-input" id="eptxn-ref" type="text" maxlength="80"></div>
         <div class="form-group full"><label class="form-label">Description</label><textarea class="form-textarea" id="eptxn-desc"></textarea></div>
       </div>
     </div>
@@ -6165,7 +6303,7 @@ tbody td.muted{color:var(--text3);}
 </script>
 <script>
 // ═══════════════════════════════════════════════════════════════════════
-// InnoGix Business OS — HTML Frontend
+// InnoGix Business Suite — HTML Frontend
 // OPTIMIZED VERSION — v47 Performance Edition
 //
 // ✅ FRONTEND OPTIMIZATION LOG:
@@ -6195,7 +6333,7 @@ tbody td.muted{color:var(--text3);}
 // partner split, CRM, and invoice rendering: 100% PRESERVED.
 // ═══════════════════════════════════════════════════════════════════════
 // ═══════════════════════════════════════════════════════════════
-// InnoGix Business OS v8.0 — Complete Fixed Edition
+// InnoGix Business Suite v8.0 — Complete Fixed Edition
 // ✅ Sales Edit — pre-fill + Google Sheets update
 // ✅ Sales Delivery Charge আলাদা column
 // ✅ Inventory Add Product — Sheets এ save
@@ -6209,7 +6347,7 @@ tbody td.muted{color:var(--text3);}
 // ═══════════════════════════════════════════════════════════════
 
 // ⚠️ এখানে আপনার Google Apps Script Web App URL বসান (Deploy > New Deployment > Web App)
-      const API_URL = "https://script.google.com/macros/s/AKfycbx_yAPZ6UScqB57_TAqaqFTHu6VyChbJv6cMSuQyVZK_HBKWuHygTv8F58Bvi8hdTNBug/exec"; // ← এই URL পরিবর্তন করুন // ← এখানে আপনার Google Apps Script URL বসান
+      const API_URL = "https://script.google.com/macros/s/AKfycbxDm0wHXcmTHuBDBGxOVr0cwYgCjweTuBnNbtouYBDMjLUrp4qmqu12QmLwN53biacbLA/exec"; // ← এই URL পরিবর্তন করুন // ← এখানে আপনার Google Apps Script URL বসান
 
 // ─── CONNECTION STATE ────────────────────────────────────────
 let apiConnected = false;
@@ -8014,6 +8152,7 @@ async function loadInvestorTotalPaid() {
     const total = data.data.filter(r => String(r[4]||'').trim() === 'Profit Share')
                            .reduce((s,r) => s + (Number(r[5])||0), 0);
     el('inv-total-paid') && (el('inv-total-paid').textContent = fmt(total));
+    try { renderInvDash(); } catch(_e) { console.warn('renderInvDash', _e); }
   } catch(e) {}
 }
 
@@ -8129,6 +8268,12 @@ function openEditInvestor(inv){
   if(el('edit-inv-rate-period')) el('edit-inv-rate-period').value = inv.ratePeriod || 'Monthly';
   invRateHint('edit-inv');
   el('edit-inv-status').value      = inv.status || 'Active';
+  { const rr = (_investorData||[]).find(x => String(x[0]) === String(inv.id)) || [];
+    const ag = (typeof invParseD === 'function') ? invParseD(rr[22]) : null;
+    el('edit-inv-email').value = rr[20] || ''; el('edit-inv-address').value = rr[21] || '';
+    el('edit-inv-agree-date').value = ag ? new Date(ag.getTime() + 6*3600e3).toISOString().slice(0,10) : '';
+    el('edit-inv-nominee').value = rr[23] || ''; el('edit-inv-payout-method').value = rr[24] || '';
+    el('edit-inv-payout-account').value = rr[25] || ''; el('edit-inv-doc-link').value = rr[26] || ''; }
   toggleEditInvTypeFields();
   openModal('edit-investor');
 }
@@ -8149,6 +8294,10 @@ async function submitEditInvestor(){
     duration:   parseInt(el('edit-inv-duration')?.value||0),
     paymentCycle: el('edit-inv-cycle')?.value || 'Quarterly',
     status:     el('edit-inv-status')?.value || 'Active',
+    email: (el('edit-inv-email')?.value||'').trim(), address: (el('edit-inv-address')?.value||'').trim(),
+    agreementDate: el('edit-inv-agree-date')?.value||'', nominee: (el('edit-inv-nominee')?.value||'').trim(),
+    payoutMethod: el('edit-inv-payout-method')?.value||'', payoutAccount: (el('edit-inv-payout-account')?.value||'').trim(),
+    docLink: (el('edit-inv-doc-link')?.value||'').trim(),
     isEdit: true
   };
   const res = await postToAPI(payload);
@@ -8187,11 +8336,15 @@ function toggleInvTypeFields() {
 }
 
 function openAddInvestorModal() {
-  ['inv-name','inv-phone','inv-notes','inv-profit-rate','inv-duration'].forEach(id => { if(el(id)) el(id).value=''; });
+  ['inv-name','inv-notes','inv-profit-rate','inv-duration'].forEach(id => { if(el(id)) el(id).value=''; });
+  { const ph = document.querySelector('#modal-add-investor #inv-phone'); if (ph) ph.value = ''; } // ⚠️ 'inv-phone' id ইনভয়েসেও আছে — তাই ফর্মের ভেতর থেকেই ধরি
   if(el('inv-amount')) el('inv-amount').value = '';
   if(el('inv-cycle'))  el('inv-cycle').value  = 'Quarterly';
   if(el('inv-type'))   el('inv-type').value   = 'Equity';
   if(el('inv-rate-period')) el('inv-rate-period').value = 'Monthly';
+  ['inv-ref','inv-email','inv-address','inv-agree-date','inv-nominee','inv-payout-account','inv-doc-link'].forEach(id => { if(el(id)) el(id).value=''; });
+  if(el('inv-method')) el('inv-method').value = 'Cash';
+  if(el('inv-payout-method')) el('inv-payout-method').value = '';
   invRateHint('inv');
   toggleInvTypeFields();
   openModal('add-investor');
@@ -8206,14 +8359,20 @@ async function submitAddInvestor() {
   const profitRate = type === 'Fixed Return' ? (parseFloat(el('inv-profit-rate')?.value||0)) : 0;
   if (type === 'Fixed Return' && !profitRate) { showToast('লাভের হার (%) দিন', 'warning'); return; }
   const payload = {
-    action: 'addInvestor', name, phone: el('inv-phone')?.value||'',
+    action: 'addInvestor', name, phone: (document.querySelector('#modal-add-investor #inv-phone')?.value||'').trim(),
     amount: amt, investmentType: type,
     profitRate, ratePeriod: el('inv-rate-period')?.value || 'Monthly', duration: parseInt(el('inv-duration')?.value||0),
     paymentCycle: el('inv-cycle')?.value||'Quarterly',
-    notes: el('inv-notes')?.value||''
+    notes: el('inv-notes')?.value||'',
+    method: el('inv-method')?.value||'', reference: (el('inv-ref')?.value||'').trim(),
+    email: (el('inv-email')?.value||'').trim(), address: (el('inv-address')?.value||'').trim(),
+    agreementDate: el('inv-agree-date')?.value||'', nominee: (el('inv-nominee')?.value||'').trim(),
+    payoutMethod: el('inv-payout-method')?.value||'', payoutAccount: (el('inv-payout-account')?.value||'').trim(),
+    docLink: (el('inv-doc-link')?.value||'').trim()
   };
   const res = await postToAPI(payload);
   if (res?.status === 'success') {
+    if (res.receiptNo) invRcptBar(invRcptBuild({ receiptNo:res.receiptNo, txnId:res.txnId, date:invTodayStr(), investorId:res.investorId, name, phone:payload.phone, type:'Investment', amount:amt, method:payload.method, reference:payload.reference, notes:payload.notes||'ইনিশিয়াল বিনিয়োগ', payoutMethod:payload.payoutMethod, payoutAccount:payload.payoutAccount, email:payload.email, address:payload.address }));
     const msg = type === 'Fixed Return'
       ? `✅ Investor যোগ হয়েছে! ${(el('inv-rate-period')?.value==='Yearly') ? 'বার্ষিক লাভ: ৳'+fmt(amt * profitRate / 100) : 'মাসিক লাভ: ৳'+fmt(amt * profitRate / 100)}`
       : '✅ Investor যোগ হয়েছে! Equity % আপডেট হয়েছে।';
@@ -8230,6 +8389,8 @@ function openPayProfit(inv) {
   el('pay-profit-investor-name').value = inv.name;
   el('pay-profit-amount').value = inv.dueAmt > 0 ? inv.dueAmt : '';
   el('pay-profit-notes').value  = '';
+  if(el('pay-profit-method')) el('pay-profit-method').value = 'Cash';
+  if(el('pay-profit-ref')) el('pay-profit-ref').value = '';
   const typeInfo = inv.invType === 'Fixed Return'
     ? (inv.ratePeriod==='Yearly' ? `বার্ষিক লাভ: <strong style="color:var(--gold)">৳${fmt(Math.round(inv.amt*(inv.profitRate||0)/100))}</strong> (${inv.profitRate}%/বছর ≈ ৳${fmt(Math.round(inv.amt*(inv.profitRate||0)/1200))}/মাস)` : `মাসিক লাভ: <strong style="color:var(--gold)">৳${fmt(Math.round(inv.amt*(inv.profitRate||0)/100))}</strong> (${inv.profitRate}%/মাস)`)
     : `Equity: <strong style="color:var(--green)">${Number(inv.pct).toFixed(2)}%</strong>`;
@@ -8250,9 +8411,11 @@ async function submitPayProfit() {
     action: 'payProfitShare',
     investorId:   el('pay-profit-investor-id').value,
     investorName: el('pay-profit-investor-name').value,
-    amount: amt, notes: el('pay-profit-notes')?.value||'', verified: 'Yes'
+    amount: amt, notes: el('pay-profit-notes')?.value||'', verified: 'Yes',
+    method: el('pay-profit-method')?.value||'', reference: (el('pay-profit-ref')?.value||'').trim()
   });
   if (res?.status === 'success') {
+    if (res.receiptNo) invRcptBar(invRcptBuild({ receiptNo:res.receiptNo, txnId:res.txnId, date:invTodayStr(), investorId:el('pay-profit-investor-id').value, name:el('pay-profit-investor-name').value, type:'Profit Share', amount:amt, method:el('pay-profit-method')?.value||'', reference:(el('pay-profit-ref')?.value||'').trim(), notes:el('pay-profit-notes')?.value||'' }));
     showToast('✅ Profit Share রেকর্ড হয়েছে', 'success');
     closeModal('pay-profit');
     loadInvestors();
@@ -8264,6 +8427,8 @@ function openBuyback(inv) {
   el('buyback-investor-name').value = inv.name;
   el('buyback-amount').value = '';
   el('buyback-notes').value  = '';
+  if(el('buyback-method')) el('buyback-method').value = 'Cash';
+  if(el('buyback-ref')) el('buyback-ref').value = '';
   el('buyback-investor-info').innerHTML = `
     <div style="font-weight:600;color:var(--text);margin-bottom:6px;">${inv.name}</div>
     <div style="font-size:12px;color:var(--text3);">বর্তমান বিনিয়োগ: <strong style="color:var(--gold)">৳${fmt(inv.amt)}</strong> &nbsp;|&nbsp; Equity: <strong style="color:var(--green)">${Number(inv.pct).toFixed(2)}%</strong></div>
@@ -8278,9 +8443,11 @@ async function submitBuyback() {
     action: 'buybackInvestor',
     investorId:   el('buyback-investor-id').value,
     investorName: el('buyback-investor-name').value,
-    amount: amt, notes: el('buyback-notes')?.value||''
+    amount: amt, notes: el('buyback-notes')?.value||'',
+    method: el('buyback-method')?.value||'', reference: (el('buyback-ref')?.value||'').trim()
   });
   if (res?.status === 'success') {
+    if (res.receiptNo) invRcptBar(invRcptBuild({ receiptNo:res.receiptNo, txnId:res.txnId, date:invTodayStr(), investorId:el('buyback-investor-id').value, name:el('buyback-investor-name').value, type:'Buyback', amount:amt, method:el('buyback-method')?.value||'', reference:(el('buyback-ref')?.value||'').trim(), notes:el('buyback-notes')?.value||'' }));
     showToast('✅ Buyback সম্পন্ন! সবার Equity % আপডেট হয়েছে।', 'success');
     closeModal('buyback');
     loadInvestors();
@@ -8294,6 +8461,7 @@ function openDistributeProfitModal() {
   el('dist-total-profit').value = '';
   el('dist-date').value = new Date().toISOString().slice(0,10);
   el('dist-notes').value = '';
+  if (el('dist-method')) el('dist-method').value = 'Cash';
   el('dist-preview-wrap').style.display = 'none';
   el('dist-confirm-btn').disabled = true;
   openModal('distribute-profit');
@@ -8382,7 +8550,7 @@ async function submitDistributeProfit() {
 
   el('dist-confirm-btn').disabled = true;
   el('dist-confirm-btn').textContent = 'প্রসেসিং...';
-  const res = await postToAPI({ action: 'distributeProfit', totalProfit: total, date: date, notes: notes, entries: entries });
+  const res = await postToAPI({ action: 'distributeProfit', totalProfit: total, date: date, notes: notes, method: el('dist-method')?.value || '', entries: entries });
   el('dist-confirm-btn').textContent = '✅ বণ্টন নিশ্চিত করুন';
   el('dist-confirm-btn').disabled = false;
 
@@ -8391,6 +8559,306 @@ async function submitDistributeProfit() {
     closeModal('distribute-profit');
     loadInvestors();
   } else { showToast('❌ ' + (res?.message||'Error'), 'error'); }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// 📊 Investor Dashboard + 📅 Payment Calendar + 🧾 Money Receipt + 📲 WhatsApp
+// ═══════════════════════════════════════════════════════════════
+const invEsc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const INV_PALETTE = ['#34d174','#f0b429','#4d9eff','#8b5cf6','#f55549','#22d3ee','#fb923c'];
+const INV_BN_MON = ['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টে','অক্টো','নভে','ডিসে'];
+function invParseD(v){
+  if (v == null || v === '') return null;
+  if (typeof v === 'number') return new Date((v - 25569) * 86400000);
+  const t = Date.parse(String(v)); return isNaN(t) ? null : new Date(t);
+}
+function invCycleMonths(c){ return ({Monthly:1, Quarterly:3, Yearly:12})[String(c||'').trim()] || 0; }
+function invAddMonths(d, m){ const x = new Date(d.getTime()), day = x.getDate(); x.setMonth(x.getMonth() + m); if (x.getDate() < day) x.setDate(0); return x; }
+function invFmtD(d){ return d ? new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dhaka',day:'2-digit',month:'short',year:'numeric'}).format(d).replace(/ /g,'-') : '—'; }
+function invTodayStr(){ return invFmtD(new Date()); }
+
+// প্রতিটি Active investor-এর পরবর্তী পেমেন্ট তারিখ (শেষ Profit Share বা যোগদান + cycle)
+function invSchedule(){
+  const rows = (_investorData||[]).filter(r => String(r[7]||'').trim() === 'Active');
+  const last = {};
+  (_investorTxns||[]).forEach(t => {
+    if (String(t[4]||'').trim() !== 'Profit Share') return;
+    const d = invParseD(t[1]); if (!d) return;
+    const k = String(t[2]); if (!last[k] || d > last[k]) last[k] = d;
+  });
+  const now = new Date();
+  return rows.map(r => {
+    const id = String(r[0]), cm = invCycleMonths(r[6]), type = r[9] || 'Equity';
+    const amt = Number(r[4])||0, rate = Number(r[10])||0, per = String(r[19]||'Monthly') === 'Yearly' ? 'Yearly' : 'Monthly';
+    const base = last[id] || invParseD(r[3]);
+    const next = (cm && base) ? invAddMonths(base, cm) : null;
+    const days = next ? Math.ceil((next - now) / 86400000) : null;
+    const dueAmt = Number(r[13])||0;
+    let amount = null;
+    if (type === 'Fixed Return') amount = dueAmt > 0 ? dueAmt : Math.round(amt * invMonthlyRate(rate, per) / 100 * (cm || 1));
+    return { id, name: r[1], type, cycle: r[6], next, days, amount, dueAmt, isDue: type === 'Fixed Return' && dueAmt > 0 };
+  }).sort((a,b) => (a.days == null ? 1e9 : a.days) - (b.days == null ? 1e9 : b.days));
+}
+
+function invPayNow(id){
+  const r = (_investorData||[]).find(x => String(x[0]) === String(id)); if (!r) return;
+  const amt = Number(r[4])||0, rate = Number(r[10])||0, per = String(r[19]||'Monthly') === 'Yearly' ? 'Yearly' : 'Monthly';
+  const inv = { id:r[0], name:r[1], amt, pct:Number(r[5])||0, invType:r[9]||'Equity', profitRate:rate, ratePeriod:per, dueAmt:Number(r[13])||0 };
+  openPayProfit(inv);
+  if (inv.invType === 'Fixed Return' && !(inv.dueAmt > 0)) el('pay-profit-amount').value = Math.round(amt * invMonthlyRate(rate, per) / 100 * (invCycleMonths(r[6]) || 1));
+}
+
+function renderInvDash(){
+  const box = el('inv-dash'); if (!box) return;
+  const rows = _investorData || [];
+  if (!rows.length) { box.style.display = 'none'; box.innerHTML = ''; return; }
+  box.style.display = 'block';
+  const active = rows.filter(r => String(r[7]||'').trim() === 'Active');
+  const eq = active.filter(r => String(r[9]||'Equity') === 'Equity' && (Number(r[4])||0) > 0).sort((a,b) => (Number(b[4])||0) - (Number(a[4])||0));
+  const pool = eq.reduce((s,r) => s + (Number(r[4])||0), 0);
+  const top = eq[0];
+  const sched = invSchedule();
+  const week = sched.filter(x => x.days != null && x.days <= 7);
+  const weekAmt = week.reduce((s,x) => s + (x.isDue ? x.dueAmt : 0), 0);
+  const overdue = sched.filter(x => x.days != null && x.days < 0).length;
+
+  // মাসিক Profit paid — শেষ ৬ মাস
+  const now = new Date(), months = [];
+  for (let i = 5; i >= 0; i--) { const d = new Date(now.getFullYear(), now.getMonth() - i, 1); months.push({ y:d.getFullYear(), m:d.getMonth(), v:0 }); }
+  (_investorTxns||[]).forEach(t => {
+    if (String(t[4]||'').trim() !== 'Profit Share') return;
+    const d = invParseD(t[1]); if (!d) return;
+    const b = months.find(x => x.y === d.getFullYear() && x.m === d.getMonth()); if (b) b.v += Number(t[5])||0;
+  });
+  const thisMonth = months[months.length-1].v;
+  const maxV = Math.max(1, ...months.map(x => x.v));
+
+  // Donut — Equity Pool
+  let donut = '<div style="color:var(--text3);font-size:12px;padding:30px 0;text-align:center;">কোনো Active Equity investor নেই</div>';
+  if (pool > 0) {
+    const R = 52, C = 2 * Math.PI * R; let cum = 0, legend = '', slices = '';
+    const show = eq.slice(0, 7), rest = eq.slice(7).reduce((s,r) => s + (Number(r[4])||0), 0);
+    const items = show.map((r,i) => ({ name:r[1], v:Number(r[4])||0, c:INV_PALETTE[i] }));
+    if (rest > 0) items.push({ name:'অন্যান্য', v:rest, c:'#6b7280' });
+    items.forEach(it => {
+      const f = it.v / pool, len = f * C;
+      slices += `<circle cx="70" cy="70" r="${R}" fill="none" stroke="${it.c}" stroke-width="22" stroke-dasharray="${len.toFixed(2)} ${(C-len).toFixed(2)}" stroke-dashoffset="${(-cum*C).toFixed(2)}" transform="rotate(-90 70 70)"><title>${invEsc(it.name)}: ${(f*100).toFixed(1)}% (৳${fmt(it.v)})</title></circle>`;
+      legend += `<div style="display:flex;align-items:center;gap:6px;font-size:12px;margin:3px 0;"><span style="width:10px;height:10px;border-radius:3px;background:${it.c};flex:none;"></span><span style="color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:130px;">${invEsc(it.name)}</span><b style="margin-left:auto;color:var(--text2);">${(f*100).toFixed(1)}%</b></div>`;
+      cum += f;
+    });
+    donut = `<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;">
+      <svg viewBox="0 0 140 140" width="150" height="150" role="img" aria-label="Equity Pool বণ্টন">${slices}<text x="70" y="66" text-anchor="middle" font-size="9" fill="var(--text3)">Equity Pool</text><text x="70" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">৳${fmt(pool)}</text></svg>
+      <div style="min-width:170px;flex:1;">${legend}</div></div>`;
+  }
+  // Bar chart
+  const bw = 46, gap = 10, H = 110;
+  const bars = months.map((x,i) => {
+    const h = Math.round(x.v / maxV * H), X = i * (bw + gap) + 4;
+    return `<g><rect x="${X}" y="${20 + H - h}" width="${bw}" height="${Math.max(h, x.v ? 2 : 0)}" rx="4" fill="#34d174"><title>${INV_BN_MON[x.m]} ${x.y}: ৳${fmt(x.v)}</title></rect>
+      <text x="${X + bw/2}" y="${16 + H - h}" text-anchor="middle" font-size="9" fill="var(--text2)">${x.v ? fmt(x.v) : ''}</text>
+      <text x="${X + bw/2}" y="${H + 38}" text-anchor="middle" font-size="10" fill="var(--text3)">${INV_BN_MON[x.m]}</text></g>`;
+  }).join('');
+  const barSvg = `<svg viewBox="0 0 ${months.length*(bw+gap)+4} ${H+46}" width="100%" style="max-height:190px;" role="img" aria-label="মাসিক Profit প্রদান"><line x1="0" x2="${months.length*(bw+gap)}" y1="${20+H}" y2="${20+H}" stroke="var(--border)"/>${bars}</svg>`;
+
+  const kpi = (label, val, sub, color) => `<div class="kpi-card" style="background:var(--bg2);"><div class="kpi-label">${label}</div><div class="kpi-value" style="color:${color};font-size:19px;word-break:break-word;">${val}</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">${sub}</div></div>`;
+  const cards = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:14px;">
+    ${kpi('🏆 বৃহত্তম অংশীদার', top ? invEsc(top[1]) : '—', top ? (Number(top[5])||0).toFixed(2) + '% · ৳' + fmt(Number(top[4])||0) : 'Equity investor নেই', 'var(--gold)')}
+    ${kpi('📅 এই সপ্তাহের পেমেন্ট', week.length + ' জন', (weekAmt ? 'বকেয়া ৳' + fmt(weekAmt) + ' · ' : '') + (overdue ? overdue + ' জন মেয়াদোত্তীর্ণ' : 'সময়সূচি ঠিক'), week.length ? 'var(--red)' : 'var(--green)')}
+    ${kpi('💸 চলতি মাসে Profit দেওয়া', '৳' + fmt(thisMonth), INV_BN_MON[now.getMonth()] + ' ' + now.getFullYear(), 'var(--blue)')}
+    ${kpi('📊 Equity Pool', '৳' + fmt(pool), eq.length + ' জন Active Equity investor', 'var(--green)')}
+  </div>`;
+  const charts = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-bottom:14px;">
+    <div class="card" style="padding:14px 16px;"><div style="font-weight:600;color:var(--text);margin-bottom:10px;">🥧 Equity Pool — কার কত অংশ</div>${donut}</div>
+    <div class="card" style="padding:14px 16px;"><div style="font-weight:600;color:var(--text);margin-bottom:6px;">📈 মাসিক Profit প্রদান (শেষ ৬ মাস)</div>${barSvg}</div>
+  </div>`;
+  // Calendar
+  const chip = x => {
+    if (x.days == null) return '<span style="color:var(--text3);font-size:11px;">যখন ইচ্ছা</span>';
+    if (x.days < 0) return `<span style="background:rgba(248,81,73,.15);color:var(--red);border-radius:4px;padding:1px 6px;font-size:11px;font-weight:700;">${-x.days} দিন দেরি</span>`;
+    if (x.days === 0) return '<span style="background:rgba(248,81,73,.15);color:var(--red);border-radius:4px;padding:1px 6px;font-size:11px;font-weight:700;">আজ</span>';
+    if (x.days <= 7) return `<span style="background:rgba(245,180,0,.15);color:var(--gold);border-radius:4px;padding:1px 6px;font-size:11px;font-weight:700;">${x.days} দিন বাকি</span>`;
+    return `<span style="color:var(--text3);font-size:11px;">${x.days} দিন বাকি</span>`;
+  };
+  const calRows = sched.length ? sched.map(x => `<tr>
+      <td style="font-weight:600;">${invEsc(x.name)}<div style="font-size:10px;color:var(--text3);">${x.type === 'Fixed Return' ? '💰 Fixed' : '📊 Equity'}</div></td>
+      <td style="font-size:12px;">${invEsc(x.cycle||'—')}</td>
+      <td style="font-size:12px;">${invFmtD(x.next)}</td>
+      <td>${chip(x)}</td>
+      <td style="font-weight:600;color:var(--gold);">${x.amount != null ? (x.isDue ? '' : '~') + '৳' + fmt(x.amount) : '<span style="color:var(--text3)">—</span>'}</td>
+      <td><button class="btn btn-sm btn-green" style="font-size:11px;" onclick="invPayNow('${invEsc(x.id)}')">💰 এখনই দিন</button></td></tr>`).join('')
+    : '<tr><td colspan="6" style="text-align:center;color:var(--text3);padding:20px;">কোনো Active investor নেই</td></tr>';
+  const cal = `<div class="card" style="padding:0;overflow:hidden;"><div style="padding:12px 16px;border-bottom:1px solid var(--border);font-weight:600;color:var(--text);">📅 পেমেন্ট ক্যালেন্ডার <span style="font-weight:400;font-size:11px;color:var(--text3);">— শেষ Profit পেমেন্ট (বা যোগদান) + Payment Cycle। "~" = আনুমানিক cycle-এর লাভ</span></div>
+    <div class="table-wrap" style="max-height:320px;overflow:auto;"><table class="data-table"><thead><tr><th>Investor</th><th>Cycle</th><th>পরবর্তী তারিখ</th><th>অবস্থা</th><th>পরিমাণ</th><th></th></tr></thead><tbody>${calRows}</tbody></table></div></div>`;
+  box.innerHTML = cards + charts + cal;
+}
+
+// ── Money Receipt ──────────────────────────────────────────────
+function invWords(n){
+  n = Math.round(Number(n)||0); if (n === 0) return 'Zero';
+  const a = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+  const b = ['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+  const two = x => x < 20 ? a[x] : b[Math.floor(x/10)] + (x%10 ? ' ' + a[x%10] : '');
+  const three = x => (x >= 100 ? a[Math.floor(x/100)] + ' Hundred' + (x%100 ? ' ' : '') : '') + (x%100 ? two(x%100) : '');
+  const out = []; const cr = Math.floor(n/1e7); n %= 1e7; const lk = Math.floor(n/1e5); n %= 1e5; const th = Math.floor(n/1e3); n %= 1e3;
+  if (cr) out.push(three(cr) + ' Crore'); if (lk) out.push(two(lk) + ' Lakh'); if (th) out.push(two(th) + ' Thousand'); if (n) out.push(three(n));
+  return out.join(' ');
+}
+function invRcptBuild(o){
+  const r = (_investorData||[]).find(x => String(x[0]) === String(o.investorId)) || [];
+  return Object.assign({ phone:String(r[2]||''), email:r[20]||'', address:r[21]||'', payoutMethod:r[24]||'', payoutAccount:r[25]||'' }, o);
+}
+function invRcptFromReport(txnId){
+  const d = window._invRepData; if (!d) return;
+  const t = (d.transactions||[]).find(x => String(x[0]) === String(txnId)); if (!t) return;
+  const dt = invParseD(t[1]);
+  openMoneyReceipt(invRcptBuild({ receiptNo:t[10] || ('MR-' + t[0]), txnId:t[0], date:dt ? invFmtD(dt) : String(t[1]||''), investorId:d.investorId, name:d.name, phone:d.phone||'', type:String(t[4]||'').trim(), amount:Number(t[5])||0, method:t[8]||'', reference:t[9]||'', notes:t[6]||'', email:d.email||'', address:d.address||'', payoutMethod:d.payoutMethod||'', payoutAccount:d.payoutAccount||'' }));
+}
+function invRcptBar(R){
+  window._lastRcpt = R;
+  let bar = el('inv-rcpt-bar');
+  if (!bar) { bar = document.createElement('div'); bar.id = 'inv-rcpt-bar'; bar.style.cssText = 'position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:99998;background:var(--bg2,#1c2330);border:1px solid var(--green,#34d174);border-radius:12px;padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 8px 30px rgba(0,0,0,.45);max-width:94vw;'; document.body.appendChild(bar); }
+  bar.innerHTML = `<span style="font-size:13px;color:var(--text);">✅ রেকর্ড হয়েছে — <b>${invEsc(R.receiptNo)}</b> (৳${fmt(R.amount)})</span>
+    <button class="btn btn-sm btn-gold" onclick="openMoneyReceipt(window._lastRcpt)">🧾 Money Receipt</button>
+    <button class="btn btn-sm" style="background:rgba(37,211,102,.15);color:#25d366;border-color:rgba(37,211,102,.4);" onclick="invWhatsApp(window._lastRcpt)">📲 WhatsApp</button>
+    <button class="btn btn-sm" onclick="this.parentNode.style.display='none'">✕</button>`;
+  bar.style.display = 'flex';
+  clearTimeout(window._rcptBarT); window._rcptBarT = setTimeout(() => { bar.style.display = 'none'; }, 90000);
+}
+function invWhatsApp(R){
+  if (!R) return;
+  let ph = String(R.phone||'').replace(/\D/g,'');
+  if (!ph) { showToast('এই investor-এর ফোন নম্বর নেই — Edit থেকে যোগ করুন', 'warning'); return; }
+  if (ph.startsWith('00')) ph = ph.slice(2);
+  if (ph.startsWith('0')) ph = '88' + ph; else if (ph.length === 10) ph = '880' + ph;
+  const what = R.type === 'Investment' ? `আপনার ৳${fmt(R.amount)} বিনিয়োগ আমরা গ্রহণ করেছি।`
+             : R.type === 'Buyback' ? `আপনাকে Buyback বাবদ ৳${fmt(R.amount)} প্রদান করা হয়েছে।`
+             : `আপনাকে লাভের অংশ বাবদ ৳${fmt(R.amount)} প্রদান করা হয়েছে।`;
+  const msg = `আসসালামু আলাইকুম ${R.name||''},\n${what}\n\n🧾 রসিদ নং: ${R.receiptNo}\n📅 তারিখ: ${R.date}${R.method ? '\n💳 মাধ্যম: ' + R.method : ''}${R.reference ? '\n🔖 Ref/TrxID: ' + R.reference : ''}\n\nধন্যবাদ — InnoGix`;
+  window.open('https://wa.me/' + ph + '?text=' + encodeURIComponent(msg), '_blank');
+}
+function openMoneyReceipt(R){
+  if (!R) return;
+  const esc = invEsc, isIn = R.type === 'Investment';
+  const isPT = R.kind === 'partner';
+  let title = isIn ? 'MONEY RECEIPT' : 'PAYMENT RECEIPT';
+  let bn = isIn ? 'টাকা প্রাপ্তির রসিদ' : (R.type === 'Buyback' ? 'Buyback প্রদানের রসিদ' : 'লাভ প্রদানের রসিদ');
+  let purpose = isIn ? 'বিনিয়োগ গ্রহণ (Investment Received)' : R.type === 'Buyback' ? 'Buyback / শেয়ার ক্রয় মূল্য' : 'লাভের অংশ প্রদান (Profit Share)';
+  let party = isIn ? 'Received from — প্রদানকারী' : 'Paid to — প্রাপক';
+  let sigLeft = isIn ? 'বিনিয়োগকারীর স্বাক্ষর' : 'গ্রহণকারীর স্বাক্ষর ও তারিখ';
+  let sigRight = isIn ? 'গ্রহণকারী কর্তৃপক্ষ' : 'প্রদানকারী কর্তৃপক্ষ';
+  if (isPT) {
+    title = isIn ? 'PARTNER INVESTMENT VOUCHER' : R.type === 'Drawings' ? 'PARTNER DRAWINGS VOUCHER' : 'PARTNER PROFIT VOUCHER';
+    bn = isIn ? 'পার্টনার বিনিয়োগ ভাউচার' : R.type === 'Drawings' ? 'পার্টনার উত্তোলন (Drawings) ভাউচার' : 'পার্টনার লাভের অংশ ভাউচার';
+    purpose = isIn ? 'পার্টনার মূলধন বিনিয়োগ (Capital Investment)' : R.type === 'Drawings' ? 'পার্টনার উত্তোলন (Drawings)' : 'লাভের অংশ (Profit Share)';
+    party = isIn ? 'Invested by — বিনিয়োগকারী পার্টনার' : 'Paid to — প্রাপক পার্টনার';
+    sigLeft = 'পার্টনারের স্বাক্ষর ও তারিখ'; sigRight = 'ভেরিফাইকারী পার্টনার / কর্তৃপক্ষ';
+  }
+  const sigCfg = {}; try { if (typeof IGXSIG !== 'undefined') ['Ismail','Ashik'].forEach(k => sigCfg[k] = IGXSIG.get(k)); } catch(e) {}
+  let defWho = ''; try { if (typeof currentPartner !== 'undefined' && sigCfg[currentPartner]) defWho = currentPartner; } catch(e) {}
+  const CFG = { sig: sigCfg, defaultWho: defWho };
+  const payTo = (!isIn && (R.payoutMethod || R.payoutAccount)) ? [R.payoutMethod, R.payoutAccount].filter(Boolean).join(' — ') : '';
+  const kv = (l, v) => v ? `<tr><td class="lbl2">${l}</td><td class="b">${esc(v)}</td></tr>` : '';
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${esc(title)} — ${esc(R.receiptNo)}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @page{size:A4;margin:10mm 11mm}
+    *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    html{background:#e9edf4}
+    body{margin:0;font-family:'Plus Jakarta Sans','Hind Siliguri','Noto Sans Bengali',Arial,sans-serif;color:#1b2437;font-size:13px;font-weight:500;line-height:1.55}
+    #s-tools{position:sticky;top:0;z-index:50;background:#0f2a5c;color:#fff;padding:10px 190px 10px 14px;display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;font-size:12.5px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+    #s-tools button,#s-tools select,#s-tools input[type=text]{font:600 12.5px inherit;font-family:inherit;padding:6px 11px;border-radius:7px;border:1px solid #3b5a96;background:#17376f;color:#fff;cursor:pointer}
+    #s-tools input[type=text]{cursor:text;width:230px;max-width:100%;font-weight:500}
+    #s-tools button:disabled,#s-tools input:disabled{opacity:.5;cursor:not-allowed}
+    #s-tools select option{color:#000}
+    #s-hint{width:100%;font-size:11.5px;color:#ffe9a8}
+    .page{max-width:794px;margin:18px auto 40px;background:#fff;padding:0 0 8px;box-shadow:0 4px 28px rgba(15,42,92,.18);outline:none}
+    .bar{height:6px;background:linear-gradient(90deg,#0f2a5c 0,#0f2a5c 68%,#c9a24a 100%)}
+    .in{padding:18px 38px 0}
+    .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+    .hd img{width:170px;height:auto;display:block}
+    .co{font-size:12px;color:#2c3650;line-height:1.7;margin-top:8px}
+    .hd .t{text-align:right}.hd .t b{display:block;font-size:22px;letter-spacing:3px;color:#0f2a5c;font-weight:800}
+    .hd .t .bn{display:block;font-size:13px;color:#7a5c10;font-weight:700;margin-top:2px}
+    .rule{height:2px;background:#c9a24a;margin:12px 0 10px}
+    .meta{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;font-size:12px}
+    .meta span,.lbl{display:block;font-size:10.5px;color:#3d4860;text-transform:uppercase;letter-spacing:.7px;font-weight:700}
+    .meta b{font-size:13px;color:#0f2a5c;font-weight:700}
+    .box{border:1px solid #c9cfdc;border-radius:8px;padding:12px 14px;background:#fff;margin-top:14px}
+    .box.inv{border-left:5px solid #0f2a5c}
+    .box h4{margin:0 0 6px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#7a5c10;font-weight:800}
+    .nm{font-size:18px;font-weight:800;color:#0f2a5c;line-height:1.3}
+    .sub{font-size:12px;color:#2c3650}
+    .amt{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:14px;border:2px solid #0f2a5c;border-radius:10px;padding:12px 18px;background:#f7f9fd}
+    .amt .v{font-size:30px;font-weight:800;color:#0f2a5c;white-space:nowrap}
+    .amt .w{font-size:12.5px;color:#2c3650;text-align:right}.amt .w b{color:#0f2a5c}
+    table{width:100%;border-collapse:collapse;margin-top:14px}
+    td{padding:7px 8px;border-bottom:1px solid #dfe4ee;vertical-align:top;font-size:13px}
+    .lbl2{width:34%;color:#3d4860;font-size:12px;font-weight:700}
+    .b{font-weight:700}
+    .sigrow{display:flex;justify-content:space-between;align-items:flex-start;margin-top:26px;page-break-inside:avoid}
+    .sg{width:44%;text-align:center}.sg .z{height:58px;display:flex;align-items:flex-end;justify-content:center}
+    .sg .ln{border-top:1px solid #8d97ad;padding-top:6px}
+    .sg .l{font-size:12px;font-weight:700;color:#2c3650}
+    #s-img{display:none;max-height:56px;max-width:190px;width:auto;height:auto;object-fit:contain;margin-bottom:-3px}
+    #s-name{display:none;font-size:13px;font-weight:800;color:#0f2a5c;line-height:1.5}
+    #s-title{display:none;font-size:12px;font-weight:700;color:#7a5c10;line-height:1.5}
+    .dis{margin-top:14px;font-size:11px;color:#3d4860;text-align:center;line-height:1.6}
+    .ft{margin:8px 38px 0;padding-top:6px;border-top:1px solid #c9cfdc;font-size:11px;color:#2c3650;display:flex;justify-content:space-between;gap:10px}
+    body.editing .page{outline:2px dashed #7c3aed;outline-offset:2px;cursor:text}
+    @media print{html,body{background:#fff}#s-tools,#igx-png-btn,#s-hint{display:none!important}.page{box-shadow:none;margin:0;max-width:none;width:100%}body.editing .page{outline:none}}
+    @media (max-width:640px){.in{padding:16px}.meta{grid-template-columns:1fr 1fr}.amt{flex-direction:column;align-items:flex-start}.amt .w{text-align:left}.ft{margin:12px 16px 0;flex-direction:column}#s-tools{padding-right:14px;padding-top:50px}}
+  </style></head><body>
+  <div id="s-tools">
+    <button id="s-edit" type="button" style="background:#7c3aed;border-color:#7c3aed">✏️ এডিট মোড</button>
+    <b>✍️ স্বাক্ষর:</b>
+    <select id="s-who"><option value="">স্বাক্ষর ছাড়া (ফাঁকা)</option><option value="Ismail">Md Ismail Hosen</option><option value="Ashik">Ashikur Rahman</option></select>
+    <button id="s-title-btn" type="button">🏷️ পদবী: দেখাচ্ছে ✓</button>
+    <input id="s-title-inp" type="text" list="s-titles" placeholder="পদবী লিখুন…" maxlength="60">
+    <datalist id="s-titles"><option value="ম্যানেজিং পার্টনার"><option value="পার্টনার"><option value="সহ-প্রতিষ্ঠাতা ও ম্যানেজিং পার্টনার"><option value="সহ-প্রতিষ্ঠাতা ও পার্টনার"></datalist>
+    <button id="s-add" type="button" style="display:none"></button><span id="s-rows" style="display:none"></span>
+    <button id="s-wa" type="button" style="background:#25d366;border-color:#25d366;color:#06361b;${isPT ? 'display:none' : ''}">📲 WhatsApp</button>
+    <button id="s-print" type="button" style="background:#c9a24a;border-color:#c9a24a;color:#0f2a5c">🖨️ প্রিন্ট / PDF</button>
+    <div id="s-hint" style="display:none">✏️ এডিট মোড চালু — লেখায় ক্লিক করে বদলান। শেষ হলে "✅ এডিট শেষ" চাপুন। WhatsApp-এ রসিদের ছবি পাঠাতে আগে "⬇ PNG ডাউনলোড" করে সেটি চ্যাটে সংযুক্ত করুন।</div>
+  </div>
+  <div class="page" id="stmt-page">
+    <div class="bar"></div>
+    <div class="in">
+      <div class="hd">
+        <div><img src="${INNOGIX_LOGO_DATAURI}" alt="InnoGix"><div class="co">কালিয়াকৈর, গাজীপুর, ঢাকা<br>Contact: +8801560016179 · WhatsApp: +8801530088886<br>innogix.official@gmail.com</div></div>
+        <div class="t"><b>${title}</b><span class="bn">${bn}</span></div>
+      </div>
+      <div class="rule"></div>
+      <div class="meta">
+        <div><span>রসিদ নং</span><b>${esc(R.receiptNo)}</b></div>
+        <div><span>তারিখ</span><b>${esc(R.date)}</b></div>
+        <div><span>${isPT ? 'Partner' : 'Investor ID'}</span><b>${esc(R.investorId)}</b></div>
+        <div><span>মুদ্রা</span><b>BDT (৳)</b></div>
+      </div>
+      <div class="box inv"><h4>${party}</h4>
+        <div class="nm">${esc(R.name)}</div>
+        <div class="sub">${isPT ? 'Partner — InnoGix (Amanah Security Device)' : esc([R.phone, R.email].filter(Boolean).join(' · ') || '—')}${R.address ? '<br>' + esc(R.address) : ''}</div>
+      </div>
+      <div class="amt"><div class="v">৳ ${(Number(R.amount)||0).toLocaleString('en-US',{maximumFractionDigits:2})}</div>
+        <div class="w"><span class="lbl">কথায় (In words)</span><b>Taka ${esc(invWords(R.amount))} Only</b></div></div>
+      <table><tbody>
+        ${kv('বিবরণ (Purpose)', purpose)}${kv('পেমেন্ট মাধ্যম', R.method)}${kv('রেফারেন্স / TrxID', R.reference)}${kv('প্রাপকের অ্যাকাউন্ট', payTo)}${kv('নোট', R.notes)}${kv('ট্রান্স্যাকশন আইডি', R.txnId)}${isPT ? kv('এন্ট্রি করেছেন', R.createdBy) + kv('যাচাই অবস্থা', R.verified === 'Yes' ? 'ভেরিফাইড — ' + (R.verifiedBy || '') : 'ভেরিফাই বাকি (অন্য পার্টনারের অনুমোদন প্রয়োজন)') : ''}
+      </tbody></table>
+      <div class="sigrow">
+        <div class="sg"><div class="z"></div><div class="ln"><div class="l">${sigLeft}</div><div style="font-size:12px;color:#2c3650">${esc(R.name)}</div></div></div>
+        <div class="sg"><div class="z"><img id="s-img" alt=""></div><div class="ln"><div id="s-name"></div><div id="s-title"></div><div class="l">${sigRight}</div></div></div>
+      </div>
+      <div class="dis">এটি InnoGix Business Suite থেকে স্বয়ংক্রিয়ভাবে প্রস্তুতকৃত একটি ডিজিটাল ডকুমেন্ট। যেকোনো প্রয়োজনে রসিদ নং <b>${esc(R.receiptNo)}</b> উল্লেখ করে যোগাযোগ করুন — Contact: +8801560016179 · WhatsApp: +8801530088886</div>
+    </div>
+    <div class="ft"><span>InnoGix · কালিয়াকৈর, গাজীপুর, ঢাকা</span><span>${esc(R.receiptNo)}</span></div>
+    <div class="bar" style="margin-top:10px"></div>
+  </div>
+  ${window.__igxPngBtn||''}<script>(${__igxStmtPopup.toString()})(${JSON.stringify(CFG).replace(/</g,'\\u003c')});
+  var _wa=document.getElementById('s-wa'); if(_wa) _wa.onclick=function(){try{window.opener.invWhatsApp(${JSON.stringify(R).replace(/</g,'\\u003c')});}catch(e){alert('মূল অ্যাপ উইন্ডো বন্ধ — WhatsApp খুলতে পারলাম না');}};<\/script></body></html>`;
+  const url = URL.createObjectURL(new Blob([html], { type:'text/html;charset=utf-8' }));
+  const win = window.open(url, '_blank');
+  if (!win) { URL.revokeObjectURL(url); showToast('পপ-আপ ব্লক করা আছে — অনুমতি দিন', 'warning'); return; }
+  setTimeout(() => URL.revokeObjectURL(url), 120000);
 }
 
 async function viewInvestorReport(investorId) {
@@ -8431,22 +8899,24 @@ async function viewInvestorReport(investorId) {
         </div>
         <div style="font-weight:600;color:var(--text);margin-bottom:10px;">লেনদেনের ইতিহাস</div>
         <table class="data-table" style="font-size:12px;">
-          <thead><tr><th>তারিখ</th><th>ধরন</th><th>পরিমাণ (৳)</th><th>নোট</th><th>Verified</th></tr></thead>
+          <thead><tr><th>তারিখ</th><th>ধরন</th><th>পরিমাণ (৳)</th><th>নোট</th><th>মাধ্যম / Ref</th><th>রসিদ</th></tr></thead>
           <tbody>
             ${(d.transactions||[]).length ? d.transactions.map(t =>
               `<tr>
                 <td>${formatBDDate(t[1])||'—'}</td>
                 <td style="color:${t[4]==='Investment'?'var(--gold)':t[4]==='Profit Share'?'var(--green)':t[4]==='Buyback'?'var(--red)':'var(--text)'};">${t[4]||'—'}</td>
                 <td style="font-weight:600;">৳${fmt(Number(t[5])||0)}</td>
-                <td style="color:var(--text3);">${t[6]||'—'}</td>
-                <td>${t[7]||'—'}</td>
+                <td style="color:var(--text3);">${invEsc(t[6]||'—')}</td>
+                <td style="font-size:11px;">${invEsc([t[8],t[9]].filter(Boolean).join(' · ')||'—')}</td>
+                <td><button class="btn btn-sm" style="font-size:11px;" title="${invEsc(t[10]||'')}" onclick="invRcptFromReport('${invEsc(t[0])}')">🧾 ${invEsc(t[10]||'Receipt')}</button></td>
               </tr>`
-            ).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text3);padding:20px;">কোনো লেনদেন নেই</td></tr>'}
+            ).join('') : '<tr><td colspan="6" style="text-align:center;color:var(--text3);padding:20px;">কোনো লেনদেন নেই</td></tr>'}
           </tbody>
         </table>
         <div style="margin-top:14px;padding:10px;background:var(--bg2);border-radius:8px;font-size:12px;color:var(--text3);">
           Payment Cycle: <strong style="color:var(--text);">${d.paymentCycle||'—'}</strong>
-          ${d.notes ? ' &nbsp;|&nbsp; নোট: '+d.notes : ''}
+          ${d.notes ? ' &nbsp;|&nbsp; নোট: '+invEsc(d.notes) : ''}
+          ${d.email ? '<br>ইমেইল: '+invEsc(d.email) : ''}${d.address ? '<br>ঠিকানা: '+invEsc(d.address) : ''}${d.agreementDate ? '<br>চুক্তির তারিখ: '+invEsc(formatBDDate(d.agreementDate)||d.agreementDate) : ''}${d.nominee ? '<br>নমিনি: '+invEsc(d.nominee) : ''}${(d.payoutMethod||d.payoutAccount) ? '<br>লাভ গ্রহণ: '+invEsc([d.payoutMethod,d.payoutAccount].filter(Boolean).join(' — ')) : ''}${/^https?:\/\//i.test(d.docLink||'') ? '<br>ডকুমেন্ট: <a href="'+invEsc(d.docLink)+'" target="_blank" rel="noopener" style="color:#58a6ff;">লিংক খুলুন</a>' : ''}
         </div>
       </div>
     `;
@@ -8455,80 +8925,276 @@ async function viewInvestorReport(investorId) {
 
 const INNOGIX_LOGO_DATAURI = window.RUH_LOGO_BLACK||"";
 
-// 📄 Investor Statement PDF Export — ব্র্যান্ডেড, প্রিন্ট-অপ্টিমাইজড স্টেটমেন্ট
-// ব্রাউজারের Print ডায়ালগ থেকে "Save as PDF" বেছে নিলেই ডাউনলোড হয়ে যাবে — কোনো থার্ড-পার্টি লাইব্রেরি লাগে না।
+// 📄 Investor Statement — প্রফেশনাল, সম্পূর্ণ এডিটযোগ্য, প্রিন্ট/PDF/PNG
+// নতুন উইন্ডোতে খোলে। আগে এডিট/স্বাক্ষর/পদবী ঠিক করুন → তারপর "🖨️ প্রিন্ট / PDF" (Save as PDF) বা "⬇ PNG ডাউনলোড"।
+function __igxStmtPopup(CFG){
+  var $ = function(id){ return document.getElementById(id); };
+  var page = $('stmt-page'), editing = false, showTitle = true;
+  function renderSig(){
+    var who = $('s-who').value, S = CFG.sig[who];
+    var img = $('s-img'), nm = $('s-name'), tt = $('s-title');
+    if (!S) { img.style.display='none'; img.removeAttribute('src'); nm.style.display='none'; tt.style.display='none'; }
+    else {
+      img.src = S.img; img.style.display='block';
+      nm.textContent = S.name; nm.style.display='block';
+      var t = $('s-title-inp').value.trim();
+      tt.textContent = t; tt.style.display = (showTitle && t) ? 'block' : 'none';
+    }
+    $('s-title-btn').textContent = showTitle ? '🏷️ পদবী: দেখাচ্ছে ✓' : '🏷️ পদবী: লুকানো ✕';
+    $('s-title-btn').disabled = !S; $('s-title-inp').disabled = !S; $('s-title-inp').style.opacity = S ? '1' : '.5';
+  }
+  $('s-who').onchange = function(){ var S = CFG.sig[this.value]; $('s-title-inp').value = S ? S.title : ''; renderSig(); };
+  $('s-title-btn').onclick = function(){ showTitle = !showTitle; renderSig(); };
+  $('s-title-inp').oninput = function(){
+    renderSig();
+    try { var w = $('s-who').value; if (w && window.opener && window.opener.IGXSIG) window.opener.IGXSIG.setTitle(w, this.value); } catch(e){}
+  };
+  function setEdit(on){
+    editing = on; page.contentEditable = on ? 'true' : 'false';
+    document.body.classList.toggle('editing', on);
+    $('s-edit').textContent = on ? '✅ এডিট শেষ' : '✏️ এডিট মোড';
+    $('s-edit').style.background = on ? '#16a34a' : '#7c3aed';
+    $('s-hint').style.display = on ? '' : 'none';
+  }
+  $('s-edit').onclick = function(){ setEdit(!editing); };
+  Array.prototype.forEach.call(document.querySelectorAll('[data-sec-chk]'), function(c){
+    c.onchange = function(){ Array.prototype.forEach.call(document.querySelectorAll('[data-sec="'+c.getAttribute('data-sec-chk')+'"]'), function(e){ e.classList.toggle('off', !c.checked); }); };
+  });
+  $('s-add').onclick = function(){
+    var tb = $('s-rows'); var n = tb.rows.length + 1;
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td class="c">'+n+'</td><td>তারিখ</td><td><span class="tag">ধরন</span></td><td class="mut">নোট</td><td class="r b">৳ 0</td><td class="r">৳ 0</td><td class="c">—</td><td class="del nodit" contenteditable="false"><button type="button" class="x" contenteditable="false">✕</button></td>';
+    tb.appendChild(tr); setEdit(true);
+  };
+  document.addEventListener('click', function(e){ var b = e.target.closest && e.target.closest('.x'); if (b) { var tr = b.closest('tr'); tr.parentNode.removeChild(tr); } });
+  $('s-print').onclick = function(){ setEdit(false); setTimeout(function(){ window.print(); }, 150); };
+  window.addEventListener('beforeprint', function(){ if (editing) setEdit(false); });
+  // PNG ক্যাপচারের সময় টুলবার যেন ছবিতে না আসে
+  var pb = $('igx-png-btn');
+  if (pb) pb.addEventListener('click', function(){
+    var bar = $('s-tools'); if (editing) setEdit(false); bar.style.display = 'none';
+    var iv = setInterval(function(){ if (!pb.disabled) { clearInterval(iv); bar.style.display = ''; } }, 400);
+  }, true);
+  $('s-who').value = CFG.defaultWho || ''; $('s-who').onchange();
+}
+
 function printInvestorReport() {
   const d = window._invRepData;
   if (!d) { showToast && showToast('আগে একজন investor-এর Report খুলুন', 'warning'); return; }
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const money = n => '৳ ' + (Number(n) || 0).toLocaleString('en-US', { maximumFractionDigits: 2 });
+  const num = n => (Number(n) || 0).toLocaleString('en-US', { maximumFractionDigits: 2 });
+  const money = n => '৳ ' + num(n);
+  const dOnly = v => { const s = (typeof formatBDDate === 'function' ? formatBDDate(v) : String(v||'')) || ''; return s ? s.replace(/\s+\d{1,2}:\d{2}\s*[ap]m$/i, '') : '—'; };
   const now = new Date();
-  const genTime = new Intl.DateTimeFormat('bn-BD', { timeZone: 'Asia/Dhaka', day:'2-digit', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit' }).format(now);
-  const stmtNo = 'STMT-' + now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + String(now.getTime()).slice(-4);
-  const txns = Array.isArray(d.transactions) ? d.transactions : [];
-  const sums = {}; txns.forEach(t => { const k = t[4] || 'অন্যান্য'; sums[k] = (sums[k] || 0) + (Number(t[5]) || 0); });
-  const tcolor = { 'Investment':'#8a6300', 'Profit Share':'#1b7a3d', 'Buyback':'#b3261e' };
-  const rows = txns.length ? txns.map((t, i) => `<tr><td class="c">${i+1}</td><td>${esc(formatBDDate(t[1]) || '—')}</td>
-      <td><span class="tag" style="color:${tcolor[t[4]] || '#333'};border-color:${tcolor[t[4]] || '#999'}">${esc(t[4] || '—')}</span></td>
-      <td class="r b">${money(t[5])}</td><td class="mut">${esc(t[6] || '—')}</td><td class="c">${esc(t[7] || '—')}</td></tr>`).join('')
-    : '<tr><td colspan="6" class="c mut" style="padding:18px">কোনো লেনদেন নেই</td></tr>';
-  const sumRows = Object.keys(sums).map(k => `<tr><td>${esc(k)}</td><td class="r b">${money(sums[k])}</td></tr>`).join('');
+  const fmtDate = dt => new Intl.DateTimeFormat('en-GB', { timeZone:'Asia/Dhaka', day:'2-digit', month:'short', year:'numeric' }).format(dt).replace(/ /g,'-');
+  const ymd = now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0');
+  const stmtNo = 'STMT-' + String(d.investorId||'INV') + '-' + ymd;
+  // লেনদেন — তারিখ অনুযায়ী সাজানো + Capital Balance (Investment +, Buyback/Withdrawal −, Profit Share মূলধনে অপরিবর্তিত)
+  // 📅 সময়কাল (ঐচ্ছিক): শুধু নির্বাচিত সময়ের লেনদেন দেখায়, আগের জের (Brought Forward) আলাদা সারিতে
+  const fromV = (document.getElementById('inv-stmt-from')||{}).value || '', toV = (document.getElementById('inv-stmt-to')||{}).value || '';
+  const fromTs = fromV ? Date.parse(fromV + 'T00:00:00+06:00') : null, toTs = toV ? Date.parse(toV + 'T23:59:59+06:00') : null;
+  const ranged = fromTs != null || toTs != null;
+  const raw = Array.isArray(d.transactions) ? d.transactions.map((t,i) => ({ t, i, ts: Date.parse(t[1]) || 0 })) : [];
+  raw.sort((a,b) => (a.ts - b.ts) || (a.i - b.i));
+  const types = {}; let bal = 0, bf = 0, kInv = 0, kRet = 0, kProfit = 0;
+  const trows = [];
+  raw.forEach(o => { const t = o.t, ty = String(t[4]||'').trim(), amt = Number(t[5]) || 0;
+    if (ty === 'Investment') bal += amt; else if (ty === 'Buyback' || ty === 'Withdrawal') bal -= amt;
+    const inR = !ranged || (o.ts && (fromTs == null || o.ts >= fromTs) && (toTs == null || o.ts <= toTs));
+    if (ranged && fromTs != null && o.ts && o.ts < fromTs) bf = bal;
+    if (!inR) return;
+    types[ty || 'অন্যান্য'] = (types[ty || 'অন্যান্য'] || 0) + amt;
+    if (ty === 'Investment') kInv += amt; else if (ty === 'Buyback' || ty === 'Withdrawal') kRet += amt; else if (ty === 'Profit Share') kProfit += amt;
+    trows.push({ date: dOnly(t[1]), ty: ty || '—', note: t[6] || '—', amt, bal, mr: t[10] || '', mref: [t[8], t[9]].filter(Boolean).join(' · ') || '—' });
+  });
+  const tcolor = { 'Investment':'#7a5c10', 'Profit Share':'#1b7a3d', 'Buyback':'#b3261e', 'Withdrawal':'#b3261e' };
+  const bfRow = (ranged && fromTs != null) ? `<tr><td class="c">—</td><td>${esc(fmtDate(new Date(fromTs)))}</td><td><span class="tag" style="color:#3d4860;border-color:#8d97ad">জের</span></td><td class="mut">পূর্বের জের (Brought Forward)</td><td class="r b">—</td><td class="r">${money(bf)}</td><td class="c">—</td><td class="del nodit" contenteditable="false"></td></tr>` : '';
+  const rowsHtml = trows.length ? bfRow + trows.map((r,i) => `<tr><td class="c">${i+1}</td><td>${esc(r.date)}</td>
+      <td><span class="tag" style="color:${tcolor[r.ty]||'#1b2437'};border-color:${tcolor[r.ty]||'#8d97ad'}">${esc(r.ty)}</span></td>
+      <td class="mut">${esc(r.note)}${r.mr ? ' <span style="color:#7a5c10;font-size:11px">[' + esc(r.mr) + ']</span>' : ''}</td><td class="r b">${money(r.amt)}</td><td class="r">${money(r.bal)}</td><td class="c" style="font-size:11.5px">${esc(r.mref)}</td>
+      <td class="del nodit" contenteditable="false"><button type="button" class="x" contenteditable="false">✕</button></td></tr>`).join('')
+    : bfRow + '<tr><td colspan="8" class="c mut" style="padding:18px">কোনো লেনদেন নেই</td></tr>';
+  const typeRows = Object.keys(types).map(k => `<tr><td>${esc(k)}</td><td class="r b">${money(types[k])}</td></tr>`).join('');
+  let returned = (Number(d.totalBuyback)||0) + (Number(d.totalWithdrawn)||0);
+  let netCap = (d.netBalance != null) ? Number(d.netBalance) : (Number(d.totalInvested)||0) - returned;
+  let showInv = Number(d.totalInvested)||0, showProfit = Number(d.totalProfitPaid)||0;
+  if (ranged) { returned = kRet; showInv = kInv; showProfit = kProfit; netCap = trows.length ? trows[trows.length-1].bal : bf; }
   const isEq = d.investmentType === 'Equity';
-  const win = window.open('', '_blank');
-  if (!win) { showToast && showToast('পপ-আপ ব্লক করা আছে — অনুমতি দিন', 'warning'); return; }
-  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Investor Statement — ${stmtNo}</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  const from = ranged ? (fromTs != null ? fmtDate(new Date(fromTs)) : (trows.length ? trows[0].date : dOnly(d.joinDate))) : (trows.length ? trows[0].date : dOnly(d.joinDate));
+  const to = (ranged && toTs != null) ? fmtDate(new Date(toTs)) : fmtDate(now);
+  const stColor = String(d.invStatus||'') === 'Active' ? '#1b7a3d' : '#7a5c10';
+  const sigCfg = {}; try { if (typeof IGXSIG !== 'undefined') ['Ismail','Ashik'].forEach(k => sigCfg[k] = IGXSIG.get(k)); } catch(e) {}
+  let defWho = ''; try { if (typeof currentPartner !== 'undefined' && sigCfg[currentPartner]) defWho = currentPartner; } catch(e) {}
+  const CFG = { sig: sigCfg, defaultWho: defWho };
+  // বড় ডকুমেন্ট document.write করলে ব্রাউজার মাঝপথে কেটে দিতে পারে (স্ক্রিপ্ট চলে না) — তাই Blob URL দিয়ে খুলি
+  const __html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Investor Statement — ${esc(stmtNo)}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    @page { size: A4; margin: 14mm 13mm; }
-    *{box-sizing:border-box} body{font-family:'Noto Sans Bengali','IBM Plex Sans',Arial,sans-serif;color:#1a1a1a;margin:0;font-size:12.5px;line-height:1.5}
-    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .hd{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:3px solid #0f2a5c}
-    .hd img{width:175px;height:auto;display:block}
-    .hd .t{text-align:right}.hd .t b{display:block;font-size:20px;letter-spacing:2.5px;color:#0f2a5c}.hd .t span{display:block;font-size:11px;color:#555;margin-top:2px}
-    .sub{display:flex;justify-content:space-between;font-size:11px;color:#555;margin:8px 0 16px}
-    .card{border:1px solid #cfd8e8;border-left:5px solid #0f2a5c;border-radius:6px;padding:12px 14px;margin-bottom:16px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:8px 16px}
-    .card .nm{font-size:17px;font-weight:700;color:#0f2a5c}.card span{display:block;font-size:10px;color:#6b7280;text-transform:uppercase;letter-spacing:.4px}
-    .card b{font-weight:600}
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
-    .k{border:1px solid #dfe5f0;border-radius:6px;padding:10px 12px;background:#f7f9fd}.k span{display:block;font-size:10px;color:#6b7280;text-transform:uppercase;letter-spacing:.4px}
-    .k b{display:block;font-size:17px;margin-top:3px}.k small{display:block;font-size:9.5px;color:#777;margin-top:2px}
-    h3{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#0f2a5c;margin:0 0 7px;padding-bottom:4px;border-bottom:1px solid #cfd8e8}
-    table{width:100%;border-collapse:collapse}th{background:#0f2a5c;color:#fff;font-size:10.5px;text-align:left;padding:7px 8px;letter-spacing:.3px}
-    td{padding:7px 8px;border-bottom:1px solid #e5e9f2;vertical-align:top}tbody tr:nth-child(even) td{background:#f8faff}
-    .c{text-align:center}.r{text-align:right;white-space:nowrap}.b{font-weight:700}.mut{color:#666}
-    .tag{display:inline-block;border:1px solid;border-radius:10px;padding:0 8px;font-size:10.5px;font-weight:600;white-space:nowrap}
+    @page { size: A4; margin: 10mm 11mm; }
+    *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    html{background:#e9edf4}
+    body{margin:0;font-family:'Plus Jakarta Sans','Hind Siliguri','Noto Sans Bengali',Arial,sans-serif;color:#1b2437;font-size:13px;font-weight:500;line-height:1.55}
+    #s-tools{position:sticky;top:0;z-index:50;background:#0f2a5c;color:#fff;padding:10px 190px 10px 14px;display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;font-size:12.5px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+    #s-tools button,#s-tools select,#s-tools input[type=text]{font:600 12.5px inherit;font-family:inherit;padding:6px 11px;border-radius:7px;border:1px solid #3b5a96;background:#17376f;color:#fff;cursor:pointer}
+    #s-tools input[type=text]{cursor:text;width:230px;max-width:100%;font-weight:500}
+    #s-tools button:disabled,#s-tools input:disabled{opacity:.5;cursor:not-allowed}
+    #s-tools select option{color:#000}
+    #s-tools details{position:relative}#s-tools summary{cursor:pointer;padding:6px 11px;border-radius:7px;border:1px solid #3b5a96;background:#17376f;list-style:none;font-weight:600}
+    #s-tools .dd{position:absolute;top:34px;left:0;background:#fff;color:#1b2437;border-radius:8px;padding:8px 12px;box-shadow:0 6px 24px rgba(0,0,0,.3);min-width:230px;z-index:60}
+    #s-tools .dd label{display:block;padding:3px 0;cursor:pointer;font-weight:600}
+    #s-hint{width:100%;font-size:11.5px;color:#ffe9a8}
+    .page{max-width:794px;margin:18px auto 40px;background:#fff;padding:0 0 8px;box-shadow:0 4px 28px rgba(15,42,92,.18);outline:none}
+    .bar{height:6px;background:linear-gradient(90deg,#0f2a5c 0,#0f2a5c 68%,#c9a24a 100%)}
+    .in{padding:18px 38px 0}
+    .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+    .hd img{width:170px;height:auto;display:block}
+    .co{font-size:12px;color:#2c3650;line-height:1.7;margin-top:8px}
+    .hd .t{text-align:right}.hd .t b{display:block;font-size:22px;letter-spacing:3px;color:#0f2a5c;font-weight:800}
+    .hd .t .bn{display:block;font-size:13px;color:#7a5c10;font-weight:700;margin-top:2px}
+    .hd .t .st{display:inline-block;margin-top:8px;border:1px solid;border-radius:999px;padding:1px 12px;font-size:11.5px;font-weight:700}
+    .rule{height:2px;background:#c9a24a;margin:12px 0 10px}
+    .meta{display:grid;grid-template-columns:1.25fr 1fr 1.5fr .7fr;gap:10px;font-size:12px}
+    .meta span,.lbl{display:block;font-size:10.5px;color:#3d4860;text-transform:uppercase;letter-spacing:.7px;font-weight:700}
+    .meta b{font-size:13px;color:#0f2a5c;font-weight:700}
+    .two{display:block;margin-top:14px}
+    .box{border:1px solid #c9cfdc;border-radius:8px;padding:12px 14px;background:#fff}
+    .box h4{margin:0 0 8px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#7a5c10;font-weight:800}
+    .box.inv{border-left:5px solid #0f2a5c}
+    .nm{font-size:18px;font-weight:800;color:#0f2a5c;line-height:1.3;margin-bottom:6px}
+    .kv{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 14px}.kv b{display:block;font-size:13px;font-weight:700;color:#1b2437}
+    .co2 b{display:block;font-size:13px;color:#0f2a5c;font-weight:700}.co2 div{font-size:12px;color:#2c3650}
+    h3{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#0f2a5c;margin:16px 0 8px;padding-bottom:5px;border-bottom:1px solid #c9cfdc;font-weight:800}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+    .k{border:1px solid #c9cfdc;border-radius:8px;padding:11px 13px;background:#f7f9fd}
+    .k b{display:block;font-size:18px;margin-top:3px;font-weight:800}
+    .k.net{background:#0f2a5c;border-color:#0f2a5c}.k.net .lbl{color:#cfd8ee}.k.net b{color:#fff}
+    .pool{margin-top:10px;border:1px dashed #8d97ad;border-radius:8px;padding:10px 14px;display:flex;gap:16px;align-items:center;background:#fffdf6}
+    .pool .pc{font-size:22px;font-weight:800;color:#1b7a3d;white-space:nowrap}
+    .pool .tx{font-size:12px;color:#2c3650;line-height:1.55}
+    table{width:100%;border-collapse:collapse}
+    th{background:#0f2a5c;color:#fff;font-size:11px;text-align:left;padding:8px 8px;letter-spacing:.3px;font-weight:700}
+    td{padding:6px 8px;border-bottom:1px solid #dfe4ee;vertical-align:top;font-size:12.5px}
+    tbody tr:nth-child(even) td{background:#f8faff}
     tr{page-break-inside:avoid}
-    .two{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;margin-top:18px;align-items:start}
-    .sum td{background:transparent!important}.sum tr:last-child td{border-top:2px solid #0f2a5c}
-    .nb{border:1px dashed #b8c2d6;border-radius:6px;padding:9px 12px;font-size:11.5px;color:#444}
-    .sig{display:flex;justify-content:space-between;margin-top:46px;font-size:11px;color:#555}.sig div{width:44%;border-top:1px solid #777;padding-top:5px;text-align:center}
-    .dis{margin-top:16px;font-size:9.5px;color:#888;font-style:italic;text-align:center}
-    .ft{margin-top:10px;padding-top:8px;border-top:1px solid #cfd8e8;font-size:10px;color:#777;display:flex;justify-content:space-between}
+    .c{text-align:center}.r{text-align:right;white-space:nowrap}.b{font-weight:700}.mut{color:#2c3650}
+    .tag{display:inline-block;border:1px solid;border-radius:10px;padding:0 9px;font-size:11.5px;font-weight:700;white-space:nowrap}
+    .grid2{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;align-items:start}
+    .sum{page-break-inside:avoid}.sum td{background:transparent!important;font-size:13px}.sum tr:last-child td{border-top:2px solid #0f2a5c;border-bottom:0;font-size:13.5px}
+    .nb{border:1px solid #c9cfdc;border-radius:8px;padding:10px 13px;font-size:12.5px;color:#1b2437;line-height:1.7;background:#f7f9fd}
+    .sigrow{display:flex;justify-content:space-between;align-items:flex-start;margin-top:14px;page-break-inside:avoid}
+    .sg{width:44%;text-align:center}.sg .z{height:58px;display:flex;align-items:flex-end;justify-content:center}
+    .sg .ln{border-top:1px solid #8d97ad;padding-top:6px}
+    .sg .l{font-size:12px;font-weight:700;color:#2c3650}
+    #s-img{display:none;max-height:56px;max-width:190px;width:auto;height:auto;object-fit:contain;margin-bottom:-3px}
+    #s-name{display:none;font-size:13px;font-weight:800;color:#0f2a5c;line-height:1.5}
+    #s-title{display:none;font-size:12px;font-weight:700;color:#7a5c10;line-height:1.5}
+    .dis{margin-top:10px;font-size:11px;color:#3d4860;text-align:center;line-height:1.6}
+    .ft{margin:8px 38px 0;padding-top:6px;border-top:1px solid #c9cfdc;font-size:11px;color:#2c3650;display:flex;justify-content:space-between;gap:10px}
+    .off{display:none!important}
+    td.del{width:26px;padding:0;border:0;background:transparent!important}th.del{width:26px;padding:0;border:0;background:#0f2a5c}
+    .x{display:none;border:0;background:#fee2e2;color:#b91c1c;border-radius:4px;cursor:pointer;font-size:11px;padding:2px 6px}
+    body.editing .x{display:inline-block}
+    body.editing .page{outline:2px dashed #7c3aed;outline-offset:2px;cursor:text}
+    body.editing .page [contenteditable]:not([contenteditable=false]),body.editing .page td,body.editing .page b,body.editing .page span,body.editing .page div{caret-color:#7c3aed}
+    @media print{
+      html,body{background:#fff}
+      #s-tools,#igx-png-btn,#s-hint{display:none!important}
+      .page{box-shadow:none;margin:0;max-width:none;width:100%}
+      body.editing .page{outline:none}
+      .x,.del{display:none!important}
+      .page{zoom:.88}
+    }
+    @media (max-width:640px){.in{padding:16px 16px 0}.kpis{grid-template-columns:1fr 1fr}.meta{grid-template-columns:1fr 1fr}.two,.grid2{grid-template-columns:1fr}.ft{margin:12px 16px 0;flex-direction:column}#s-tools{padding-right:14px;padding-top:50px}}
   </style></head><body>
-  <div class="hd"><img src="${INNOGIX_LOGO_DATAURI}" alt="InnoGix"><div class="t"><b>INVESTOR STATEMENT</b><span>বিনিয়োগকারী স্টেটমেন্ট</span></div></div>
-  <div class="sub"><span>স্টেটমেন্ট নং: <b>${stmtNo}</b></span><span>জেনারেট: ${esc(genTime)}</span></div>
-  <div class="card">
-    <div><span>বিনিয়োগকারী</span><div class="nm">${esc(d.name)}</div></div>
-    <div><span>Investor ID</span><b>${esc(d.investorId)}</b></div><div><span>স্ট্যাটাস</span><b>${esc(d.invStatus || '—')}</b></div>
-    <div><span>ফোন</span><b>${esc(d.phone || '—')}</b></div><div><span>যোগদান</span><b>${esc(formatBDDate(d.joinDate) || '—')}</b></div><div><span>বিনিয়োগের ধরন</span><b>${esc(d.investmentType || '—')}</b></div>
+  <div id="s-tools">
+    <button id="s-edit" type="button" style="background:#7c3aed;border-color:#7c3aed">✏️ এডিট মোড</button>
+    <b>✍️ স্বাক্ষর:</b>
+    <select id="s-who"><option value="">স্বাক্ষর ছাড়া (ফাঁকা)</option><option value="Ismail">Md Ismail Hosen</option><option value="Ashik">Ashikur Rahman</option></select>
+    <button id="s-title-btn" type="button">🏷️ পদবী: দেখাচ্ছে ✓</button>
+    <input id="s-title-inp" type="text" list="s-titles" placeholder="পদবী লিখুন…" maxlength="60">
+    <datalist id="s-titles"><option value="ম্যানেজিং পার্টনার"><option value="পার্টনার"><option value="সহ-প্রতিষ্ঠাতা ও ম্যানেজিং পার্টনার"><option value="সহ-প্রতিষ্ঠাতা ও পার্টনার"><option value="প্রতিষ্ঠাতা"><option value="পরিচালক"><option value="Managing Partner"><option value="Partner"><option value="Co-Founder"><option value="Director"></datalist>
+    <details><summary>👁 অংশ দেখান/লুকান ▾</summary><div class="dd">
+      <label><input type="checkbox" data-sec-chk="co" checked> কোম্পানির তথ্য</label>
+      <label><input type="checkbox" data-sec-chk="kpi" checked> সারাংশ কার্ড</label>
+      <label><input type="checkbox" data-sec-chk="pool" checked> Equity Pool অংশ</label>
+      <label><input type="checkbox" data-sec-chk="hist" checked> লেনদেনের ইতিহাস</label>
+      <label><input type="checkbox" data-sec-chk="types" checked> ধরন অনুযায়ী সারসংক্ষেপ</label>
+      <label><input type="checkbox" data-sec-chk="notes" checked> নোট</label>
+      <label><input type="checkbox" data-sec-chk="sign" checked> স্বাক্ষর অংশ</label>
+      <label><input type="checkbox" data-sec-chk="dis" checked> ডিসক্লেইমার</label>
+    </div></details>
+    <button id="s-add" type="button">➕ লেনদেনের সারি</button>
+    <button id="s-print" type="button" style="background:#c9a24a;border-color:#c9a24a;color:#0f2a5c">🖨️ প্রিন্ট / PDF</button>
+    <div id="s-hint" style="display:none">✏️ এডিট মোড চালু — পেজের যেকোনো লেখা/সংখ্যায় ক্লিক করে বদলান। সারি মুছতে ✕। কাজ শেষে "✅ এডিট শেষ" চাপুন (প্রিন্টে এডিটের দাগ আসবে না)।</div>
   </div>
-  <div class="kpis">
-    <div class="k"><span>মোট বিনিয়োগ</span><b style="color:#8a6300">${money(d.totalInvested)}</b></div>
-    <div class="k"><span>Equity</span><b style="color:#1b7a3d">${Number(d.equityPct || 0).toFixed(2)}%</b><small>${isEq ? `${money(d.registeredAmt)} ÷ ${money(d.equityPoolTotal)}` : 'Fixed Return — equity pool-এর অংশ নয়'}</small></div>
-    <div class="k"><span>মোট Profit প্রদান</span><b style="color:#0b57d0">${money(d.totalProfitPaid)}</b></div>
-    <div class="k"><span>Buyback</span><b style="color:#b3261e">${money(d.totalBuyback)}</b></div>
+  <div class="page" id="stmt-page">
+    <div class="bar"></div>
+    <div class="in">
+      <div class="hd">
+        <div><img src="${INNOGIX_LOGO_DATAURI}" alt="InnoGix">
+          <div class="co" data-sec="co">কালিয়াকৈর, গাজীপুর, ঢাকা<br>Contact: +8801560016179 · WhatsApp: +8801530088886<br>innogix.official@gmail.com</div></div>
+        <div class="t"><b>INVESTOR STATEMENT</b><span class="bn">বিনিয়োগকারী স্টেটমেন্ট</span>
+          <span class="st" style="color:${stColor};border-color:${stColor}">${esc(d.invStatus || '—')}</span></div>
+      </div>
+      <div class="rule"></div>
+      <div class="meta">
+        <div><span>স্টেটমেন্ট নং</span><b>${esc(stmtNo)}</b></div>
+        <div><span>স্টেটমেন্টের তারিখ</span><b>${esc(to)}</b></div>
+        <div><span>সময়কাল</span><b>${esc(from)} → ${esc(to)}</b></div>
+        <div><span>মুদ্রা</span><b>BDT (৳)</b></div>
+      </div>
+      <div class="two">
+        <div class="box inv"><h4>বিনিয়োগকারীর তথ্য</h4>
+          <div class="nm">${esc(d.name)}</div>
+          <div class="kv">
+            <div><span class="lbl">Investor ID</span><b>${esc(d.investorId)}</b></div>
+            <div><span class="lbl">ফোন</span><b>${esc(d.phone || '—')}</b></div>
+            <div><span class="lbl">যোগদান</span><b>${esc(dOnly(d.joinDate))}</b></div>
+            <div><span class="lbl">বিনিয়োগের ধরন</span><b>${esc(d.investmentType || '—')}</b></div>
+            <div><span class="lbl">Payment Cycle</span><b>${esc(d.paymentCycle || '—')}</b></div>
+            <div><span class="lbl">স্ট্যাটাস</span><b>${esc(d.invStatus || '—')}</b></div>
+            ${d.email ? `<div><span class="lbl">ইমেইল</span><b>${esc(d.email)}</b></div>` : ''}
+            ${d.agreementDate ? `<div><span class="lbl">চুক্তির তারিখ</span><b>${esc(dOnly(d.agreementDate))}</b></div>` : ''}
+            ${d.nominee ? `<div><span class="lbl">নমিনি</span><b>${esc(d.nominee)}</b></div>` : ''}
+            ${(d.payoutMethod || d.payoutAccount) ? `<div><span class="lbl">লাভ গ্রহণের মাধ্যম</span><b>${esc([d.payoutMethod, d.payoutAccount].filter(Boolean).join(' — '))}</b></div>` : ''}
+            ${d.address ? `<div style="grid-column:span 2"><span class="lbl">ঠিকানা</span><b>${esc(d.address)}</b></div>` : ''}
+          </div></div>
+      </div>
+      <div class="kpis" data-sec="kpi">
+        <div class="k"><span class="lbl">মোট বিনিয়োগ</span><b style="color:#7a5c10">${money(showInv)}</b></div>
+        <div class="k"><span class="lbl">Buyback / উত্তোলন</span><b style="color:#b3261e">${money(returned)}</b></div>
+        <div class="k"><span class="lbl">মোট Profit প্রদান</span><b style="color:#0b57d0">${money(showProfit)}</b></div>
+        <div class="k net"><span class="lbl">নেট মূলধন${ranged ? ' (সময়ান্তে)' : ''}</span><b>${money(netCap)}</b></div>
+      </div>
+      <div class="pool" data-sec="pool">
+        <div class="pc">${isEq ? Number(d.equityPct || 0).toFixed(2) + '%' : '—'}</div>
+        <div class="tx"><b>Investor Equity Pool-এ আপনার অংশ</b><br>${isEq
+          ? `${money(d.registeredAmt)} ÷ ${money(d.equityPoolTotal)} (সক্রিয় Equity বিনিয়োগকারীদের মোট বিনিয়োগ) × 100। নতুন বিনিয়োগ/Buyback হলে এই শতাংশ বদলাতে পারে।`
+          : 'Fixed Return বিনিয়োগ — এটি Equity Pool-এর অংশ নয়।'}</div>
+      </div>
+      <div data-sec="hist">
+        <h3>লেনদেনের ইতিহাস</h3>
+        <table><thead><tr><th class="c" style="width:28px">#</th><th>তারিখ</th><th>ধরন</th><th>নোট</th><th class="r">পরিমাণ</th><th class="r">Capital Balance</th><th class="c">মাধ্যম / Ref</th><th class="del nodit" contenteditable="false"></th></tr></thead><tbody id="s-rows">${rowsHtml}</tbody></table>
+      </div>
+      <div class="grid2" style="margin-top:16px">
+        <div data-sec="notes"><h3 style="margin-top:4px">নোট</h3><div class="nb">${d.notes ? esc(d.notes) + '<br>' : ''}Capital Balance = বিনিয়োগ − Buyback/উত্তোলন (Profit Share মূলধনে যোগ/বিয়োগ হয় না)। তথ্যে কোনো অসংগতি পেলে আমাদের সাথে যোগাযোগ করুন।</div></div>
+        <div data-sec="types"><h3 style="margin-top:4px">ধরন অনুযায়ী সারসংক্ষেপ</h3><table class="sum"><tbody>${typeRows || '<tr><td class="mut">—</td><td></td></tr>'}<tr><td class="b">নেট মূলধন</td><td class="r b">${money(netCap)}</td></tr></tbody></table></div>
+      </div>
+      <div class="sigrow" data-sec="sign">
+        <div class="sg"><div class="z"></div><div class="ln"><div class="l">বিনিয়োগকারীর স্বাক্ষর ও তারিখ</div><div style="font-size:12px;color:#2c3650">${esc(d.name)}</div></div></div>
+        <div class="sg"><div class="z nodit" contenteditable="false"><img id="s-img" alt=""></div><div class="ln"><div id="s-name"></div><div id="s-title"></div><div class="l">কর্তৃপক্ষের স্বাক্ষর</div></div></div>
+      </div>
+      <div class="dis" data-sec="dis">এই স্টেটমেন্টটি InnoGix Business Suite থেকে স্বয়ংক্রিয়ভাবে প্রস্তুতকৃত এবং তথ্যগত উদ্দেশ্যে প্রদত্ত। কোনো তথ্যে অসঙ্গতি থাকলে স্টেটমেন্ট নং <b>${esc(stmtNo)}</b> উল্লেখ করে যোগাযোগ করুন — Contact: +8801560016179 · WhatsApp: +8801530088886</div>
+    </div>
+    <div class="ft"><span>InnoGix · কালিয়াকৈর, গাজীপুর, ঢাকা</span><span>${esc(stmtNo)}</span></div>
+    <div class="bar" style="margin-top:10px"></div>
   </div>
-  <h3>লেনদেনের ইতিহাস</h3>
-  <table><thead><tr><th class="c" style="width:28px">#</th><th>তারিখ</th><th>ধরন</th><th class="r">পরিমাণ</th><th>নোট</th><th class="c">Verified</th></tr></thead><tbody>${rows}</tbody></table>
-  <div class="two">
-    <div class="nb"><b>Payment Cycle:</b> ${esc(d.paymentCycle || '—')}${d.notes ? `<br><b>নোট:</b> ${esc(d.notes)}` : ''}</div>
-    <div><h3>ধরন অনুযায়ী সারসংক্ষেপ</h3><table class="sum"><tbody>${sumRows || '<tr><td class="mut">—</td><td></td></tr>'}</tbody></table></div>
-  </div>
-  <div class="sig"><div>বিনিয়োগকারীর স্বাক্ষর</div><div>কর্তৃপক্ষের স্বাক্ষর</div></div>
-  <div class="dis">এই স্টেটমেন্টটি InnoGix Business OS থেকে স্বয়ংক্রিয়ভাবে জেনারেট করা হয়েছে এবং তথ্যগত উদ্দেশ্যে প্রদত্ত।</div>
-  <div class="ft"><span>InnoGix · কালিয়াকৈর, গাজীপুর, ঢাকা</span><span>${stmtNo}</span></div>
-  ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){window.print();},600);};<\/script></body></html>`);
-  win.document.close();
+  ${window.__igxPngBtn||''}<script>(${__igxStmtPopup.toString()})(${JSON.stringify(CFG).replace(/</g,'\\u003c')});<\/script></body></html>`;
+  const __url = URL.createObjectURL(new Blob([__html], { type: 'text/html;charset=utf-8' }));
+  const win = window.open(__url, '_blank');
+  if (!win) { URL.revokeObjectURL(__url); showToast && showToast('পপ-আপ ব্লক করা আছে — অনুমতি দিন', 'warning'); return; }
+  setTimeout(() => URL.revokeObjectURL(__url), 120000);
 }
 
 // showPage-এ investor page লোড করো (নিচে মূল showPage ফাংশনে integrate করা আছে)
@@ -8580,7 +9246,9 @@ const IGXSIG = (function(){
     try { if (typeof currentPartner !== 'undefined' && IMG[currentPartner]) who = currentPartner; } catch(e) {}
     $('isg-who').value = who; showTitle = true; ui();
   }
-  return { ui, edit, toggleTitle, reset, render };
+  function get(who){ return IMG[who] ? { img: IMG[who], name: NAME[who], title: titleOf(who) } : null; }
+  function setTitle(who, v){ if (IMG[who]) lsSet('igx_sig_title_'+who, v); }
+  return { ui, edit, toggleTitle, reset, render, get, setTitle };
 })();
 window.IGXSIG = IGXSIG;
 
@@ -8597,7 +9265,7 @@ const IGXW = (function(){
     digits:'bn',
     title:'ওয়ারেন্টি ও গ্যারান্টি তথ্য',
     intro:'প্রতিটি প্রোডাক্ট যাচাই করে সরবরাহ করা হয় — নিশ্চিন্ত ব্যবহারের জন্য রয়েছে আমাদের ওয়ারেন্টি ও বিক্রয়োত্তর সহায়তা।',
-    claimNote:'ওয়ারেন্টি বা রিপ্লেসমেন্ট সেবা পেতে এই ইনভয়েসটি সংরক্ষণ করুন এবং WhatsApp-এ যোগাযোগ করুন: +8801530088886। যেকোনো সমস্যায় আমরা পাশে আছি।'
+    claimNote:'ওয়ারেন্টি বা রিপ্লেসমেন্ট সেবা পেতে এই ইনভয়েসটি সংরক্ষণ করুন এবং যোগাযোগ করুন — Contact: +8801560016179 · WhatsApp: +8801530088886। যেকোনো সমস্যায় আমরা পাশে আছি।'
   };
   const REP_DEF = 'ডেলিভারির {days} দিনের মধ্যে প্রস্তুতকারকজনিত ত্রুটি পেলে নতুন ডিভাইস দিয়ে বদলে দেওয়া হবে (মূল প্যাকেজিং সহ)।';
   let store = {global:null, def:null, products:{}};
@@ -8609,7 +9277,7 @@ const IGXW = (function(){
   const $=id=>document.getElementById(id);
   const esc=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const clone=o=>JSON.parse(JSON.stringify(o));
-  const gl=()=>Object.assign({},GDEF,store.global||{});
+  const gl=()=>{ const g=Object.assign({},GDEF,store.global||{}); if(g.claimNote==='ওয়ারেন্টি বা রিপ্লেসমেন্ট সেবা পেতে এই ইনভয়েসটি সংরক্ষণ করুন এবং WhatsApp-এ যোগাযোগ করুন: +8801530088886। যেকোনো সমস্যায় আমরা পাশে আছি।') g.claimNote=GDEF.claimNote; return g; };
   const defCfg=()=>Object.assign(clone(DEF),store.def||{});
   function prodKey(n){ n=String(n||'').trim().toLowerCase(); for(const k in store.products){ if(String(k).trim().toLowerCase()===n) return k; } return null; }
   function resolve(name){ const k=prodKey(name); return k? Object.assign(clone(DEF),store.products[k]) : defCfg(); }
@@ -8678,7 +9346,7 @@ const IGXW = (function(){
       h+=`<tr><td class="inv-editable">${esc(r.name)}</td>`;
       if(showWar) h+=`<td class="inv-editable" style="font-weight:700;color:#1b7a3d;">${lab?esc(lab):'—'}</td>`;
       if(showRep) h+=`<td class="inv-editable" style="font-weight:700;color:#0f2a5c;">${(r.cfg.repEnabled&&Number(r.cfg.repDays)>0)?esc(dig(Number(r.cfg.repDays))+' দিন'):'—'}</td>`;
-      if(showExp) h+=`<td class="inv-editable">${ex?esc(fmtDate(ex)):'—'}</td>`;
+      if(showExp) h+=`<td class="inv-editable" style="white-space:nowrap;font-weight:700;color:#0f2a5c;letter-spacing:.2px;">${ex?esc(String(ex.getDate()).padStart(2,'0')+' '+MONEN[ex.getMonth()]+' '+ex.getFullYear()):'—'}</td>`;
       h+='</tr>';
     });
     h+='</tbody></table>';
@@ -9036,7 +9704,7 @@ function toggleTheme(){
 
 // ─── NOTIFICATION CENTER ─────────────────────────────────────
 const _notifications = [
-  { id:1, type:'login',    icon:'👤', msg:'<strong>ASHIKUR RAHMAN</strong> InnoGix OS-এ লগইন করেছেন', time:'এইমাত্র', unread:true },
+  { id:1, type:'login',    icon:'👤', msg:'<strong>ASHIKUR RAHMAN</strong> InnoGix-এ লগইন করেছেন', time:'এইমাত্র', unread:true },
   { id:2, type:'stock',    icon:'⚠️', msg:'<strong>Rechargeable Fan</strong> স্টক সংকটজনক — মাত্র ৩টি বাকি!', time:'৫ মিনিট আগে', unread:true },
   { id:3, type:'delivery', icon:'✅', msg:'অর্ডার <strong>#ORD-4821</strong> সফলভাবে ডেলিভারি সম্পন্ন হয়েছে', time:'১৮ মিনিট আগে', unread:true },
   { id:4, type:'order',    icon:'🛒', msg:'নতুন অর্ডার <strong>#ORD-4822</strong> এসেছে — Md. Karim, Dhaka', time:'৩৫ মিনিট আগে', unread:true },
@@ -13195,6 +13863,549 @@ function filterPartners(){
   renderPartnerTxns(filtered);
 }
 
+// ═══════════════════════════════════════════════════════════════
+// 🤝 PARTNERS v2 — ড্যাশবোর্ড · Maker-Checker · Audit · Integrity · Lock · Statement · Voucher
+//   (GS-এর _pn2* সিকিউর কোরের সাথে কাজ করে; Edit/Delete/Verify/Lock/Import-এ PIN লাগে)
+// ═══════════════════════════════════════════════════════════════
+const PN_NAMES = { Ismail:'MD ISMAIL HOSEN', Ashik:'ASHIKUR RAHMAN' };
+const PN_KEYS  = { 'MD ISMAIL HOSEN':'Ismail', 'ASHIKUR RAHMAN':'Ashik' };
+const PN_COLORS = { 'MD ISMAIL HOSEN':'#388bfd', 'ASHIKUR RAHMAN':'#3fb950' };
+window._pnLockUntil = '';
+window._pnIntegrity = null;
+const _pnEsc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const _pnMon = {jan:'01',feb:'02',mar:'03',apr:'04',may:'05',jun:'06',jul:'07',aug:'08',sep:'09',oct:'10',nov:'11',dec:'12'};
+function pnDay(v){ // যেকোনো তারিখ → 'yyyy-mm-dd' (Dhaka)
+  if (v == null || v === '') return '';
+  const s = String(v).trim(); let m;
+  if ((m = /^(\d{1,2})[-\/ ]([A-Za-z]{3})[a-z]*[-\/ ,]*(\d{4})/.exec(s)) && _pnMon[m[2].toLowerCase()]) return m[3] + '-' + _pnMon[m[2].toLowerCase()] + '-' + ('0' + m[1]).slice(-2);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+  const t = Date.parse(s); if (isNaN(t)) return '';
+  return new Intl.DateTimeFormat('en-CA', { timeZone:'Asia/Dhaka' }).format(new Date(t));
+}
+function pnTs(v){ const s = String(v||'').trim(); let t = Date.parse(s); if (isNaN(t)) { const d = pnDay(s); t = d ? Date.parse(d + 'T00:00:00+06:00') : 0; } return t || 0; }
+function pnToday(){ return new Intl.DateTimeFormat('en-CA', { timeZone:'Asia/Dhaka' }).format(new Date()); }
+function pnActor(){ if (!currentPartner) { showToast('আগে পার্টনার হিসেবে লগইন করুন', 'error'); return null; } return currentPartner; }
+function pnIsLegacy(t){ const c = String(t.createdBy||'').trim(); return !c || c.indexOf('পুরনো') > -1; }
+function pnStatus(t){ return t.verified === 'Yes' ? 'verified' : (pnIsLegacy(t) ? 'legacy' : 'pending'); }
+function pnIsLocked(t){ const L = window._pnLockUntil; return !!(L && t._day && t._day <= L); }
+const pnMoney = n => '৳' + (Number(n)||0).toLocaleString('en-US', { maximumFractionDigits: 2 });
+function pnFmtDate(v){ const d = pnDay(v); if (!d) return '—'; const p = d.split('-'); return p[2] + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+p[1]-1] + '-' + p[0]; }
+
+// ── লোড ────────────────────────────────────────────────────────
+async function loadLivePartners(){
+  const data = await fetchFromAPI('partners'); if (!data || !data.data) return;
+  window._pnLockUntil = data.lockUntil || '';
+  const rawRows = data.data, firstRow = rawRows[0] || [];
+  const isHeader = firstRow.length > 0 && (String(firstRow[0]||'').toLowerCase().includes('id') || String(firstRow[1]||'').toLowerCase().includes('partner') || String(firstRow[2]||'').toLowerCase().includes('type'));
+  const toProc = isHeader ? rawRows.slice(1) : rawRows;
+  const rows = toProc.map((r, i) => {
+    const rawDT = r[3] || r[0] || '';
+    return {
+      id: (r[0] !== '' && r[0] !== null && r[0] !== undefined && !isNaN(Number(r[0]))) ? Number(r[0]) : (i + 1),
+      date: formatBDDate(rawDT), rawDate: String(rawDT||''), _day: pnDay(rawDT), _ts: pnTs(rawDT),
+      partner: ruhPartnerName(String(r[1]||'')), type: String(r[2]||''), amount: Number(r[4])||0,
+      method: String(r[5]||''), desc: String(r[6]||''), balanceAfter: Number(r[7])||0,
+      verified: String(r[8]||'').trim(), createdBy: String(r[9]||'').trim(), verifiedBy: String(r[10]||'').trim(), verifiedAt: String(r[11]||'').trim(),
+      ref: String(r[12]||'').trim(), voucher: String(r[13]||'').trim(), modified: String(r[14]||'').trim()
+    };
+  }).filter(r => r.partner && r.partner.trim());
+  // শিটের ক্রম অনুযায়ী প্রতিটি পার্টনারের Balance After (Investment +, Drawings −)
+  const run = {}; rows.forEach((t, i) => { t._i = i; run[t.partner] = (run[t.partner]||0) + (t.type === 'Investment' ? t.amount : t.type === 'Drawings' ? -t.amount : 0); t._bal = run[t.partner]; });
+  livePartnerData = rows; window.allPartners = rows;
+  renderPartnerSummary(rows); renderPtSecbar(); renderPtCharts(rows); filterPartners();
+  showToast('Partners loaded ✅', 'success');
+  try { pnCheckIntegrity(); } catch(e) {}
+}
+
+// ── কার্ড ───────────────────────────────────────────────────────
+function renderPartnerSummary(txns){
+  const P = [ { name:'MD ISMAIL HOSEN', cls:'ismail', color:'var(--ismail)', initial:'I' }, { name:'ASHIKUR RAHMAN', cls:'ashik', color:'var(--ashik)', initial:'A' } ];
+  const st = P.map(p => {
+    const mine = txns.filter(t => t.partner === p.name), sum = ty => mine.filter(t => t.type === ty).reduce((s,t) => s + Number(t.amount||0), 0);
+    const inv = sum('Investment'), drw = sum('Drawings'), prf = sum('Profit Share');
+    return Object.assign({}, p, { inv, drw, prf, net: inv - drw, count: mine.length, pend: mine.filter(t => pnStatus(t) === 'pending').length, last: mine.reduce((m,t) => t._ts > m ? t._ts : m, 0) });
+  });
+  const tot = st.reduce((s,x) => s + Math.max(x.net, 0), 0);
+  const stat = (l, v, c, tip) => `<div class="p-stat" ${tip ? 'title="' + tip + '"' : ''}><label>${l}</label><span style="color:${c};">${v}</span></div>`;
+  const lastStr = ts => ts ? new Intl.DateTimeFormat('en-GB', { timeZone:'Asia/Dhaka', day:'2-digit', month:'short', year:'numeric' }).format(new Date(ts)).replace(/ /g,'-') : '—';
+  const cards = st.map(p => {
+    const share = tot > 0 && p.net > 0 ? (p.net * 100 / tot) : 0;
+    return `<div class="partner-bal-card ${p.cls}">
+      <div class="p-initial">${p.initial}</div>
+      <div class="p-name" style="color:${p.color};">${p.name}</div>
+      <div class="p-role">Partner · ${p.count}টি এন্ট্রি${p.pend ? ' · <span style="color:var(--orange);">⏳ ' + p.pend + ' ভেরিফাই বাকি</span>' : ''}</div>
+      <div class="p-stats" style="flex-wrap:wrap;gap:12px 18px;">
+        ${stat('Invested', pnMoney(p.inv), 'var(--blue)')}
+        ${stat('Drawings', pnMoney(p.drw), 'var(--red)')}
+        ${p.prf > 0 ? stat('Profit Share (আলাদা)', pnMoney(p.prf), 'var(--orange)', 'লাভের অংশ — মূলধনে যোগ হয় না') : ''}
+        ${stat('Net Balance (মূলধন)', pnMoney(Math.abs(p.net)) + (p.net < 0 ? ' ↓' : ''), p.net >= 0 ? 'var(--green)' : 'var(--red)', 'Net Balance = Invested − Drawings (Profit Share ছাড়া)')}
+        ${stat('মূলধনের অংশ', share.toFixed(1) + '%', p.color, 'দুই পার্টনারের মোট নেট মূলধনের কত শতাংশ')}
+      </div>
+      <div style="font-size:10.5px;color:var(--text3);margin-top:10px;">সর্বশেষ লেনদেন: ${lastStr(p.last)}</div>
+    </div>`;
+  }).join('');
+  const T = { inv: st[0].inv + st[1].inv, drw: st[0].drw + st[1].drw, prf: st[0].prf + st[1].prf }, net = T.inv - T.drw;
+  const s0 = tot > 0 ? Math.max(st[0].net, 0) * 100 / tot : 50;
+  const comb = `<div class="partner-bal-card" style="background:linear-gradient(135deg,rgba(240,180,41,.12),rgba(240,180,41,.03));border-color:rgba(240,180,41,.35);">
+      <div class="p-initial">Σ</div>
+      <div class="p-name" style="color:var(--gold);">মোট (Combined)</div>
+      <div class="p-role">দুই পার্টনারের সম্মিলিত হিসাব</div>
+      <div class="p-stats" style="flex-wrap:wrap;gap:12px 18px;">
+        ${stat('Total Invested', pnMoney(T.inv), 'var(--blue)')}${stat('Total Drawings', pnMoney(T.drw), 'var(--red)')}
+        ${T.prf > 0 ? stat('Profit Share', pnMoney(T.prf), 'var(--orange)') : ''}
+        ${stat('নেট মূলধন', pnMoney(Math.abs(net)) + (net < 0 ? ' ↓' : ''), net >= 0 ? 'var(--green)' : 'var(--red)')}
+      </div>
+      <div style="margin-top:12px;height:8px;border-radius:6px;overflow:hidden;background:var(--bg3,#222);display:flex;" title="মূলধনের অংশ"><span style="width:${s0.toFixed(1)}%;background:#388bfd;"></span><span style="flex:1;background:#3fb950;"></span></div>
+      <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--text3);margin-top:4px;"><span>ইসমাইল ${s0.toFixed(1)}%</span><span>আশিক ${(100 - s0).toFixed(1)}%</span></div>
+    </div>`;
+  el('partner-cards').innerHTML = cards + comb;
+}
+
+// ── নিরাপত্তা বার ───────────────────────────────────────────────
+function renderPtSecbar(){
+  const L = window._pnLockUntil, chip = el('pn-lock-chip');
+  if (chip) { chip.innerHTML = L ? '🔒 হিসাব লক: <b>' + pnFmtDate(L) + '</b> পর্যন্ত' : '🔓 কোনো পিরিয়ড লক নেই'; chip.style.color = L ? 'var(--gold)' : 'var(--text3)'; }
+  const b = el('pn-int-badge'), I = window._pnIntegrity;
+  if (b) {
+    if (!I) { b.innerHTML = '🛡️ হিসাব যাচাই হচ্ছে…'; b.style.color = 'var(--text3)'; }
+    else if (I.level === 'ok') { b.innerHTML = '✅ হিসাব যাচাই: সব ঠিক <span style="opacity:.7;font-weight:500;">#' + _pnEsc(I.checksum) + '</span>'; b.style.color = 'var(--green)'; }
+    else if (I.level === 'warn') { b.innerHTML = '⚠️ হিসাব যাচাই: ' + I.checks.filter(c => c.status === 'warn').length + 'টি সতর্কতা'; b.style.color = 'var(--orange)'; }
+    else { b.innerHTML = '❌ হিসাব যাচাই: ' + I.checks.filter(c => c.status === 'error').length + 'টি সমস্যা — দেখুন'; b.style.color = 'var(--red)'; }
+  }
+}
+async function pnCheckIntegrity(){
+  const r = await fetchFromAPI('partner_integrity');
+  if (r && r.checks) { window._pnIntegrity = r; renderPtSecbar(); }
+  return r;
+}
+
+// ── চার্ট ───────────────────────────────────────────────────────
+function renderPtCharts(rows){
+  const box = el('pn-charts'); if (!box) return;
+  if (!rows.length) { box.innerHTML = ''; return; }
+  const nets = Object.keys(PN_COLORS).map(n => ({ name:n, v: rows.filter(t => t.partner === n).reduce((s,t) => s + (t.type === 'Investment' ? t.amount : t.type === 'Drawings' ? -t.amount : 0), 0) }));
+  const tot = nets.reduce((s,x) => s + Math.max(x.v, 0), 0);
+  let donut = '<div style="color:var(--text3);font-size:12px;padding:30px 0;text-align:center;">মূলধনের হিসাব এখনো শূন্য</div>';
+  if (tot > 0) {
+    const R = 52, C = 2 * Math.PI * R; let cum = 0, sl = '', lg = '';
+    nets.filter(x => x.v > 0).forEach(x => { const f = x.v / tot, len = f * C, col = PN_COLORS[x.name];
+      sl += `<circle cx="70" cy="70" r="${R}" fill="none" stroke="${col}" stroke-width="22" stroke-dasharray="${len.toFixed(2)} ${(C-len).toFixed(2)}" stroke-dashoffset="${(-cum*C).toFixed(2)}" transform="rotate(-90 70 70)"><title>${_pnEsc(x.name)}: ${(f*100).toFixed(1)}% (${pnMoney(x.v)})</title></circle>`;
+      lg += `<div style="display:flex;align-items:center;gap:6px;font-size:12px;margin:4px 0;"><span style="width:10px;height:10px;border-radius:3px;background:${col};flex:none;"></span><span style="color:var(--text);">${_pnEsc(x.name)}</span><b style="margin-left:auto;color:var(--text2);">${(f*100).toFixed(1)}%</b></div>`; cum += f; });
+    donut = `<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;"><svg viewBox="0 0 140 140" width="150" height="150" role="img" aria-label="মূলধনের অংশ">${sl}<text x="70" y="66" text-anchor="middle" font-size="9" fill="var(--text3)">নেট মূলধন</text><text x="70" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text)">${pnMoney(tot)}</text></svg><div style="min-width:170px;flex:1;">${lg}</div></div>`;
+  }
+  const now = new Date(), months = [];
+  for (let i = 5; i >= 0; i--) { const d = new Date(now.getFullYear(), now.getMonth() - i, 1); months.push({ y:d.getFullYear(), m:d.getMonth(), inv:0, drw:0 }); }
+  rows.forEach(t => { const dd = t._day; if (!dd) return; const y = +dd.slice(0,4), m = +dd.slice(5,7) - 1, b = months.find(x => x.y === y && x.m === m); if (!b) return; if (t.type === 'Investment') b.inv += t.amount; else if (t.type === 'Drawings') b.drw += t.amount; });
+  const maxV = Math.max(1, ...months.map(x => Math.max(x.inv, x.drw))), H = 100, bw = 18, gp = 5, grp = 2*bw + gp + 14;
+  const bars = months.map((x,i) => { const X = i * grp + 4, h1 = Math.round(x.inv / maxV * H), h2 = Math.round(x.drw / maxV * H);
+    return `<g><rect x="${X}" y="${20+H-h1}" width="${bw}" height="${Math.max(h1, x.inv?2:0)}" rx="3" fill="#34d174"><title>${INV_BN_MON[x.m]} ${x.y} Investment: ${pnMoney(x.inv)}</title></rect><rect x="${X+bw+gp}" y="${20+H-h2}" width="${bw}" height="${Math.max(h2, x.drw?2:0)}" rx="3" fill="#f55549"><title>${INV_BN_MON[x.m]} ${x.y} Drawings: ${pnMoney(x.drw)}</title></rect><text x="${X+bw+gp/2}" y="${H+36}" text-anchor="middle" font-size="10" fill="var(--text3)">${INV_BN_MON[x.m]}</text></g>`; }).join('');
+  const bar = `<svg viewBox="0 0 ${months.length*grp+4} ${H+44}" width="100%" style="max-height:190px;" role="img" aria-label="মাসিক Investment ও Drawings"><line x1="0" x2="${months.length*grp}" y1="${20+H}" y2="${20+H}" stroke="var(--border)"/>${bars}</svg><div style="display:flex;gap:14px;font-size:11px;color:var(--text3);justify-content:center;"><span><i style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#34d174;"></i> Investment</span><span><i style="display:inline-block;width:9px;height:9px;border-radius:2px;background:#f55549;"></i> Drawings</span></div>`;
+  box.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-bottom:18px;"><div class="card" style="padding:14px 16px;"><div style="font-weight:600;color:var(--text);margin-bottom:10px;">🥧 মূলধনের অংশ — কার কত</div>${donut}</div><div class="card" style="padding:14px 16px;"><div style="font-weight:600;color:var(--text);margin-bottom:6px;">📈 মাসিক Investment বনাম Drawings (শেষ ৬ মাস)</div>${bar}</div></div>`;
+}
+
+// ── ফিল্টার + টেবিল ─────────────────────────────────────────────
+function filterPartners(){
+  const g = id => (el(id) || {}).value || '';
+  const pf = g('pn-f-partner'), tf = g('pn-f-type'), sf = g('pn-f-status'), from = g('pn-f-from'), to = g('pn-f-to'), q = g('pn-f-q').trim().toLowerCase();
+  const data = livePartnerData || [];
+  const f = data.filter(t => (!pf || t.partner === pf) && (!tf || t.type === tf) && (!sf || pnStatus(t) === sf) && (!from || (t._day && t._day >= from)) && (!to || (t._day && t._day <= to))
+    && (!q || [t.desc, t.ref, t.voucher, t.method, t.createdBy, String(t.id), String(t.amount)].join(' ').toLowerCase().includes(q)));
+  renderPartnerTxns(f);
+  const c = el('pn-count'); if (c) c.textContent = f.length + '/' + data.length + 'টি এন্ট্রি দেখাচ্ছে';
+}
+function pnClearFilters(){ ['pn-f-partner','pn-f-type','pn-f-status','pn-f-from','pn-f-to','pn-f-q'].forEach(i => { if (el(i)) el(i).value = ''; }); filterPartners(); }
+function pnxClamp(t){
+  const s = String(t.desc||'').trim(); if (!s) return '—';
+  const long = s.length > 70 || /\n/.test(s);
+  return long ? `<div class="exp-clamp" title="পড়তে ক্লিক করুন" onclick="partnerRead('${_expEsc(t.id)}')">${_expEsc(s)}</div><a class="exp-readmore" onclick="partnerRead('${_expEsc(t.id)}')">📖 পুরোটা পড়ুন</a>` : _expEsc(s);
+}
+function renderPartnerTxns(rows){
+  const me = currentPartner ? PN_NAMES[currentPartner] : '';
+  const sorted = rows.slice().sort((a,b) => (b._ts - a._ts) || (b.id - a.id));
+  el('partner-body').innerHTML = sorted.map(t => {
+    const stt = pnStatus(t), lk = pnIsLocked(t), col = t.type === 'Investment' ? 'var(--green)' : 'var(--red)';
+    const chip = stt === 'verified' ? `<span class="status delivered" title="ভেরিফাই করেছেন: ${_pnEsc(t.verifiedBy)}${t.verifiedAt ? ' · ' + _pnEsc(t.verifiedAt) : ''}">✅ ভেরিফাইড</span><div style="font-size:9.5px;color:var(--text3);margin-top:2px;">${_pnEsc(t.verifiedBy)}</div>`
+      : stt === 'pending' ? `<span class="status pending" title="যিনি এন্ট্রি করেছেন: ${_pnEsc(t.createdBy)}">⏳ ভেরিফাই বাকি</span><div style="font-size:9.5px;color:var(--text3);margin-top:2px;">এন্ট্রি: ${_pnEsc(t.createdBy)}</div>`
+      : `<span class="status" style="background:rgba(139,148,158,.15);color:var(--text3);" title="অডিট সিস্টেমের আগের এন্ট্রি">পুরনো</span>`;
+    const canVerify = stt !== 'verified' && me && t.createdBy !== me;
+    return `<tr>
+      <td class="mono muted">${t.id}</td>
+      <td class="mono">${_pnEsc(t.date)}${lk ? ' <span title="লক করা পিরিয়ড">🔒</span>' : ''}</td>
+      <td><strong>${_pnEsc(t.partner)}</strong></td>
+      <td><span class="status ${t.type==='Investment'?'delivered':t.type==='Drawings'?'cancelled':'pending'}">${_pnEsc(t.type)}</span></td>
+      <td class="mono" style="font-weight:700;color:${col};">${pnMoney(t.amount)}</td>
+      <td><span class="pay-badge ${(t.method||'').toLowerCase().replace(/ /g,'')}">${_pnEsc(t.method||'—')}</span>${t.ref ? `<div style="font-size:10px;color:var(--text3);margin-top:2px;">${_pnEsc(t.ref)}</div>` : ''}</td>
+      <td class="muted exp-dcell">${pnxClamp(t)}${t.voucher ? `<div style="font-size:9.5px;color:var(--gold);margin-top:2px;">${_pnEsc(t.voucher)}</div>` : ''}</td>
+      <td class="mono" style="color:${t._bal>=0?'var(--green)':'var(--red)'};font-weight:700;">${pnMoney(Math.abs(t._bal))}${t._bal<0?' ↓':''}${t.type==='Profit Share'?'<div style="font-size:9.5px;font-weight:400;color:var(--text3);margin-top:2px;">লাভ — ব্যালেন্সে যোগ হয়নি</div>':''}</td>
+      <td>${chip}</td>
+      <td style="white-space:nowrap;">
+        ${canVerify ? `<button class="btn" style="padding:4px 8px;font-size:11px;background:rgba(63,185,80,.15);color:var(--green);border-color:rgba(63,185,80,.4);" title="অন্য পার্টনার হিসেবে ভেরিফাই (PIN লাগবে)" onclick="pnVerify(${t._i})">✅</button>` : ''}
+        <button class="btn" style="padding:4px 8px;font-size:11px;" title="ভাউচার" onclick="pnVoucher(${t._i})">🧾</button>
+        <button class="btn" style="padding:4px 8px;font-size:11px;${lk?'opacity:.4;':''}" title="${lk?'লক করা পিরিয়ড':'Edit (PIN লাগবে)'}" onclick="pnEdit(${t._i})">✏️</button>
+        <button class="btn" style="padding:4px 8px;font-size:11px;background:var(--red);color:#fff;border-color:var(--red);${lk?'opacity:.4;':''}" title="${lk?'লক করা পিরিয়ড':'Delete (PIN লাগবে)'}" onclick="pnDelete(${t._i})">🗑️</button>
+      </td></tr>`;
+  }).join('') || '<tr><td colspan="10" style="text-align:center;color:var(--text3);padding:26px;">কোনো এন্ট্রি নেই</td></tr>';
+}
+
+// ── যোগ / Edit / Delete / Verify ────────────────────────────────
+function pnOpenAdd(){
+  if (!pnActor()) return;
+  ['pn-add-amount','pn-add-ref','pn-add-desc'].forEach(i => { if (el(i)) el(i).value = ''; });
+  if (el('pn-add-method')) el('pn-add-method').value = 'Cash';
+  const d = el('pn-add-date'); if (d) { d.max = pnToday(); d.value = pnToday(); }
+  const L = window._pnLockUntil, ln = el('pn-add-lock'); if (ln) { ln.style.display = L ? 'block' : 'none'; ln.textContent = L ? '🔒 ' + pnFmtDate(L) + ' পর্যন্ত হিসাব লক — এর পরের তারিখ দিন' : ''; }
+  openModal('add-transaction');
+}
+let _pnBusy = false;
+async function submitTransaction(){
+  if (_pnBusy) return; const actor = pnActor(); if (!actor) return;
+  const partner = el('pn-add-partner').value, type = el('pn-add-type').value, method = el('pn-add-method').value;
+  const amount = Number(el('pn-add-amount').value), date = el('pn-add-date').value, ref = el('pn-add-ref').value.trim(), desc = el('pn-add-desc').value.trim();
+  if (!partner || !(amount > 0)) { showToast('Partner ও সঠিক Amount দিন', 'error'); return; }
+  if (date && date > pnToday()) { showToast('ভবিষ্যতের তারিখ দেওয়া যায় না', 'error'); return; }
+  if (window._pnLockUntil && date && date <= window._pnLockUntil) { showToast('🔒 ' + pnFmtDate(window._pnLockUntil) + ' পর্যন্ত হিসাব লক', 'error'); return; }
+  if (amount >= 100000 && !confirm('⚠️ ' + pnMoney(amount) + ' — পরিমাণটি ঠিক আছে তো?\n' + partner + ' · ' + type)) return;
+  _pnBusy = true; const btn = el('pn-add-save'); if (btn) btn.disabled = true;
+  try {
+    const res = await postToAPI({ action:'addTransaction', actor, partner, type, amount, method, reference: ref, date, description: desc });
+    if (res) {
+      closeModal('add-transaction'); showToast('✅ Transaction সেভ হয়েছে' + (res.duplicate ? ' (ডাবল-ক্লিক আটকানো হয়েছে)' : ''), 'success');
+      if (res.voucherNo) pnVoucherBar({ kind:'partner', receiptNo:res.voucherNo, txnId:res.txnId, date:pnFmtDate(date || pnToday()), investorId:partner, name:partner, type, amount, method, reference:ref, notes:desc, createdBy:PN_NAMES[actor], verified:'No' });
+      setTimeout(() => { loadLivePartners(); try { loadLiveDashboard(); } catch(e) {} }, 600);
+    }
+  } finally { _pnBusy = false; if (btn) btn.disabled = false; }
+}
+function pnEdit(i){ const t = (livePartnerData||[])[i]; if (!t) return; if (pnIsLocked(t)) { showToast('🔒 এই তারিখের হিসাব লক করা — বদলানো যাবে না', 'error'); return; } openEditPartnerTxn(t); }
+function openEditPartnerTxn(t){
+  currentEditTxnId = t.id;
+  el('eptxn-partner').value = t.partner || 'MD ISMAIL HOSEN'; el('eptxn-type').value = t.type || 'Investment';
+  el('eptxn-amount').value = t.amount || 0; el('eptxn-method').value = (t.method && [...el('eptxn-method').options].some(o => o.value === t.method)) ? t.method : 'Other';
+  el('eptxn-desc').value = t.desc || ''; if (el('eptxn-ref')) el('eptxn-ref').value = t.ref || '';
+  openModal('edit-partner');
+}
+async function updatePartnerTxn(){
+  const actor = pnActor(); if (!actor) return;
+  const amt = Number(el('eptxn-amount').value); if (!(amt > 0)) { showToast('সঠিক Amount দিন', 'error'); return; }
+  const pin = await _askPartnerPin('Edit নিশ্চিত করুন — ' + PN_NAMES[actor] + ' এর PIN'); if (!pin) return;
+  const res = await postToAPI({ action:'updatePartner', actor, pin, txnId:String(currentEditTxnId), partner:el('eptxn-partner').value, type:el('eptxn-type').value, amount:amt, method:el('eptxn-method').value, description:el('eptxn-desc').value, reference:(el('eptxn-ref')||{}).value || '' });
+  if (res) { closeModal('edit-partner'); showToast(res.unchanged ? 'কোনো পরিবর্তন নেই' : '✅ Updated — অন্য পার্টনারকে আবার ভেরিফাই করতে হবে', 'success'); setTimeout(() => { loadLivePartners(); try { loadLiveDashboard(); } catch(e) {} }, 600); }
+}
+async function pnDoDelete(id, label){
+  const actor = pnActor(); if (!actor) return;
+  if (!confirm('⚠️ ' + label + '\n\n🗑️ Recycle Bin-এ যাবে (৩০ দিনের মধ্যে Restore করা যাবে)। অডিট লগে রেকর্ড থাকবে।')) return;
+  const pin = await _askPartnerPin('ডিলিট নিশ্চিত করুন — ' + PN_NAMES[actor] + ' এর PIN'); if (!pin) return;
+  const res = await postToAPI({ action:'deleteTransaction', actor, pin, txnId:String(id) });
+  if (res) { showToast('🗑️ Transaction #' + id + ' Recycle Bin-এ গেছে', 'info'); try { updateBinBadge(); } catch(e) {} setTimeout(() => { loadLivePartners(); try { loadLiveDashboard(); } catch(e) {} }, 600); }
+}
+function pnDelete(i){ const t = (livePartnerData||[])[i]; if (!t) return; if (pnIsLocked(t)) { showToast('🔒 এই তারিখের হিসাব লক করা — মোছা যাবে না', 'error'); return; } pnDoDelete(t.id, t.partner + '-এর Transaction #' + t.id + ' (' + pnMoney(t.amount) + ') ডিলিট করবেন?'); }
+async function deletePartnerTxn(info){ pnDoDelete(info.id, (info.partner || '') + '-এর Transaction #' + info.id + ' ডিলিট করবেন?'); }
+async function deleteTransaction(){ closeModal('edit-partner'); pnDoDelete(currentEditTxnId, 'Transaction #' + currentEditTxnId + ' ডিলিট করবেন?'); }
+async function pnVerify(i){
+  const t = (livePartnerData||[])[i]; const actor = pnActor(); if (!t || !actor) return;
+  if (t.createdBy === PN_NAMES[actor]) { showToast('নিজের করা এন্ট্রি নিজে ভেরিফাই করা যায় না — অন্য পার্টনার করবেন', 'error'); return; }
+  const pin = await _askPartnerPin('ভেরিফাই — ' + PN_NAMES[actor] + ' এর PIN'); if (!pin) return;
+  const res = await postToAPI({ action:'verifyPartnerTxn', actor, pin, txnId:String(t.id) });
+  if (res) { showToast('✅ Transaction #' + t.id + ' ভেরিফাইড', 'success'); setTimeout(loadLivePartners, 500); }
+}
+function pnVoucher(i){
+  const t = (livePartnerData||[])[i]; if (!t) return;
+  openMoneyReceipt({ kind:'partner', receiptNo: t.voucher || ('PV-' + t.id), txnId:t.id, date:pnFmtDate(t.rawDate), investorId:t.partner, name:t.partner, type:t.type, amount:t.amount, method:t.method, reference:t.ref, notes:t.desc, createdBy:t.createdBy, verified:t.verified, verifiedBy:t.verifiedBy });
+}
+function pnVoucherBar(R){
+  window._lastRcpt = R;
+  let bar = el('inv-rcpt-bar');
+  if (!bar) { bar = document.createElement('div'); bar.id = 'inv-rcpt-bar'; bar.style.cssText = 'position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:99998;background:var(--bg2,#1c2330);border:1px solid var(--green,#34d174);border-radius:12px;padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:0 8px 30px rgba(0,0,0,.45);max-width:94vw;'; document.body.appendChild(bar); }
+  bar.innerHTML = `<span style="font-size:13px;color:var(--text);">✅ সেভ হয়েছে — <b>${_pnEsc(R.receiptNo)}</b> (${pnMoney(R.amount)}) · এখন অন্য পার্টনার ভেরিফাই করবেন</span><button class="btn btn-sm btn-gold" onclick="openMoneyReceipt(window._lastRcpt)">🧾 ভাউচার</button><button class="btn btn-sm" onclick="this.parentNode.style.display='none'">✕</button>`;
+  bar.style.display = 'flex'; clearTimeout(window._rcptBarT); window._rcptBarT = setTimeout(() => { bar.style.display = 'none'; }, 90000);
+}
+
+// ── Integrity / Audit / Lock ────────────────────────────────────
+async function openPnIntegrity(){
+  openModal('pn-integrity'); const body = el('pn-integrity-body'); body.innerHTML = '<div style="padding:30px;text-align:center;color:var(--text3);">⏳ যাচাই চলছে…</div>';
+  const r = await pnCheckIntegrity(); if (!r || !r.checks) { body.innerHTML = '<div style="padding:30px;text-align:center;color:var(--red);">যাচাই করা যায়নি — GS নতুন ভার্সন Deploy করেছেন তো?</div>'; return; }
+  const PN_HELP = { chain:'অডিট লগের প্রতিটি লাইনে আগের লাইনের একটি "আঙুলের ছাপ" (হ্যাশ) বসানো থাকে। কেউ অডিট শিটের কোনো লাইন বদলালে, মুছলে বা সাজালে ছাপ মেলে না — তখন এটি লাল হয়। অডিট শিটে (🧾 Partner_Audit) ওই সারির ঘর নিজে হাত দিয়ে বদলানো হয়েছে কি না দেখুন। সব ঠিক থাকলে (যেমন নিজের টেস্ট ডেটা) নিচের বাটনে স্বীকার করুন।', seal:'কেউ অ্যাপের বাইরে সরাসরি শিটে অঙ্ক বদলালে এটি ধরা পড়ে।', balance:'Balance After ভুল হলে নিচের বাটনে ঠিক করা যায়।', dupId:'একই ID দুটি সারিতে থাকলে ভুল সারি মুছে যেতে পারে — ঠিক করে নিন।' };
+  const ic = { ok:'✅', warn:'⚠️', error:'❌' }, colr = { ok:'var(--green)', warn:'var(--orange)', error:'var(--red)' };
+  const fixes = []; const has = id => r.checks.some(c => c.id === id && c.status !== 'ok');
+  if (has('balance')) fixes.push(`<button class="btn" onclick="pnFix('ptRecalc')">🔄 Balance After ঠিক করুন</button>`);
+  if (has('unsealed') || has('seal')) fixes.push(`<button class="btn" onclick="pnFix('ptSealAll')" title="বর্তমান শিটের অবস্থাকে বিশ্বস্ত ধরে সব সারি সিল করবে (PIN লাগবে)">🔏 সব সিল করুন (PIN)</button>`);
+  if (r.checks.some(c => c.id === 'chain' && c.status === 'error')) fixes.push(`<button class="btn" onclick="pnFix('ptChainAck')" title="গরমিলটি যাচাই করে দেখার পর এটি চাপুন — কে স্বীকার করল তা অডিট লগে থাকবে (PIN লাগবে)">🔗 গরমিল স্বীকার করে চেইন চালু রাখুন (PIN)</button>`);
+  if (has('dupId') || has('blankId')) fixes.push(`<button class="btn" onclick="pnFix('ptRenumber')">🔢 ডুপ্লিকেট/ফাঁকা ID ঠিক করুন (PIN)</button>`);
+  const tot = r.totals || {};
+  body.innerHTML = `<div style="padding:12px 14px;border-radius:10px;margin-bottom:12px;background:var(--bg3,#1c2330);border:1px solid ${colr[r.level]};color:${colr[r.level]};font-weight:700;">${r.level === 'ok' ? '✅ হিসাব ১০০% সঠিক — কোনো সমস্যা পাওয়া যায়নি' : r.level === 'warn' ? '⚠️ কিছু সতর্কতা আছে (ক্ষতিকর নয়, তবে দেখে নিন)' : '❌ গুরুতর সমস্যা পাওয়া গেছে — নিচে দেখুন'}<span style="float:right;font-weight:500;font-size:12px;color:var(--text3);">চেকসাম #${_pnEsc(r.checksum)} · ${_pnEsc(r.at)}</span></div>
+    ${r.checks.map(c => `<div style="padding:9px 4px;border-bottom:1px solid var(--border);"><div style="display:flex;gap:8px;align-items:baseline;"><span>${ic[c.status]}</span><b style="color:var(--text);">${_pnEsc(c.label)}</b><span style="color:${colr[c.status]};font-size:12.5px;">${_pnEsc(c.detail)}</span></div>${c.status !== 'ok' && PN_HELP[c.id] ? '<div style="margin:6px 0 0 30px;font-size:12px;line-height:1.6;color:var(--text2);">💡 ' + _pnEsc(PN_HELP[c.id]) + '</div>' : ''}${(c.items||[]).length ? '<ul style="margin:6px 0 0 30px;color:var(--text3);font-size:12px;">' + c.items.map(x => '<li>' + _pnEsc(x) + '</li>').join('') + '</ul>' : ''}</div>`).join('')}
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px;">${Object.keys(tot).map(n => { const x = tot[n]; return `<div style="border:1px solid var(--border);border-radius:10px;padding:10px 12px;"><b style="color:${PN_COLORS[n]||'var(--text)'};">${_pnEsc(n)}</b><div style="font-size:12px;color:var(--text2);line-height:1.7;margin-top:4px;">Invested ${pnMoney(x.inv)} · Drawings ${pnMoney(x.drw)}<br>Profit Share ${pnMoney(x.prf)}<br><b>নেট মূলধন ${pnMoney(x.net)}</b> · ${x.count}টি এন্ট্রি · ভেরিফাই বাকি ${x.unverified}</div></div>`; }).join('')}</div>
+    ${fixes.length ? '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">' + fixes.join('') + '</div>' : ''}`;
+}
+async function pnFix(action){
+  const actor = pnActor(); if (!actor) return; let pin = '';
+  if (action === 'ptChainAck' && !confirm('🔗 অডিট লগের গরমিলটি স্বীকার করবেন?\n\nএর মানে: আপনি দেখেছেন এবং গরমিলটি গ্রহণ করছেন। পুরনো লাইন ঠিক হবে না, তবে অডিট লগে "কে স্বীকার করল" লেখা থাকবে এবং এরপরের এন্ট্রিগুলো আবার যাচাই হবে।')) return;
+  if (action !== 'ptRecalc') { pin = await _askPartnerPin('নিশ্চিত করুন — ' + PN_NAMES[actor] + ' এর PIN'); if (!pin) return; }
+  const res = await postToAPI({ action, actor, pin });
+  if (res) { showToast('✅ ' + (res.message || 'সম্পন্ন'), 'success'); await loadLivePartners(); openPnIntegrity(); }
+}
+// ── 🧾 অডিট লগ — কার্ড ডিজাইন (Production Trace-এর মতো), প্রিন্ট / PNG / PDF সহ ──
+const PN_ACT = { ADD:['➕ যোগ করা','#3fb950'], EDIT:['✏️ বদল','#f0883e'], DELETE:['🗑️ মোছা','#f85149'], VERIFY:['✅ ভেরিফাই','#58a6ff'], LOCK:['🔒 লক','#f0b429'], UNLOCK:['🔓 আনলক','#f0b429'], IMPORT:['📥 CSV ইমপোর্ট','#58a6ff'], RESTORE:['♻️ ফেরত আনা','#3fb950'], RECALC:['🔄 পুনর্হিসাব','#8b949e'], SEAL_ALL:['🔏 সব সিল','#8b949e'], RENUMBER:['🔢 ID ঠিক','#8b949e'], CHAIN_ACK:['🔗 গরমিল স্বীকার','#f0883e'] };
+const PN_FLD = { id:'ID', partner:'পার্টনার', type:'ধরন', day:'তারিখ', amount:'পরিমাণ', method:'মাধ্যম', desc:'বিবরণ', ref:'Reference', verified:'ভেরিফাই', by:'ভেরিফাই করেছেন', lockUntil:'লক (তারিখ পর্যন্ত)', rows:'সারি', skipped:'বাদ', locked:'লক-এ আটকানো', fixed:'ঠিক করা' };
+const PN_AUDIT_CSS = `.pn-ac{border:1px solid var(--border);border-left:4px solid #8b949e;border-radius:12px;padding:12px 14px;margin-bottom:10px;background:var(--bg2);font-size:13.5px;line-height:1.55}
+.pn-ac-h{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-bottom:8px}
+.pn-pill{display:inline-block;border:1px solid var(--border);border-radius:20px;padding:2px 11px;font-size:12.5px;font-weight:800}
+.pn-ac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:5px 14px}
+.pn-mut{color:var(--text3)}
+.pn-chg{width:100%;border-collapse:collapse;margin-top:9px;font-size:13px}
+.pn-chg th{text-align:left;font-size:11.5px;color:var(--text3);padding:4px 8px;border-bottom:1px solid var(--border);background:transparent !important}
+.pn-chg td{padding:5px 8px;border-bottom:1px solid var(--border);vertical-align:top;word-break:break-word}
+.pn-old{background:rgba(248,81,73,.12)} .pn-new{background:rgba(63,185,80,.14);font-weight:700}
+.pn-ac-note{margin-top:7px;font-size:12.5px}
+.pn-snap{color:#111;background:#fff}
+.pn-snap *{color:#111 !important;text-shadow:none !important}
+.pn-snap .pn-ac{background:#fff !important;border-top-color:#bbb !important;border-right-color:#bbb !important;border-bottom-color:#bbb !important;break-inside:avoid;page-break-inside:avoid}
+.pn-snap .pn-pill{border-color:#888 !important;background:#f3f3f3 !important}
+.pn-snap .pn-mut,.pn-snap .pn-chg th{color:#555 !important}.pn-snap .pn-chg th{background:#eee !important}
+.pn-snap .pn-chg td,.pn-snap .pn-chg th{border-color:#ddd !important}
+.pn-snap .pn-old{background:#fbe9e9 !important}.pn-snap .pn-new{background:#e5f5e9 !important}`;
+function pnParseJ(x){ if (x && typeof x === 'object') return x; try { const o = JSON.parse(x); return (o && typeof o === 'object') ? o : null; } catch(e){ return null; } }
+function pnFldVal(k, v){
+  if (v === '' || v == null) return '—';
+  if (k === 'amount') return pnMoney(v);
+  if (k === 'day' || k === 'lockUntil') return pnFmtDate(v);
+  if (k === 'verified') return v === 'Yes' ? 'ভেরিফাইড' : 'বাকি';
+  return String(v);
+}
+function pnAuditCard(r){
+  const a = PN_ACT[r[4]] || [r[4], '#8b949e'], B = pnParseJ(r[9]), A = pnParseJ(r[10]);
+  const who = r[2] === 'system' ? 'সিস্টেম' : (PN_NAMES[r[2]] || r[2]);
+  const g = (ico, l, v) => (v === '' || v == null) ? '' : `<div>${ico} ${l}: <b>${_pnEsc(v)}</b></div>`;
+  let chg = '';
+  if (B && A) {
+    const keys = Object.keys(Object.assign({}, B, A)).filter(k => k !== 'id' && String(B[k] == null ? '' : B[k]) !== String(A[k] == null ? '' : A[k]));
+    if (keys.length) chg = `<table class="pn-chg"><thead><tr><th style="width:26%">কী বদলেছে</th><th>আগে</th><th>পরে</th></tr></thead><tbody>${keys.map(k => `<tr><td><b>${_pnEsc(PN_FLD[k] || k)}</b></td><td class="pn-old">${_pnEsc(pnFldVal(k, B[k]))}</td><td class="pn-new">${_pnEsc(pnFldVal(k, A[k]))}</td></tr>`).join('')}</tbody></table>`;
+  } else if (A || B) {
+    const S = A || B, keep = ['day','method','ref','desc','verified','by','lockUntil','rows','skipped','locked','fixed'].filter(k => S[k] !== undefined && S[k] !== '' && !(k === 'verified' && r[4] !== 'VERIFY' && S[k] === 'No'));
+    if (keep.length) chg = `<div class="pn-ac-grid" style="margin-top:8px;">${keep.map(k => `<div><span class="pn-mut">${_pnEsc(PN_FLD[k] || k)}:</span> <b>${_pnEsc(pnFldVal(k, S[k]))}</b></div>`).join('')}</div>`;
+  }
+  const amt = Number(r[8]);
+  return `<div class="pn-ac" style="border-left-color:${a[1]};">
+    <div class="pn-ac-h"><span class="pn-pill" style="color:${a[1]};">${a[0]}</span><b style="font-size:14.5px;">অডিট #${_pnEsc(r[0])}</b><span class="pn-mut">🕒 ${_pnEsc(r[1])}</span><span style="margin-left:auto;">✍️ <b>${_pnEsc(who)}</b> <span class="pn-mut">(${_pnEsc(r[3])})</span></span></div>
+    <div class="pn-ac-grid">${g('📄','Txn ID', r[5] !== '' ? '#' + r[5] : '')}${g('🤝','পার্টনার', r[6])}${g('🏷️','ধরন', r[7])}${amt ? `<div>💰 পরিমাণ: <b style="font-size:15px;">${pnMoney(amt)}</b></div>` : ''}</div>
+    ${r[11] ? `<div class="pn-ac-note"><span class="pn-mut">📝 নোট:</span> ${_pnEsc(r[11])}</div>` : ''}${chg}</div>`;
+}
+async function openPnAudit(){
+  openModal('pn-audit'); const body = el('pn-audit-body'); body.innerHTML = '<div style="padding:30px;text-align:center;color:var(--text3);">⏳ লোড হচ্ছে…</div>';
+  const r = await fetchFromAPI('partner_audit&limit=300');
+  if (!r || !Array.isArray(r.data)) { body.innerHTML = '<div style="padding:30px;text-align:center;color:var(--red);">অডিট লগ পাওয়া যায়নি — GS নতুন ভার্সন Deploy করেছেন তো?</div>'; return; }
+  window._pnAudit = r.data; window._pnAuditTotal = r.total; pnRenderAudit();
+}
+function pnAuditFiltered(){
+  const q = (el('pn-audit-q').value || '').trim().toLowerCase(), af = (el('pn-audit-act') || {}).value || '';
+  return (window._pnAudit || []).filter(r => (!af || r[4] === af) && (!q || r.map(x => typeof x === 'object' ? JSON.stringify(x) : x).join(' ').toLowerCase().includes(q) || ('#' + r[5]) === q || ('txn ' + r[5]) === q));
+}
+function pnRenderAudit(){
+  if (!el('pn-audit-style')) { const s = document.createElement('style'); s.id = 'pn-audit-style'; s.textContent = PN_AUDIT_CSS; document.head.appendChild(s); }
+  const rows = pnAuditFiltered();
+  el('pn-audit-count').textContent = rows.length + ' / ' + (window._pnAuditTotal || (window._pnAudit || []).length) + 'টি এন্ট্রি (নতুন আগে)';
+  el('pn-audit-body').innerHTML = rows.map(pnAuditCard).join('') || '<div style="padding:30px;text-align:center;color:var(--text3);">কোনো এন্ট্রি পাওয়া যায়নি</div>';
+}
+async function pnLoadLib(url, test){ return new Promise(res => { if (test()) return res(true); const s = document.createElement('script'); s.src = url; s.onload = () => res(test()); s.onerror = () => res(false); document.head.appendChild(s); setTimeout(() => res(test()), 15000); }); }
+function pnAuditSheet(){
+  const rows = pnAuditFiltered(), q = (el('pn-audit-q').value || '').trim(), af = el('pn-audit-act').value;
+  const w = document.createElement('div'); w.className = 'pn-snap';
+  w.style.cssText = 'position:fixed;left:-99999px;top:0;width:1000px;padding:24px;background:#fff;color:#111;font-family:' + getComputedStyle(document.body).fontFamily + ';';
+  const st = document.createElement('style'); st.textContent = PN_AUDIT_CSS; w.appendChild(st);
+  const flt = [af ? 'কাজ: ' + (PN_ACT[af] ? PN_ACT[af][0] : af) : '', q ? 'খোঁজা: ' + q : ''].filter(Boolean).join(' · ');
+  w.insertAdjacentHTML('beforeend', `<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #111;padding-bottom:8px;margin-bottom:14px;"><div style="display:flex;align-items:center;gap:16px;"><img src="${INNOGIX_LOGO_DATAURI}" style="height:46px;width:auto;"><div style="border-left:2px solid #bbb;padding-left:16px;"><div style="font-size:20px;font-weight:800;">Partner অডিট লগ</div><div style="font-size:12px;">${_pnEsc(flt || 'সব এন্ট্রি')} · ${rows.length}টি</div></div></div><div style="font-size:12px;text-align:right;">তৈরি: ${_pnEsc(pnFmtDate(pnToday()))}</div></div>`);
+  const body = document.createElement('div'); body.innerHTML = rows.map(pnAuditCard).join('') || '<div>কোনো এন্ট্রি নেই</div>'; w.appendChild(body); return w;
+}
+async function pnAuditSnap(mode){
+  if (!(window._pnAudit || []).length) { showToast('অডিট লগ খালি', 'info'); return; }
+  const fname = 'InnoGix_Partner_Audit_' + pnToday();
+  if (mode === 'print') {
+    const w = pnAuditSheet(); const html = `<!doctype html><html><head><meta charset="utf-8"><title>Partner Audit Log</title><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet"><style>html,body{margin:0;background:#fff;font-family:'Hind Siliguri',sans-serif}.pn-snap{position:static !important;left:auto !important;width:auto !important}@page{size:A4;margin:10mm}</style></head><body>${w.outerHTML}<script>setTimeout(function(){window.focus();window.print();},900)<\/script></body></html>`;
+    const url = URL.createObjectURL(new Blob([html], { type:'text/html;charset=utf-8' })); const win = window.open(url, '_blank');
+    if (!win) { showToast('পপ-আপ ব্লক করা আছে — অনুমতি দিন', 'warning'); return; } setTimeout(() => URL.revokeObjectURL(url), 120000); return;
+  }
+  showToast(mode === 'png' ? '🖼️ PNG তৈরি হচ্ছে…' : '📄 PDF তৈরি হচ্ছে…', 'info');
+  if (!(await pnLoadLib('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js', () => window.html2canvas))) { showToast('ছবি তৈরির লাইব্রেরি লোড হয়নি — ইন্টারনেট চেক করুন', 'error'); return; }
+  const w = pnAuditSheet(); document.body.appendChild(w); let cv;
+  try {
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    await Promise.all(Array.from(w.querySelectorAll('img')).map(i => i.decode ? i.decode().catch(() => {}) : Promise.resolve())); await new Promise(r => setTimeout(r, 200));
+    const sc = Math.max(0.6, Math.min(2, 14000 / Math.max(1, w.scrollHeight)));
+    cv = await html2canvas(w, { backgroundColor:'#ffffff', scale:sc, useCORS:true, logging:false, foreignObjectRendering:false, windowWidth:w.scrollWidth });
+  } catch(e) { showToast('ছবি তৈরি হয়নি: ' + e.message, 'error'); return; } finally { w.remove(); }
+  if (mode === 'png') { const a = document.createElement('a'); a.href = cv.toDataURL('image/png'); a.download = fname + '.png'; a.click(); showToast('✅ PNG ডাউনলোড হয়েছে', 'success'); return; }
+  if (!(await pnLoadLib('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js', () => window.jspdf && window.jspdf.jsPDF))) { showToast('PDF লাইব্রেরি লোড হয়নি — Print থেকেও PDF সেভ করা যায়', 'error'); return; }
+  const pdf = new window.jspdf.jsPDF({ unit:'mm', format:'a4', orientation:'p' }), m = 10, iw = 210 - 2*m, ph = 297 - 2*m, pxPer = cv.width / iw, slice = Math.floor(ph * pxPer);
+  for (let y = 0, pg = 0; y < cv.height; y += slice, pg++) { const h = Math.min(slice, cv.height - y), c2 = document.createElement('canvas'); c2.width = cv.width; c2.height = h; c2.getContext('2d').drawImage(cv, 0, y, cv.width, h, 0, 0, cv.width, h); if (pg > 0) pdf.addPage(); pdf.addImage(c2.toDataURL('image/jpeg', 0.92), 'JPEG', m, m, iw, h / pxPer); }
+  pdf.save(fname + '.pdf'); showToast('✅ PDF ডাউনলোড হয়েছে', 'success');
+}
+
+function openPnLock(){
+  if (!pnActor()) return; const L = window._pnLockUntil;
+  el('pn-lock-status').innerHTML = L ? '🔒 বর্তমানে <b>' + pnFmtDate(L) + '</b> পর্যন্ত হিসাব লক করা আছে। এই তারিখ বা তার আগের কোনো লেনদেন যোগ/বদল/মোছা যাবে না।' : '🔓 এখন কোনো পিরিয়ড লক নেই। লক করলে নির্দিষ্ট তারিখ পর্যন্ত হিসাব "চূড়ান্ত" হয়ে যাবে।';
+  const d = el('pn-lock-date'); d.max = pnToday(); d.value = L || ''; el('pn-unlock-btn').style.display = L ? '' : 'none'; openModal('pn-lock');
+}
+function pnLockPreset(kind){
+  const n = new Date(new Date().toLocaleString('en-US', { timeZone:'Asia/Dhaka' })), p = v => String(v).padStart(2,'0');
+  const last = new Date(n.getFullYear(), n.getMonth(), 0); el('pn-lock-date').value = last.getFullYear() + '-' + p(last.getMonth()+1) + '-' + p(last.getDate());
+}
+async function pnApplyLock(unlock){
+  const actor = pnActor(); if (!actor) return; const until = unlock ? '' : el('pn-lock-date').value;
+  if (!unlock && !until) { showToast('লকের তারিখ দিন', 'error'); return; }
+  if (!confirm(unlock ? '🔓 লক খুলে দেবেন? (অডিট লগে থাকবে)' : '🔒 ' + pnFmtDate(until) + ' পর্যন্ত হিসাব লক করবেন?')) return;
+  const pin = await _askPartnerPin((unlock ? 'আনলক' : 'লক') + ' নিশ্চিত করুন — ' + PN_NAMES[actor] + ' এর PIN'); if (!pin) return;
+  const res = await postToAPI({ action:'ptSetLock', actor, pin, until });
+  if (res) { closeModal('pn-lock'); showToast(res.message, 'success'); loadLivePartners(); }
+}
+
+// ── Partner Statement ───────────────────────────────────────────
+const PN_STMT_CSS = `@page { size: A4; margin: 10mm 11mm; }
+    *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    html{background:#e9edf4}
+    body{margin:0;font-family:'Plus Jakarta Sans','Hind Siliguri','Noto Sans Bengali',Arial,sans-serif;color:#1b2437;font-size:13px;font-weight:500;line-height:1.55}
+    #s-tools{position:sticky;top:0;z-index:50;background:#0f2a5c;color:#fff;padding:10px 190px 10px 14px;display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;font-size:12.5px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+    #s-tools button,#s-tools select,#s-tools input[type=text]{font:600 12.5px inherit;font-family:inherit;padding:6px 11px;border-radius:7px;border:1px solid #3b5a96;background:#17376f;color:#fff;cursor:pointer}
+    #s-tools input[type=text]{cursor:text;width:230px;max-width:100%;font-weight:500}
+    #s-tools button:disabled,#s-tools input:disabled{opacity:.5;cursor:not-allowed}
+    #s-tools select option{color:#000}
+    #s-tools details{position:relative}#s-tools summary{cursor:pointer;padding:6px 11px;border-radius:7px;border:1px solid #3b5a96;background:#17376f;list-style:none;font-weight:600}
+    #s-tools .dd{position:absolute;top:34px;left:0;background:#fff;color:#1b2437;border-radius:8px;padding:8px 12px;box-shadow:0 6px 24px rgba(0,0,0,.3);min-width:230px;z-index:60}
+    #s-tools .dd label{display:block;padding:3px 0;cursor:pointer;font-weight:600}
+    #s-hint{width:100%;font-size:11.5px;color:#ffe9a8}
+    .page{max-width:794px;margin:18px auto 40px;background:#fff;padding:0 0 8px;box-shadow:0 4px 28px rgba(15,42,92,.18);outline:none}
+    .bar{height:6px;background:linear-gradient(90deg,#0f2a5c 0,#0f2a5c 68%,#c9a24a 100%)}
+    .in{padding:18px 38px 0}
+    .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+    .hd img{width:170px;height:auto;display:block}
+    .co{font-size:12px;color:#2c3650;line-height:1.7;margin-top:8px}
+    .hd .t{text-align:right}.hd .t b{display:block;font-size:22px;letter-spacing:3px;color:#0f2a5c;font-weight:800}
+    .hd .t .bn{display:block;font-size:13px;color:#7a5c10;font-weight:700;margin-top:2px}
+    .hd .t .st{display:inline-block;margin-top:8px;border:1px solid;border-radius:999px;padding:1px 12px;font-size:11.5px;font-weight:700}
+    .rule{height:2px;background:#c9a24a;margin:12px 0 10px}
+    .meta{display:grid;grid-template-columns:1.25fr 1fr 1.5fr .7fr;gap:10px;font-size:12px}
+    .meta span,.lbl{display:block;font-size:10.5px;color:#3d4860;text-transform:uppercase;letter-spacing:.7px;font-weight:700}
+    .meta b{font-size:13px;color:#0f2a5c;font-weight:700}
+    .two{display:block;margin-top:14px}
+    .box{border:1px solid #c9cfdc;border-radius:8px;padding:12px 14px;background:#fff}
+    .box h4{margin:0 0 8px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#7a5c10;font-weight:800}
+    .box.inv{border-left:5px solid #0f2a5c}
+    .nm{font-size:18px;font-weight:800;color:#0f2a5c;line-height:1.3;margin-bottom:6px}
+    .kv{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 14px}.kv b{display:block;font-size:13px;font-weight:700;color:#1b2437}
+    .co2 b{display:block;font-size:13px;color:#0f2a5c;font-weight:700}.co2 div{font-size:12px;color:#2c3650}
+    h3{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#0f2a5c;margin:16px 0 8px;padding-bottom:5px;border-bottom:1px solid #c9cfdc;font-weight:800}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+    .k{border:1px solid #c9cfdc;border-radius:8px;padding:11px 13px;background:#f7f9fd}
+    .k b{display:block;font-size:18px;margin-top:3px;font-weight:800}
+    .k.net{background:#0f2a5c;border-color:#0f2a5c}.k.net .lbl{color:#cfd8ee}.k.net b{color:#fff}
+    .pool{margin-top:10px;border:1px dashed #8d97ad;border-radius:8px;padding:10px 14px;display:flex;gap:16px;align-items:center;background:#fffdf6}
+    .pool .pc{font-size:22px;font-weight:800;color:#1b7a3d;white-space:nowrap}
+    .pool .tx{font-size:12px;color:#2c3650;line-height:1.55}
+    table{width:100%;border-collapse:collapse}
+    th{background:#0f2a5c;color:#fff;font-size:11px;text-align:left;padding:8px 8px;letter-spacing:.3px;font-weight:700}
+    td{padding:6px 8px;border-bottom:1px solid #dfe4ee;vertical-align:top;font-size:12.5px}
+    tbody tr:nth-child(even) td{background:#f8faff}
+    tr{page-break-inside:avoid}
+    .c{text-align:center}.r{text-align:right;white-space:nowrap}.b{font-weight:700}.mut{color:#2c3650}
+    .tag{display:inline-block;border:1px solid;border-radius:10px;padding:0 9px;font-size:11.5px;font-weight:700;white-space:nowrap}
+    .grid2{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;align-items:start}
+    .sum{page-break-inside:avoid}.sum td{background:transparent!important;font-size:13px}.sum tr:last-child td{border-top:2px solid #0f2a5c;border-bottom:0;font-size:13.5px}
+    .nb{border:1px solid #c9cfdc;border-radius:8px;padding:10px 13px;font-size:12.5px;color:#1b2437;line-height:1.7;background:#f7f9fd}
+    .sigrow{display:flex;justify-content:space-between;align-items:flex-start;margin-top:14px;page-break-inside:avoid}
+    .sg{width:44%;text-align:center}.sg .z{height:58px;display:flex;align-items:flex-end;justify-content:center}
+    .sg .ln{border-top:1px solid #8d97ad;padding-top:6px}
+    .sg .l{font-size:12px;font-weight:700;color:#2c3650}
+    #s-img{display:none;max-height:56px;max-width:190px;width:auto;height:auto;object-fit:contain;margin-bottom:-3px}
+    #s-name{display:none;font-size:13px;font-weight:800;color:#0f2a5c;line-height:1.5}
+    #s-title{display:none;font-size:12px;font-weight:700;color:#7a5c10;line-height:1.5}
+    .dis{margin-top:10px;font-size:11px;color:#3d4860;text-align:center;line-height:1.6}
+    .ft{margin:8px 38px 0;padding-top:6px;border-top:1px solid #c9cfdc;font-size:11px;color:#2c3650;display:flex;justify-content:space-between;gap:10px}
+    .off{display:none!important}
+    td.del{width:26px;padding:0;border:0;background:transparent!important}th.del{width:26px;padding:0;border:0;background:#0f2a5c}
+    .x{display:none;border:0;background:#fee2e2;color:#b91c1c;border-radius:4px;cursor:pointer;font-size:11px;padding:2px 6px}
+    body.editing .x{display:inline-block}
+    body.editing .page{outline:2px dashed #7c3aed;outline-offset:2px;cursor:text}
+    body.editing .page [contenteditable]:not([contenteditable=false]),body.editing .page td,body.editing .page b,body.editing .page span,body.editing .page div{caret-color:#7c3aed}
+    @media print{
+      html,body{background:#fff}
+      #s-tools,#igx-png-btn,#s-hint{display:none!important}
+      .page{box-shadow:none;margin:0;max-width:none;width:100%}
+      body.editing .page{outline:none}
+      .x,.del{display:none!important}
+      .page{zoom:.88}
+    }
+    @media (max-width:640px){.in{padding:16px 16px 0}.kpis{grid-template-columns:1fr 1fr}.meta{grid-template-columns:1fr 1fr}.two,.grid2{grid-template-columns:1fr}.ft{margin:12px 16px 0;flex-direction:column}#s-tools{padding-right:14px;padding-top:50px}}
+  `;
+function openPnStatement(){
+  const d = el('pn-st-to'); if (d) { d.max = pnToday(); }
+  el('pn-st-sign').value = currentPartner || ''; openModal('pn-stmt');
+}
+async function pnBuildStatement(){
+  const data = livePartnerData || []; if (!data.length) { showToast('আগে Partner data লোড করুন', 'warning'); return; }
+  const who = el('pn-st-partner').value, from = el('pn-st-from').value, to = el('pn-st-to').value;
+  const esc = _pnEsc, num = n => (Number(n)||0).toLocaleString('en-US', { maximumFractionDigits: 2 }), money = n => '৳ ' + num(n);
+  const names = who ? [who] : Object.keys(PN_COLORS);
+  const all = data.filter(t => names.indexOf(t.partner) > -1).slice().sort((a,b) => (a._ts - b._ts) || (a.id - b.id));
+  const run = {}, open = {}, st = {}; names.forEach(n => { run[n] = 0; open[n] = 0; st[n] = { inv:0, drw:0, prf:0, n:0, ver:0 }; });
+  const rows = [];
+  all.forEach(t => {
+    const inv = t.type === 'Investment', drw = t.type === 'Drawings';
+    const before = run[t.partner]; run[t.partner] += inv ? t.amount : drw ? -t.amount : 0;
+    const inR = (!from || (t._day && t._day >= from)) && (!to || (t._day && t._day <= to));
+    if (from && t._day && t._day < from) { open[t.partner] = run[t.partner]; return; }
+    if (!inR) return;
+    const s = st[t.partner]; s.n++; if (t.verified === 'Yes') s.ver++; if (inv) s.inv += t.amount; else if (drw) s.drw += t.amount; else s.prf += t.amount;
+    rows.push({ t, bal: run[t.partner] });
+  });
+  const sumP = k => names.reduce((s,n) => s + st[n][k], 0), openT = names.reduce((s,n) => s + open[n], 0), closeT = names.reduce((s,n) => s + (rows.filter(r => r.t.partner === n).length ? rows.filter(r => r.t.partner === n).slice(-1)[0].bal : open[n]), 0);
+  const nTot = sumP('n'), vTot = sumP('ver');
+  let integ = null; try { integ = await pnCheckIntegrity(); } catch(e) {}
+  const now = new Date(), ymd = pnToday().replace(/-/g,''), stmtNo = 'PST-' + ymd + '-' + (who ? PN_KEYS[who] : 'ALL').toUpperCase();
+  const fmtD = pnFmtDate, per = from || to ? ((from ? fmtD(from) : 'শুরু') + ' → ' + (to ? fmtD(to) : fmtD(pnToday()))) : 'শুরু থেকে আজ পর্যন্ত';
+  const sigCfg = {}; try { ['Ismail','Ashik'].forEach(k => sigCfg[k] = IGXSIG.get(k)); } catch(e) {}
+  const CFG = { sig: sigCfg, defaultWho: el('pn-st-sign').value && sigCfg[el('pn-st-sign').value] ? el('pn-st-sign').value : '' };
+  const tcol = { 'Investment':'#1b7a3d', 'Drawings':'#b3261e', 'Profit Share':'#7a5c10' };
+  const showP = !who;
+  const sumRows = names.map(n => { const x = st[n], cl = rows.filter(r => r.t.partner === n).length ? rows.filter(r => r.t.partner === n).slice(-1)[0].bal : open[n]; const totNet = names.reduce((s,m) => s + Math.max((rows.filter(r => r.t.partner === m).length ? rows.filter(r => r.t.partner === m).slice(-1)[0].bal : open[m]), 0), 0);
+    return `<tr><td class="b">${esc(n)}</td><td class="r">${money(open[n])}</td><td class="r">${money(x.inv)}</td><td class="r">${money(x.drw)}</td><td class="r b">${money(cl)}</td><td class="r">${totNet > 0 && cl > 0 ? (cl * 100 / totNet).toFixed(1) + '%' : '—'}</td><td class="r">${money(x.prf)}</td></tr>`; }).join('');
+  const body = rows.map((r, i) => { const t = r.t; const stt = pnStatus(t);
+    return `<tr>${''}<td class="c">${i+1}</td><td style="white-space:nowrap">${esc(fmtD(t.rawDate))}</td>${showP ? `<td>${esc(t.partner)}</td>` : ''}<td><span class="tag" style="color:${tcol[t.type]||'#1b2437'};border-color:${tcol[t.type]||'#8d97ad'}">${esc(t.type)}</span></td><td class="mut">${esc(t.desc || '—')}${t.voucher ? ' <span style="color:#7a5c10;font-size:11px">[' + esc(t.voucher) + ']</span>' : ''}</td><td class="c" style="font-size:11.5px">${esc([t.method, t.ref].filter(Boolean).join(' · ') || '—')}</td><td class="r b">${money(t.amount)}</td><td class="r">${money(r.bal)}</td><td class="c" style="font-size:11.5px">${stt === 'verified' ? '✅ ' + esc(t.verifiedBy) : stt === 'pending' ? '⏳ বাকি' : '—'}</td></tr>`; }).join('') || `<tr><td colspan="${showP ? 9 : 8}" class="c mut" style="padding:18px">এই সময়ে কোনো লেনদেন নেই</td></tr>`;
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${esc(stmtNo)}</title><meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>${PN_STMT_CSS}
+  .kpis{grid-template-columns:repeat(4,1fr)} .tbl-sum td,.tbl-sum th{font-size:12px} thead{display:table-header-group} tr{page-break-inside:avoid} @media print{.page{zoom:.8}.sigrow{margin-top:14px}}</style></head><body>
+  <div id="s-tools">
+    <button id="s-edit" type="button" style="background:#7c3aed;border-color:#7c3aed">✏️ এডিট মোড</button>
+    <b>✍️ স্বাক্ষর:</b>
+    <select id="s-who"><option value="">স্বাক্ষর ছাড়া (ফাঁকা)</option><option value="Ismail">Md Ismail Hosen</option><option value="Ashik">Ashikur Rahman</option></select>
+    <button id="s-title-btn" type="button">🏷️ পদবী: দেখাচ্ছে ✓</button>
+    <input id="s-title-inp" type="text" list="s-titles" placeholder="পদবী লিখুন…" maxlength="60">
+    <datalist id="s-titles"><option value="ম্যানেজিং পার্টনার"><option value="পার্টনার"><option value="সহ-প্রতিষ্ঠাতা ও ম্যানেজিং পার্টনার"><option value="সহ-প্রতিষ্ঠাতা ও পার্টনার"></datalist>
+    <button id="s-add" type="button" style="display:none"></button>
+    <button id="s-print" type="button" style="background:#c9a24a;border-color:#c9a24a;color:#0f2a5c">🖨️ প্রিন্ট / PDF</button>
+    <div id="s-hint" style="display:none">✏️ এডিট মোড চালু — লেখায় ক্লিক করে বদলান। শেষ হলে "✅ এডিট শেষ" চাপুন।</div>
+  </div>
+  <div class="page" id="stmt-page"><div class="bar"></div><div class="in">
+    <div class="hd"><div><img src="${INNOGIX_LOGO_DATAURI}" alt="InnoGix" style="width:170px;height:auto;display:block"><div class="co">কালিয়াকৈর, গাজীপুর, ঢাকা<br>Contact: +8801560016179 · WhatsApp: +8801530088886<br>innogix.official@gmail.com</div></div>
+      <div class="t"><b style="font-size:19px;letter-spacing:2px">PARTNER CAPITAL STATEMENT</b><span class="bn">পার্টনার মূলধন হিসাব বিবরণী</span></div></div>
+    <div class="rule"></div>
+    <div class="meta" style="grid-template-columns:1.3fr 1.4fr 1fr 1fr"><div><span>Statement নং</span><b>${esc(stmtNo)}</b></div><div><span>সময়কাল</span><b>${esc(per)}</b></div><div><span>তৈরির তারিখ</span><b>${esc(fmtD(pnToday()))}</b></div><div><span>মুদ্রা</span><b>BDT (৳)</b></div></div>
+    <div class="box inv" style="margin-top:12px"><h4>${who ? 'Partner' : 'Partnership'}</h4><div class="nm">${who ? esc(who) : 'InnoGix (Amanah Security Device) — দুই পার্টনার'}</div><div class="sub" style="font-size:12px;color:#2c3650">${who ? 'Role: Partner' : esc(names.join(' · '))}</div></div>
+    <div class="kpis"><div class="k"><span class="lbl">শুরুর মূলধন</span><b style="color:#2c3650">${money(openT)}</b></div><div class="k"><span class="lbl">Investment (+)</span><b style="color:#1b7a3d">${money(sumP('inv'))}</b></div><div class="k"><span class="lbl">Drawings (−)</span><b style="color:#b3261e">${money(sumP('drw'))}</b></div><div class="k net"><span class="lbl">সময়ান্তে নেট মূলধন</span><b>${money(closeT)}</b></div></div>
+    <div style="margin-top:8px;font-size:12px;color:#2c3650">লাভের অংশ (Profit Share) এই সময়ে: <b>${money(sumP('prf'))}</b> — মূলধনে যোগ হয় না, আলাদাভাবে দেখানো হলো।</div>
+    ${showP ? `<h3>পার্টনারভিত্তিক সারাংশ</h3><table class="tbl-sum"><thead><tr><th>Partner</th><th class="r">শুরুর মূলধন</th><th class="r">Investment</th><th class="r">Drawings</th><th class="r">নেট মূলধন</th><th class="r">অংশ</th><th class="r">Profit Share</th></tr></thead><tbody>${sumRows}</tbody></table>` : ''}
+    <h3>লেনদেনের বিবরণ</h3>
+    <table><thead><tr><th class="c">#</th><th>তারিখ</th>${showP ? '<th>Partner</th>' : ''}<th>ধরন</th><th>বিবরণ</th><th class="c">মাধ্যম / Ref</th><th class="r">পরিমাণ</th><th class="r">মূলধন ব্যালেন্স</th><th class="c">যাচাই</th></tr></thead><tbody>${body}</tbody></table>
+    <div class="nb" style="margin-top:12px">🛡️ <b>সুরক্ষা ও যাচাই:</b> ভেরিফাইড এন্ট্রি <b>${vTot}/${nTot}</b>${integ && integ.checksum ? ' · লেজার চেকসাম <b>#' + esc(integ.checksum) + '</b> · সিস্টেম যাচাই: <b>' + (integ.level === 'ok' ? 'সব ঠিক ✅' : integ.level === 'warn' ? 'সতর্কতা ⚠️' : 'সমস্যা ❌') + '</b>' : ''}${window._pnLockUntil ? ' · ' + esc(fmtD(window._pnLockUntil)) + ' পর্যন্ত হিসাব লক করা (চূড়ান্ত)' : ''}<br><span style="color:#3d4860;font-size:11.5px">প্রতিটি পরিবর্তন অডিট লগে হ্যাশ-চেইনসহ সংরক্ষিত; Edit/Delete-এ পার্টনারের PIN লাগে; এন্ট্রি অন্য পার্টনার ভেরিফাই করেন।</span></div>
+    <div class="sigrow"><div class="sg"><div class="z"></div><div class="ln"><div class="l">${who ? 'পার্টনারের স্বাক্ষর ও তারিখ' : 'অপর পার্টনারের স্বাক্ষর ও তারিখ'}</div></div></div><div class="sg"><div class="z"><img id="s-img" alt=""></div><div class="ln"><div id="s-name"></div><div id="s-title"></div><div class="l">প্রস্তুতকারী কর্তৃপক্ষ</div></div></div></div>
+    <div class="dis">এই বিবরণীটি InnoGix Business Suite থেকে স্বয়ংক্রিয়ভাবে প্রস্তুতকৃত। কোনো তথ্যে অসঙ্গতি থাকলে স্টেটমেন্ট নং <b>${esc(stmtNo)}</b> উল্লেখ করে যোগাযোগ করুন — Contact: +8801560016179 · WhatsApp: +8801530088886</div>
+  </div><div class="ft"><span>InnoGix · কালিয়াকৈর, গাজীপুর, ঢাকা</span><span>${esc(stmtNo)}</span></div><div class="bar" style="margin-top:10px"></div></div>
+  ${window.__igxPngBtn||''}<script>(${__igxStmtPopup.toString()})(${JSON.stringify(CFG).replace(/</g,'\\u003c')});<\/script></body></html>`;
+  const url = URL.createObjectURL(new Blob([html], { type:'text/html;charset=utf-8' }));
+  const win = window.open(url, '_blank');
+  if (!win) { URL.revokeObjectURL(url); showToast('পপ-আপ ব্লক করা আছে — অনুমতি দিন', 'warning'); return; }
+  closeModal('pn-stmt'); setTimeout(() => URL.revokeObjectURL(url), 120000);
+}
+
+
 let sortDir={};
 function sortTable(tid,col){
   const table=document.getElementById(tid); if(!table) return;
@@ -13419,9 +14630,10 @@ async function exportInvestorDataToCSV(){
   if(!allData.length){ showToast('কোনো Investor data নেই — আগে load করুন','error'); return; }
   const pk = await igxPickPeriod({title:'Investors (যোগদানের তারিখ অনুযায়ী)', rows:allData, getDate:r=>r[3]}); if(!pk) return;
   const data = pk.rows;
-  const header = ['ID','নাম','ফোন','যোগদান তারিখ','বিনিয়োগ (৳)','Equity %','Payment Cycle','Status','Notes','Investment Type','Profit Rate %','Duration (মাস)','মাস অতিবাহিত','বকেয়া Profit (৳)'];
+  const header = ['ID','নাম','ফোন','যোগদান তারিখ','বিনিয়োগ (৳)','Equity %','Payment Cycle','Status','Notes','Investment Type','Profit Rate %','Duration (মাস)','মাস অতিবাহিত','বকেয়া Profit (৳)'].concat(['ইমেইল','ঠিকানা','চুক্তির তারিখ','নমিনি','লাভ গ্রহণের মাধ্যম','লাভ গ্রহণের নম্বর','ডকুমেন্ট লিংক']);
   const rows = [header, ...data.map(r=>[
-    r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[9]||'Equity', r[10]||0, r[11]||0, r[12]||0, r[13]||0
+    r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[9]||'Equity', r[10]||0, r[11]||0, r[12]||0, r[13]||0,
+    r[20]||'', r[21]||'', r[22]||'', r[23]||'', r[24]||'', r[25]||'', r[26]||''
   ])];
   _downloadCSV(rows,'investors-data'+(pk.slug?'_'+pk.slug:''));
   showToast(`📥 ${data.length}জন Investor export হয়েছে (${pk.label})`,'success');
@@ -13465,10 +14677,11 @@ async function exportPartnerDataToCSV(){
     runningTotals[t.id] = runMap[k];
   });
 
-  const header = ['#','Date','Partner','Type','Amount','Payment Method','Description','Balance After'];
+  const header = ['#','Date','Partner','Type','Amount','Payment Method','Description','Balance After','Reference','Voucher No','Status','Created By','Verified By','Verified At'];
   const rows = [header, ...pk.rows.map(r=>[
     r.id, r.date, r.partner, r.type, r.amount, r.method, r.desc||'',
-    runningTotals[r.id] ?? r.balanceAfter ?? 0
+    (r._bal!==undefined ? r._bal : (runningTotals[r.id] ?? r.balanceAfter ?? 0)),
+    r.ref||'', r.voucher||'', (r.verified==='Yes'?'Verified':(r.createdBy&&String(r.createdBy).indexOf('পুরনো')<0?'Pending':'Legacy')), r.createdBy||'', r.verifiedBy||'', r.verifiedAt||''
   ])];
   _downloadCSV(rows,'partners-data'+(pk.slug?'_'+pk.slug:''));
   showToast(`📥 ${pk.rows.length}টি Transaction export হয়েছে (${pk.label})`,'success');
@@ -13541,7 +14754,7 @@ function exportTableToPDF(tableId, title, isTbody) {
     <img src="${window.RUH_LOGO_BLACK||''}" alt="InnoGix" style="max-height:55px;width:auto;object-fit:contain;">
     <div>
       <h1 style="margin:0;font-size:17px;font-weight:900;color:#1a2236;">InnoGix</h1>
-      <div style="font-size:10px;color:#656D76;margin-top:1px;">কালিয়াকৈর, গাজীপুর, ঢাকা &nbsp;|&nbsp; +8801530088886</div>
+      <div style="font-size:10px;color:#656D76;margin-top:1px;">কালিয়াকৈর, গাজীপুর, ঢাকা &nbsp;|&nbsp; Contact: +8801560016179 &nbsp;|&nbsp; WhatsApp: +8801530088886</div>
     </div>
   </div>
   <div style="text-align:right;">
@@ -13550,7 +14763,7 @@ function exportTableToPDF(tableId, title, isTbody) {
   </div>
 </div>
 ${tableHTML}
-<div class="pdf-footer">InnoGix Business OS · InnoGix · এই রিপোর্টটি স্বয়ংক্রিয়ভাবে তৈরি করা হয়েছে</div>
+<div class="pdf-footer">InnoGix Business Suite · এই রিপোর্টটি স্বয়ংক্রিয়ভাবে প্রস্তুতকৃত · Contact: +8801560016179 · WhatsApp: +8801530088886</div>
 ${window.__igxPngBtn||''}
 <script>window.onload=()=>{window.print();}<\/script></body></html>`);
     win.document.close();
@@ -13641,7 +14854,7 @@ window.onload = async function(){
     drawChart({});
     // v31: Inventory product dropdown populate করো
     populateOrderProductDropdown();
-    showToast('InnoGix Business OS v36 loaded ✅','success');
+    showToast('InnoGix Business Suite চালু হয়েছে ✅','success');
 
     // Google Sheets connection
     if(API_URL&&API_URL.includes('script.google.com')){
@@ -14866,7 +16079,10 @@ async function ptrImpSubmit(){
   document.getElementById('ptr-imp-progress-text').textContent=`${payload_rows.length}টি transaction পাঠানো হচ্ছে...`;
   document.getElementById('ptr-imp-progress-bar').style.width='30%';
   try{
-    const ok=await postToAPI({action:'bulkImportTransactions', rows:payload_rows});
+    if(!currentPartner){ showToast('আগে পার্টনার হিসেবে লগইন করুন','error'); document.getElementById('ptr-imp-progress-wrap').style.display='none'; document.getElementById('ptr-imp-preview-wrap').style.display='block'; document.getElementById('ptr-imp-submit-btn').disabled=false; return; }
+    const _pin=await _askPartnerPin('CSV Import নিশ্চিত করুন — '+PN_NAMES[currentPartner]+' এর PIN');
+    if(!_pin){ document.getElementById('ptr-imp-progress-wrap').style.display='none'; document.getElementById('ptr-imp-preview-wrap').style.display='block'; document.getElementById('ptr-imp-submit-btn').disabled=false; return; }
+    const ok=await postToAPI({action:'bulkImportTransactions', actor:currentPartner, pin:_pin, rows:payload_rows});
     document.getElementById('ptr-imp-progress-bar').style.width='100%';
     document.getElementById('ptr-imp-progress-wrap').style.display='none';
     const res=document.getElementById('ptr-imp-result'); res.style.display='block';
@@ -15768,7 +16984,7 @@ if ('serviceWorker' in navigator) {
 
 /* ═══════════════════════════════════════════════════════════
    COURIER MANAGER HUB — Complete JavaScript Module
-   Version: InnoGix OS v28
+   Version: InnoGix Business Suite v28
 ═══════════════════════════════════════════════════════════ */
 
 const COURIER_CONFIG = {
@@ -16345,7 +17561,7 @@ window.calcDue = function() {
 };
 
 /* ═══════════════════════════════════════════════════════════════════════
-   LIVE COURIER API INTEGRATION MODULE — InnoGix OS v36
+   LIVE COURIER API INTEGRATION MODULE — InnoGix Business Suite v36
    কুরিয়ার: Steadfast & Pathao
    ─────────────────────────────────────────────────────────────────────
    ✅ v36 FIX: Browser থেকে সরাসরি Steadfast/Pathao API call করা যায় না
@@ -16546,7 +17762,7 @@ function saveTrackingLink(orderId, currentLink) {
 
 /**
  * কুরিয়ারের সার্ভার থেকে আসা tracking_code ও status
- * OS-এর কুরিয়ার ম্যানেজার টেবিলে এবং Google Sheet-এ আপডেট করো।
+ * অ্যাপের কুরিয়ার ম্যানেজার টেবিলে এবং Google Sheet-এ আপডেট করো।
  */
 function _updateOSTracking(orderId, trackingCode, liveStatus, courierName, skipSheetWrite, consignmentId, liveCodCharge) {
   // ── ১. salesData array আপডেট (in-memory)
@@ -16591,7 +17807,7 @@ function _updateOSTracking(orderId, trackingCode, liveStatus, courierName, skipS
 }
 
 /**
- * কুরিয়ার কোম্পানির নিজস্ব status শব্দকে InnoGix OS-এর
+ * কুরিয়ার কোম্পানির নিজস্ব status শব্দকে InnoGix Business Suite-এর
  * স্ট্যান্ডার্ড status-এ convert করো।
  */
 function _mapCourierStatus(rawStatus, courierName) {
@@ -16675,7 +17891,7 @@ function _mapCourierStatus(rawStatus, courierName) {
       status:      m.querySelector("#order-status")?.value || "Pending",
     };
 
-    // ── মূল OS submitOrder চালাও (Google Sheet save)
+    // ── মূল অ্যাপের submitOrder চালাও (Google Sheet save)
     await _original();
 
     // ✅ BUG 1 FIX: After save, replace temp orderId with the real SL# from Google Sheet.
@@ -18546,7 +19762,7 @@ ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){
       <div class="ks"><div class="k"><span>Revenue</span><b>${tk(T.rev)}</b></div><div class="k"><span>COGS</span><b>${tk(T.cogs)}</b></div><div class="k"><span>Gross Profit</span><b style="color:${T.gp >= 0 ? '#1b7a3d' : '#b3261e'}">${tk(T.gp)}</b></div><div class="k"><span>Gross Margin</span><b>${mg.toFixed(1)}%</b></div><div class="k"><span>ইউনিট বিক্রি</span><b>${T.qty}</b></div></div>
       <table><thead><tr><th>প্রোডাক্ট</th><th class="r">Qty</th><th class="r">Cost/ইউনিট</th><th class="r">গড় বিক্রয়মূল্য</th><th class="r">Revenue</th><th class="r">COGS</th><th class="r">Gross Profit</th><th class="r">Margin</th><th>অবস্থা</th></tr></thead><tbody>${rows}</tbody>
       <tfoot><tr><td>মোট</td><td class="r">${T.qty}</td><td></td><td></td><td class="r">${tk(T.rev)}</td><td class="r">${tk(T.cogs)}</td><td class="r">${tk(T.gp)}</td><td class="r">${mg.toFixed(1)}%</td><td></td></tr></tfoot></table>
-      <div class="ft">Gross Profit = Revenue − COGS (ডেলিভারি/COD চার্জ ও অন্যান্য খরচ বাদ)। COGS = Qty × Inventory-র বর্তমান Cost; প্রতিটি লাইনে আসল বিক্রয়মূল্য ধরা হয়েছে। InnoGix Business OS থেকে স্বয়ংক্রিয়ভাবে তৈরি।</div>
+      <div class="ft">Gross Profit = Revenue − COGS (ডেলিভারি/COD চার্জ ও অন্যান্য খরচ বাদ)। COGS = Qty × Inventory-র বর্তমান Cost; প্রতিটি লাইনে আসল বিক্রয়মূল্য ধরা হয়েছে। InnoGix Business Suite থেকে স্বয়ংক্রিয়ভাবে তৈরি।</div>
       ${window.__igxPngBtn||''}<script>window.onload=function(){setTimeout(function(){window.print();},500);};<\/script></body></html>`);
     w.document.close();
   };
