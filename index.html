@@ -7909,16 +7909,26 @@ const PROJECT_BRAND = {
 /* ✅ FIX (Nov 2026): ইনভয়েস সবসময় A4-এর এক পেজে — কনটেন্ট (প্রোডাক্ট সংখ্যা, ওয়ারেন্টি, ঠিকানা) যত বড়ই হোক, জুম নিজে হিসাব করে ছোট করে।
    প্রিন্ট লেআউট ৭৯৪px ফিক্সড-প্রস্থে ধরা হয়, তাই উচ্চতা মেপে সঠিক জুম বের করা যায়। */
 function invFitZoom(area) {
+  /* A4 (মার্জিন বাদে) পুরো প্রস্থ ভরে এক পেজে বসানোর জন্য জুম z ও লেআউট-প্রস্থ w ঠিক করে —
+     দুই পাশে সাদা জায়গা থাকে না; কনটেন্ট বেশি হলে জুম কমে ও লেআউট একটু চওড়া হয়। */
+  const availW = (210 - 16) / 25.4 * 96, availH = (297 - 16) / 25.4 * 96 - 10;      // px
   const c = area.cloneNode(true); c.removeAttribute('id');
-  c.style.cssText += ';position:absolute;left:-10000px;top:0;width:794px;max-width:none;zoom:1;visibility:hidden;';
-  document.body.appendChild(c); const h = c.offsetHeight || 1; c.remove();
-  const availH = (297 - 16) / 25.4 * 96 - 8, availW = (210 - 16) / 25.4 * 96;       // A4 − 8mm মার্জিন (px)
-  return Math.max(0.45, Math.min(0.92, availW / 794, availH / h));
+  c.style.cssText += ';position:absolute;left:-10000px;top:0;max-width:none;zoom:1;visibility:hidden;';
+  document.body.appendChild(c);
+  let best = null;
+  for (let z = 0.92; z >= 0.40; z -= 0.01) {
+    const w = Math.min(Math.round(availW / z), 1000);
+    c.style.width = w + 'px';
+    if ((c.offsetHeight || 1) * z <= availH) { best = { z, w }; break; }
+  }
+  if (!best) { c.style.width = '1000px'; best = { z: Math.max(0.3, availH / (c.offsetHeight || 1)), w: 1000 }; }
+  c.remove(); return best;
 }
 function invPrint() {
   const a = document.getElementById('invoice-print-area'); if (!a) { window.print(); return; }
-  const z = invFitZoom(a); a.style.setProperty('zoom', String(z), 'important');
-  const reset = () => { a.style.removeProperty('zoom'); window.removeEventListener('afterprint', reset); };
+  const f = invFitZoom(a);
+  a.style.setProperty('zoom', String(f.z), 'important'); a.style.setProperty('width', f.w + 'px', 'important');
+  const reset = () => { a.style.removeProperty('zoom'); a.style.removeProperty('width'); window.removeEventListener('afterprint', reset); };
   window.addEventListener('afterprint', reset); window.print(); setTimeout(reset, 4000);
 }
 function downloadInvoicePDF() {
@@ -7928,7 +7938,7 @@ function downloadInvoicePDF() {
   if (typeof _setInvoiceEditMode === 'function') _setInvoiceEditMode(false);
   const _fz = invFitZoom(area);
   const w = window.open('','_blank');
-  w.document.write('<html><head><meta charset="UTF-8"><title>InnoGix Invoice</title><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet"><style>body{margin:0;padding:0;font-family:"Plus Jakarta Sans","Inter","Hind Siliguri","Noto Sans Bengali",sans-serif;background:#fff;}*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}@page{size:A4;margin:8mm;}#invoice-print-area{width:794px !important;max-width:none !important;margin:0 auto !important;zoom:'+_fz.toFixed(4)+';}@media print{body{margin:0;}}</style></head><body>');
+  w.document.write('<html><head><meta charset="UTF-8"><title>InnoGix Invoice</title><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet"><style>body{margin:0;padding:0;font-family:"Plus Jakarta Sans","Inter","Hind Siliguri","Noto Sans Bengali",sans-serif;background:#fff;}*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}@page{size:A4;margin:8mm;}#invoice-print-area{width:'+_fz.w+'px !important;max-width:none !important;margin:0 auto !important;zoom:'+_fz.z.toFixed(4)+';}@media print{body{margin:0;}}</style></head><body>');
   w.document.write(area.outerHTML);
   w.document.write((window.__igxPngBtn||'')+'</body></html>');
   w.document.close();
