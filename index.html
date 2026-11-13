@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InnoGix Business Suite</title>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 /* ═══════════════════════════════════════
@@ -1793,6 +1793,12 @@ tbody td.muted{color:var(--text3);}
           <label style="cursor:pointer;"><input type="checkbox" id="iw-claim" onchange="IGXW.ui()"> যোগাযোগ নোট</label>
           <select id="iw-mode" onchange="IGXW.ui()" class="form-select" style="padding:3px 8px;font-size:12px;width:auto;"><option value="">সময়: প্রোডাক্ট অনুযায়ী</option><option value="months">সময়: মাসে (১২ মাস)</option><option value="years">সময়: বছরে (১ বছর)</option></select>
         </span>
+        <span id="iw-dd" style="display:inline-flex;gap:6px 10px;flex-wrap:wrap;align-items:center;">
+          <label title="এই ইনভয়েসের সব প্রোডাক্টের ওয়ারেন্টি মেয়াদ বদলান — মেয়াদ শেষের তারিখ নিজে থেকে হিসাব হবে (শিটে সেভ হয় না)">⏱ মেয়াদ:
+            <select id="iw-dur" onchange="IGXW.durUi()" class="form-select" style="padding:3px 8px;font-size:12px;width:auto;"><option value="">প্রোডাক্ট অনুযায়ী</option><option value="6">৬ মাস</option><option value="12">১ বছর</option><option value="24">২ বছর</option><option value="36">৩ বছর</option><option value="custom">কাস্টম…</option></select></label>
+          <span id="iw-cust" style="display:none;gap:4px;align-items:center;"><input type="number" id="iw-cust-n" min="1" step="1" value="18" oninput="IGXW.durUi()" style="width:62px;padding:3px 6px;font-size:12px;border:1px solid var(--border,#30363d);border-radius:6px;background:var(--bg,#0d1117);color:var(--text,#e6edf3);"><select id="iw-cust-u" onchange="IGXW.durUi()" class="form-select" style="padding:3px 6px;font-size:12px;width:auto;"><option value="month">মাস</option><option value="year">বছর</option><option value="day">দিন</option></select></span>
+          <label title="ইনভয়েসের তারিখ বদলালে মেয়াদ শেষের তারিখ নতুন করে হিসাব হবে">📅 ইনভয়েস তারিখ: <input type="date" id="iw-date" onchange="IGXW.dateUi()" style="padding:3px 6px;font-size:12px;border:1px solid var(--border,#30363d);border-radius:6px;background:var(--bg,#0d1117);color:var(--text,#e6edf3);color-scheme:dark;"></label>
+        </span>
         <button class="btn" style="padding:4px 10px;font-size:12px;" onclick="IGXW.openSettings()">⚙️ ওয়ারেন্টি সেটিংস / টেমপ্লেট</button>
       </div>
       <div id="inv-sig-ctrl" style="padding:10px 16px;background:var(--bg3,#161b22);border-bottom:1px solid var(--border,#30363d);display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font-size:12px;color:var(--text,#e6edf3);">
@@ -1809,7 +1815,7 @@ tbody td.muted{color:var(--text3);}
         </datalist>
         <span style="opacity:.65;">পদবী বদলালে এই ব্রাউজারে মনে থাকবে</span>
       </div>
-      <div id="invoice-print-area" class="iv-page" style="width:794px;max-width:100%;min-height:1122px;display:flex;flex-direction:column;margin:0 auto;box-sizing:border-box;padding:0;background:#ffffff;font-family:'Plus Jakarta Sans','Inter','Hind Siliguri','Noto Sans Bengali',sans-serif;font-size:13.5px;line-height:1.6;color:#111a2e;letter-spacing:0;font-weight:600;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;">
+      <div id="invoice-print-area" class="iv-page" style="width:794px;max-width:100%;min-height:1122px;display:flex;flex-direction:column;margin:0 auto;box-sizing:border-box;padding:0;background:#ffffff;font-family:'Inter','Hind Siliguri','Noto Sans Bengali','Plus Jakarta Sans',sans-serif;font-size:13.5px;line-height:1.6;color:#111a2e;letter-spacing:0;font-weight:600;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;">
         <style>
           /* ═══ A4 পেজ (210×297mm = 794×1122px @96dpi): ১:১ স্কেলে, জুম ছাড়া। --u (স্পেসিং ফ্যাক্টর) JS নিজে ঠিক করে — কনটেন্ট কম হলে ফাঁকা জায়গা সমানভাবে ছড়িয়ে পেজ ভরে, বেশি হলে ধীরে ধীরে কমে। অতি বেশি হলে .iv-sm (ছোট ফন্ট) ═══ */
           /* অ্যাপের গ্লোবাল রিসেটের কপি — যাতে অ্যাপ, প্রিন্ট-উইন্ডো ও PNG-তে একই মাপ আসে */
@@ -1819,23 +1825,27 @@ tbody td.muted{color:var(--text3);}
           .iv-page.iv-sm .iv-cov>div,.iv-page.iv-sm .iv-claim,.iv-page.iv-sm .iv-rep,.iv-page.iv-sm .iv-intro{font-size:11.5px;line-height:1.4;}
           .iv-page.iv-xs #inv-items td,.iv-page.iv-xs #inv-items td *{font-size:12px;line-height:1.3;} .iv-page.iv-xs .iv-wt td,.iv-page.iv-xs .iv-wt th{font-size:10.5px;line-height:1.3;} .iv-page.iv-xs #inv-brand-logo{width:104px !important;}
           .iv-page.iv-xs .iv-cov>div,.iv-page.iv-xs .iv-claim,.iv-page.iv-xs .iv-rep,.iv-page.iv-xs .iv-intro{font-size:10.5px;line-height:1.35;}
-          .iv-lbl{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#7a5c10;font-weight:700;margin-bottom:3px;}
+          .iv-lbl{font-size:12.7px;letter-spacing:1px;text-transform:uppercase;color:#7a5c10;font-weight:700;margin-bottom:3px;}
           .iv-card{background:#f8f9fc;border:1px solid #e8ecf4;border-radius:10px;padding:calc(var(--u)*11px) 16px;}
           .iv-badge{display:inline-block;padding:3px 14px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.9px;}
           .iv-sec{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:#0f2a5c;margin:0 0 calc(var(--u)*6px);letter-spacing:.3px;}
           .iv-sec:after{content:"";flex:1;height:1px;background:#e4e8f0;}
-          .iv-intro{font-size:12.5px;color:#26314a;margin-bottom:calc(var(--u)*5px);line-height:1.45;}
+          .iv-intro{font-size:12.7px;color:#26314a;margin-bottom:calc(var(--u)*5px);line-height:1.45;}
           .iv-wt{width:100%;border-collapse:collapse;font-size:13px;}
-          .iv-wt th{padding:calc(var(--wp) + 1px) 8px;text-align:left;font-size:12px;font-weight:700;letter-spacing:.2px;color:#111a2e !important;background:transparent !important;border-bottom:1px solid #0f2a5c;}
+          .iv-wt th{padding:calc(var(--wp) + 1px) 8px;text-align:left;font-size:12.7px;font-weight:700;letter-spacing:.2px;color:#111a2e !important;background:transparent !important;border-bottom:1px solid #0f2a5c;}
           .iv-wt td{font-weight:600;padding:var(--wp) 8px;border-bottom:1px solid #eceff5;color:#1b2437;}
-          .iv-rep{margin-top:calc(var(--u)*8px);padding:calc(var(--u)*5px) 14px;background:#fbf8ef;border-left:3px solid #c9a24a;font-size:12.5px;line-height:1.45;color:#1b2437;}
+          .iv-rep{margin-top:calc(var(--u)*8px);padding:calc(var(--u)*5px) 14px;background:#fbf8ef;border-left:3px solid #c9a24a;font-size:12.7px;line-height:1.45;color:#1b2437;}
           .iv-cov{display:flex;gap:12px;margin-top:calc(var(--u)*8px);}
-          .iv-cov>div{flex:1;border-radius:8px;padding:calc(var(--u)*6px) 12px;font-size:12.5px;line-height:1.45;}
+          .iv-cov>div{flex:1;border-radius:8px;padding:calc(var(--u)*6px) 12px;font-size:12.7px;line-height:1.45;}
           .iv-ok{background:#f3f8f5;border:1px solid #d6e8dc;} .iv-no{background:#fbf8ef;border:1px solid #efe3bd;}
           .iv-cov ul{margin:3px 0 0;padding:0;list-style:none;} .iv-cov li{padding-left:15px;position:relative;color:#1b2437;}
           .iv-ok li:before{content:"✓";color:#1b7a3d;position:absolute;left:0;font-weight:800;}
           .iv-no li:before{content:"•";color:#a77b00;position:absolute;left:3px;font-weight:800;}
           .iv-claim{white-space:pre-line;margin-top:calc(var(--u)*8px);padding:calc(var(--u)*7px) 14px;background:#0f2a5c;border-radius:8px;font-size:12.5px;line-height:1.45;font-weight:600;color:#ffffff;}
+          .iv-claim2{text-align:center;white-space:normal;}
+          .iv-claim2 .ivc-row{display:flex;justify-content:center;align-items:center;gap:36px;margin:calc(var(--u)*4px) 0;flex-wrap:wrap;}
+          .iv-claim2 a{color:#ffffff;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:7px;letter-spacing:.2px;}
+          .iv-claim2 svg{width:15px;height:15px;flex:none;fill:#ffffff;}
           .iv-grp{font-size:13px;font-weight:700;color:#0f2a5c;margin-top:calc(var(--u)*8px);}
         </style>
         <div style="height:4px;background:linear-gradient(90deg,#0f2a5c 0,#0f2a5c 72%,#c9a24a 100%);"></div>
@@ -1848,7 +1858,7 @@ tbody td.muted{color:var(--text3);}
             <div id="inv-brand-name" style="display:none;">InnoGix</div>
             <span id="inv-brand-icon" style="display:none;"></span>
             <div id="inv-brand-tagline" style="font-size:12.5px;color:#0f2a5c;font-weight:700;letter-spacing:.2px;margin-bottom:calc(var(--u)*4px);"></div>
-            <div style="font-size:13px;color:#111a2e;line-height:1.7;">কালিয়াকৈর, গাজীপুর, ঢাকা<br><span style="display:inline-block;min-width:5.8em">Contact:</span><span style="color:#1b2437;font-weight:600;">+8801560016179</span><br><span style="display:inline-block;min-width:5.8em">WhatsApp:</span><span style="color:#1b2437;font-weight:600;">+8801530088886</span><br>innogix.official@gmail.com</div>
+            <div style="font-size:13px;color:#111a2e;line-height:1.7;">কালিয়াকৈর, গাজীপুর, ঢাকা<br><span style="display:inline-block;min-width:5.8em">Contact:</span><a href="tel:+8801560016179" style="color:inherit;text-decoration:none;font-weight:700;">+8801560016179</a><br><span style="display:inline-block;min-width:5.8em">WhatsApp:</span><a href="https://wa.me/8801530088886" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;font-weight:700;">+8801530088886</a><br>innogix.official@gmail.com</div>
           </div>
           <div style="text-align:right;">
             <div style="font-size:26px;font-weight:800;color:#0f2a5c;letter-spacing:6px;line-height:1.1;margin-right:-6px;">INVOICE</div>
@@ -1917,7 +1927,7 @@ tbody td.muted{color:var(--text3);}
         <div id="inv-warranty" style="margin-top:calc(var(--u)*12px);page-break-inside:avoid;"></div>
 
         <!-- ══ SIGNATURE ══ -->
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:calc(var(--u)*6px);padding:0 6px;page-break-inside:avoid;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:calc(var(--u)*10px + 10px);padding:0 6px;page-break-inside:avoid;">
           <div style="width:190px;text-align:center;">
             <div style="height:calc(var(--u)*12px + 24px);"></div>
             <div style="border-top:1px solid #8d97ad;padding-top:6px;font-size:13px;font-weight:700;color:#111a2e;">গ্রাহকের স্বাক্ষর</div>
@@ -7963,7 +7973,7 @@ function downloadInvoicePDF() {
   if (typeof _setInvoiceEditMode === 'function') _setInvoiceEditMode(false);
   invFit(area);
   const w = window.open('','_blank');
-  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>InnoGix Invoice</title><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet"><style>body{margin:0;padding:0;font-family:"Plus Jakarta Sans","Inter","Hind Siliguri","Noto Sans Bengali",sans-serif;background:#fff;}*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}@page{size:A4;margin:0;}#invoice-print-area{width:210mm !important;max-width:none !important;min-height:296.6mm !important;margin:0 auto !important;zoom:1 !important;}body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;}@media print{body{margin:0;}}</style></head><body>');
+  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>InnoGix Invoice</title><link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet"><style>body{margin:0;padding:0;font-family:"Inter","Hind Siliguri","Noto Sans Bengali","Plus Jakarta Sans",sans-serif;background:#fff;}*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}@page{size:A4;margin:0;}#invoice-print-area{width:210mm !important;max-width:none !important;min-height:296.6mm !important;margin:0 auto !important;zoom:1 !important;}body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;}@media print{body{margin:0;}}</style></head><body>');
   w.document.write(area.outerHTML);
   w.document.write(invPopupPngBtn()+'</body></html>');
   w.document.close();
@@ -9638,6 +9648,8 @@ const IGXW = (function(){
   let store = {global:null, def:null, products:{}};
   try{ const x=JSON.parse(localStorage.getItem(LS)||'null'); if(x&&typeof x==='object') store={global:x.global||null,def:x.def||null,products:x.products||{}}; }catch(e){}
   const UIDEF={master:true,war:true,rep:true,exp:true,cov:true,not:true,claim:true,mode:''};
+  /* এই ইনভয়েসের জন্য সাময়িক ওভাররাইড (শিটে/সেটিংসে সেভ হয় না): মেয়াদ ও ইনভয়েস-তারিখ */
+  let ovr = {dur:'', n:18, u:'month'}, ovrDate = null;
   let ui = Object.assign({},UIDEF);
   try{ const x=JSON.parse(localStorage.getItem(LSU)||'null'); if(x&&typeof x==='object') ui=Object.assign({},UIDEF,x); }catch(e){}
 
@@ -9648,6 +9660,9 @@ const IGXW = (function(){
   const defCfg=()=>Object.assign(clone(DEF),store.def||{});
   function prodKey(n){ n=String(n||'').trim().toLowerCase(); for(const k in store.products){ if(String(k).trim().toLowerCase()===n) return k; } return null; }
   function resolve(name){ const k=prodKey(name); return k? Object.assign(clone(DEF),store.products[k]) : defCfg(); }
+  function ovrMonths(){ if(!ovr.dur) return 0; if(ovr.dur!=='custom') return Number(ovr.dur); const n=Math.floor(Number(ovr.n)||0); return n>0?n:0; }
+  function resolveO(name){ const c=resolve(name); if(!ovr.dur || !c.enabled) return c; const n = ovr.dur==='custom' ? Math.floor(Number(ovr.n)||0) : Number(ovr.dur); if(n<=0) return c; return Object.assign(c,{wVal:n,wUnit:(ovr.dur==='custom'?ovr.u:'month'),wMode:'months',wText:''}); }
+  function labOf(r){ if(!ovr.dur) return durLabel(r.cfg,ui.mode); const c=r.cfg, v=Number(c.wVal)||0; const mo=c.wUnit==='year'?v*12:(c.wUnit==='day'?0:v); return durLabel(c,(c.wUnit!=='day'&&mo>=12&&mo%12===0)?'years':'months'); }
   function persist(){ try{ localStorage.setItem(LS,JSON.stringify(store)); }catch(e){} }
   function apply(d){ if(!d||d.status!=='ok') return false; store={global:d.global||null,def:d.def||null,products:d.products||{}}; persist(); return true; }
 
@@ -9658,6 +9673,7 @@ const IGXW = (function(){
   const MON=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
   const MONBN=['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
   const MONEN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const MONFULL=['January','February','March','April','May','June','July','August','September','October','November','December'];
   function parseDate(v){
     if(!v) return null; if(v instanceof Date) return isNaN(v)?null:v;
     const s=toEn(v).trim(); let m;
@@ -9691,38 +9707,56 @@ const IGXW = (function(){
   function repSentence(cfg){ const t=String(cfg.repText||'').trim()||REP_DEF; return t.replace(/\{days\}/g,dig(Number(cfg.repDays)||0)); }
   const sig=c=>JSON.stringify([c.covers,c.notCovers,c.extra,c.repEnabled?repSentence(c):'']);
 
+  /* ── সাপোর্ট বক্স: ১ম লাইন · মাঝখানে ক্লিকযোগ্য Contact + WhatsApp (পাশাপাশি) · শেষ লাইন ── */
+  const SVG_TEL='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>';
+  const SVG_WA='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.25.7-1.45 1.35-2 1.4-.52.05-1 .25-3.4-.7-2.9-1.15-4.7-4.1-4.85-4.3-.14-.2-1.15-1.5-1.15-2.9 0-1.4.72-2.07 1-2.35.25-.28.55-.35.73-.35h.52c.17 0 .4-.06.62.48.25.57.82 2 .9 2.15.07.14.12.3.02.5-.1.2-.15.32-.3.5-.15.17-.32.37-.45.5-.15.15-.3.3-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.08 1.32 2.38 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.4z"/></svg>';
+  function claimHtml(note){
+    const lines=String(note||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+    const isC=l=>/^(contact|whatsapp)\s*:/i.test(l);
+    const firstC=lines.findIndex(isC);
+    if(firstC<0) return `<div class="iv-claim inv-editable">${esc(note)}</div>`;
+    let lastC=firstC; lines.forEach((l,i)=>{ if(isC(l)) lastC=i; });
+    const intro=lines.slice(0,firstC).join(' '), outro=lines.slice(lastC+1).join(' ');
+    const num=(re,def)=>{ const l=lines.find(x=>re.test(x)); const m=l&&l.replace(re,'').match(/\+?[\d][\d\s-]{6,}/); return m? m[0].replace(/[\s-]/g,'') : def; };
+    const tel=num(/^contact\s*:/i,'+8801560016179'), wa=num(/^whatsapp\s*:/i,'+8801530088886');
+    const fmt=n=>esc(n);
+    return `<div class="iv-claim iv-claim2">${intro?`<div class="inv-editable">${esc(intro)}</div>`:''}`
+      +`<div class="ivc-row"><a href="tel:${esc(tel)}">${SVG_TEL}<span>Contact: ${fmt(tel)}</span></a><a href="https://wa.me/${esc(wa.replace(/\D/g,''))}" target="_blank" rel="noopener">${SVG_WA}<span>WhatsApp: ${fmt(wa)}</span></a></div>`
+      +`${outro?`<div class="inv-editable">${esc(outro)}</div>`:''}</div>`;
+  }
+
   /* ── ইনভয়েসে রেন্ডার ── */
   function render(){
     const box=$('inv-warranty'); if(!box) return;
     const ctx=window._invCtx||{items:[],date:''};
     const g=gl();
     if(!ui.master || !(ui.war||ui.rep)){ box.innerHTML=''; box.style.display='none'; return; }
-    const rows=(ctx.items||[]).map(it=>({name:String(it.product||'').trim(),cfg:resolve(it.product)})).filter(x=>x.name&&x.cfg.enabled);
+    const rows=(ctx.items||[]).map(it=>({name:String(it.product||'').trim(),cfg:resolveO(it.product)})).filter(x=>x.name&&x.cfg.enabled);
     if(!rows.length){ box.innerHTML=''; box.style.display='none'; return; }
     box.style.display='';
-    const start=parseDate(ctx.date);
-    const showWar = ui.war && rows.some(r=>durLabel(r.cfg,ui.mode));
+    const start=ovrDate||parseDate(ctx.date);
+    const showWar = ui.war && rows.some(r=>labOf(r));
     const showRep = ui.rep && rows.some(r=>r.cfg.repEnabled && Number(r.cfg.repDays)>0);
     if(!showWar && !showRep){ box.innerHTML=''; box.style.display='none'; return; }
-    const showExp = showWar && ui.exp && !!start && rows.some(r=>durLabel(r.cfg,ui.mode) && addPeriod(start,r.cfg));
+    const showExp = showWar && ui.exp && !!start && rows.some(r=>labOf(r) && addPeriod(start,r.cfg));
     let h=`<div class="iv-sec"><span class="inv-editable">🛡️ ${esc(g.title)}</span></div>`;
     if(g.intro) h+=`<div class="iv-intro inv-editable">${esc(g.intro)}</div>`;
     h+=`<table class="iv-wt"><thead><tr><th>পণ্য</th>${showWar?'<th>ওয়ারেন্টি</th>':''}${showRep?'<th>রিপ্লেসমেন্ট</th>':''}${showExp?'<th>ওয়ারেন্টি মেয়াদ শেষ</th>':''}</tr></thead><tbody>`;
     // ৪+ প্রোডাক্টে একই ওয়ারেন্টি/রিপ্লেসমেন্ট/মেয়াদের প্রোডাক্টগুলো এক সারিতে (পেজে জায়গা বাঁচে, তথ্য একই থাকে)
     let wrows=rows.map(r=>({r,name:r.name}));
     if(rows.length>3){
-      const kk=r=>{const l=durLabel(r.cfg,ui.mode), e=(l&&start)?addPeriod(start,r.cfg):null; return [l,(r.cfg.repEnabled&&Number(r.cfg.repDays)>0)?Number(r.cfg.repDays):0,e?e.getTime():0].join('|');};
+      const kk=r=>{const l=labOf(r), e=(l&&start)?addPeriod(start,r.cfg):null; return [l,(r.cfg.repEnabled&&Number(r.cfg.repDays)>0)?Number(r.cfg.repDays):0,e?e.getTime():0].join('|');};
       const m=[]; rows.forEach(r=>{ const k=kk(r); const g2=m.find(x=>x.k===k); if(g2){ g2.name+=', '+r.name; g2.n++; } else m.push({k,r,name:r.name,n:1}); });
       if(m.length===1) m[0].name='সকল পণ্য ('+dig(rows.length)+'টি)';
       wrows=m;
     }
     wrows.forEach(w=>{
       const r=Object.assign({},w.r,{name:w.name});
-      const lab=durLabel(r.cfg,ui.mode), ex=(lab&&start)?addPeriod(start,r.cfg):null;
+      const lab=labOf(r), ex=(lab&&start)?addPeriod(start,r.cfg):null;
       h+=`<tr><td class="inv-editable">${esc(r.name)}</td>`;
       if(showWar) h+=`<td class="inv-editable" style="font-weight:700;color:#1b7a3d;">${lab?esc(lab):'—'}</td>`;
       if(showRep) h+=`<td class="inv-editable" style="font-weight:700;color:#0f2a5c;">${(r.cfg.repEnabled&&Number(r.cfg.repDays)>0)?esc(dig(Number(r.cfg.repDays))+' দিন'):'—'}</td>`;
-      if(showExp) h+=`<td class="inv-editable" style="white-space:nowrap;font-weight:700;color:#0f2a5c;letter-spacing:.2px;">${ex?esc(String(ex.getDate()).padStart(2,'0')+' '+MONEN[ex.getMonth()]+' '+ex.getFullYear()):'—'}</td>`;
+      if(showExp) h+=`<td class="inv-editable" style="white-space:nowrap;font-weight:700;color:#0f2a5c;letter-spacing:.2px;">${ex?esc(String(ex.getDate()).padStart(2,'0')+' '+MONFULL[ex.getMonth()]+' '+ex.getFullYear()):'—'}</td>`;
       h+='</tr>';
     });
     h+='</tbody></table>';
@@ -9738,7 +9772,7 @@ const IGXW = (function(){
       if(c.extra) part+=`<div class="iv-intro inv-editable" style="margin-top:8px;">${esc(c.extra)}</div>`;
       h+=part;
     });
-    if(ui.claim && g.claimNote) h+=`<div class="iv-claim inv-editable">${esc(g.claimNote)}</div>`;
+    if(ui.claim && g.claimNote) h+=claimHtml(g.claimNote);
     box.innerHTML=h;
   }
 
@@ -9756,7 +9790,28 @@ const IGXW = (function(){
     syncUi(); render();
     if(typeof _invoiceEditMode!=='undefined' && _invoiceEditMode) _setInvoiceEditMode(true);
   }
-  function show(ctx){ window._invCtx=ctx; syncUi(); render(); }
+  const pad2=n=>String(n).padStart(2,'0');
+  const isoOf=d=>d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
+  const showDate=d=>pad2(d.getDate())+'-'+MONEN[d.getMonth()]+'-'+d.getFullYear();
+  function syncOvrUi(ctx){
+    const d=$('iw-dur'); if(d) d.value=ovr.dur;
+    const c=$('iw-cust'); if(c) c.style.display=ovr.dur==='custom'?'inline-flex':'none';
+    const n=$('iw-cust-n'); if(n) n.value=ovr.n; const u=$('iw-cust-u'); if(u) u.value=ovr.u;
+    const dt=$('iw-date'); if(dt){ const b=ovrDate||parseDate((ctx||window._invCtx||{}).date); dt.value=b?isoOf(b):''; }
+  }
+  function show(ctx){ window._invCtx=ctx; ovr={dur:'',n:18,u:'month'}; ovrDate=null; syncUi(); syncOvrUi(ctx); render(); }
+  function durUi(){
+    const d=$('iw-dur'); ovr.dur=d?d.value:''; ovr.n=Number(($('iw-cust-n')||{}).value)||0; ovr.u=($('iw-cust-u')||{}).value||'month';
+    const c=$('iw-cust'); if(c) c.style.display=ovr.dur==='custom'?'inline-flex':'none';
+    render(); if(typeof _invoiceEditMode!=='undefined' && _invoiceEditMode) _setInvoiceEditMode(true);
+  }
+  function dateUi(){
+    const v=($('iw-date')||{}).value; const m=v&&v.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    ovrDate = m ? new Date(+m[1],+m[2]-1,+m[3]) : null;
+    const base=ovrDate||parseDate((window._invCtx||{}).date);
+    const el=$('inv-date'); if(el && base) el.textContent=showDate(base);
+    render(); if(typeof _invoiceEditMode!=='undefined' && _invoiceEditMode) _setInvoiceEditMode(true);
+  }
 
   /* ── সেটিংস মডাল ── */
   let scope='__def', dirty=false;
@@ -9854,7 +9909,7 @@ const IGXW = (function(){
   }
   // স্টার্টআপে সার্ভার থেকে একবার লোড (নীরবে)
   setTimeout(async()=>{ try{ const d=await fetchFromAPI('warrantyGet'); if(d&&apply(d)) render(); }catch(e){} },3500);
-  return {ui:uiChange, show, render, openSettings, selChange, edit, save, resetForm, copyText, delProd, applyMany, _t:{resolve,durLabel,parseDate,addPeriod,fmtDate,store:()=>store}};
+  return {ui:uiChange, show, render, durUi, dateUi, openSettings, selChange, edit, save, resetForm, copyText, delProd, applyMany, _t:{resolve,durLabel,parseDate,addPeriod,fmtDate,store:()=>store,ovr:()=>({ovr,ovrDate})}};
 })();
 window.IGXW=IGXW;
 
